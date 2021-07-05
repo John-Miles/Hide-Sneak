@@ -65,3 +65,7 @@ crashlytics-build.properties
 UserSettings/EditorUserSettings.asset
 
 ProjectSettings/Packages/com.unity.probuilder/Settings.json
+
+.idea/.idea.21T2-CIU212/.idea/
+
+.vsconfig
