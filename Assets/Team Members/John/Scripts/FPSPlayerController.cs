@@ -8,6 +8,8 @@ public class FPSPlayerController : NetworkBehaviour
 {
     [Header("Movement")]
     public float movementSpeed;
+
+    public float maxSpeed;
     
     
     private float horizontalMovement;
@@ -34,5 +36,10 @@ public class FPSPlayerController : NetworkBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(moveDirection.normalized * movementSpeed, ForceMode.Acceleration);
+        
+        Vector3 vel = rb.velocity;
+        if (vel.magnitude > maxSpeed) {
+            rb.velocity = vel.normalized * maxSpeed;
+        }
     }
 }

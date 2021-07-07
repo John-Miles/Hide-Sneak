@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de8ee5d896e0ee469047c52905b38fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   mouseSensitivity: 500
   playerBody: {fileID: 1051053160626339186}
 --- !u!1 &1051053160626339188
@@ -143,9 +145,9 @@ GameObject:
   - component: {fileID: 1051053160626339185}
   - component: {fileID: 7709079502620929863}
   - component: {fileID: 1051053160626339190}
+  - component: {fileID: 829162933639027247}
   - component: {fileID: 6742189973567109850}
   - component: {fileID: 6207841326585382525}
-  - component: {fileID: 829162933639027247}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -264,6 +266,23 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   movementSpeed: 20
+  maxSpeed: 7.5
+--- !u!114 &829162933639027247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051053160626339188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a95926bcf429654190b77c13c151455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  torch: {fileID: 7853885251656421795}
+  TorchOn: 1
 --- !u!114 &6742189973567109850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,20 +323,6 @@ MonoBehaviour:
   interpolateRotation: 1
   interpolatePosition: 1
   syncScale: 1
---- !u!114 &829162933639027247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051053160626339188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a95926bcf429654190b77c13c151455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torch: {fileID: 7853885251656421795}
-  TorchOn: 1
 --- !u!1 &5488684408623341180
 GameObject:
   m_ObjectHideFlags: 0

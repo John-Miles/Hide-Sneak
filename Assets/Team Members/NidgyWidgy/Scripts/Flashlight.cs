@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class Flashlight : MonoBehaviour
+public class Flashlight : NetworkBehaviour
 {
   private FPSPlayerController playerMovement;
   private float baseSpeed;
