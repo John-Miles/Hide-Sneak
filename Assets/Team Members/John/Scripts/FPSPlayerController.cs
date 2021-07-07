@@ -24,11 +24,10 @@ public class FPSPlayerController : NetworkBehaviour
 
     private void Update()
     {
-        if (isLocalPlayer)
-        {
+      
             horizontalMovement = Input.GetAxisRaw("Horizontal");
             verticalMovement = Input.GetAxisRaw("Vertical");
-        }
+       
 
         moveDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
     }

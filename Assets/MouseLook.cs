@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 namespace John
 {
-    public class MouseLook : MonoBehaviour
+    public class MouseLook : NetworkBehaviour
     {
         public float mouseSensitivity = 100f;
         public Transform playerBody;
         private float XRotation = 0f;
+        
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -16,8 +18,10 @@ namespace John
      
         void Update()
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+          
+               float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
+               float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            
 
             XRotation -= mouseY;
             XRotation = Mathf.Clamp(XRotation, -90f, 90f);
