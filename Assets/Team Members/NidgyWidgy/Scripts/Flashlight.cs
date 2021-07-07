@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-  private GameObject player;
+  private FPSPlayerController playerMovement;
+  private float baseSpeed;
+  private float speedReduce = 0.3f;
   public GameObject torch;
   public bool TorchOn = true;
+  //TODO make guard walk slower when torch is on.
+  private bool IsGuard = false;
 
   void Start()
   {
-    player = this.gameObject;
+    playerMovement = GetComponent<FPSPlayerController>();
+    baseSpeed = playerMovement.movementSpeed;
 
   }
 
@@ -21,6 +26,18 @@ public class Flashlight : MonoBehaviour
     {
       TorchOn = !TorchOn;
       torch.SetActive(TorchOn);
+    }
+
+    if (IsGuard)
+    {
+      if (TorchOn)
+      {
+        playerMovement.movementSpeed = playerMovement.movementSpeed * speedReduce;
+      }
+      else
+      {
+        playerMovement.movementSpeed = baseSpeed;
+      }
     }
   }
   
