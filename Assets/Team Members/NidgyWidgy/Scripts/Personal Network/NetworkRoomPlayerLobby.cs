@@ -74,7 +74,7 @@ namespace Nidgy
 
         void UpdateDisplay()
         {
-            if (!hasAuthority)
+            if (hasAuthority)
             {
                 foreach (var player in Room.RoomPlayers)
                 {

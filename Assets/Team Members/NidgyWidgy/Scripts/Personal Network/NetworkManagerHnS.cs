@@ -19,8 +19,10 @@ namespace Nidgy
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
 
+        //List of current users in lobby
         public List<NetworkRoomPlayerLobby> RoomPlayers { get;  } = new List<NetworkRoomPlayerLobby>();
 
+        // preload spawnable prefabs when host starts lobby/game
         public override void OnStartHost() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
 
         public override void OnStartClient()
@@ -33,7 +35,7 @@ namespace Nidgy
             }
         }
 
-
+        // Debug for server start
         public override void OnStartServer()
         {
             Debug.Log("Server Started");
@@ -106,7 +108,7 @@ namespace Nidgy
         
 
         #endregion
-
+     
         public void NotifyPlayerOfReadyState()
         {
             foreach (var player in RoomPlayers)
