@@ -18,7 +18,7 @@ public class RoundManager : NetworkBehaviour
         base.OnStartServer();
         if (isServer)
         {
-            gameManager.StartGame += RPCPreRound;
+            gameManager.StartGame += RPCStartRound;
             roundTimer = 300.0f;
             
         }
@@ -26,27 +26,38 @@ public class RoundManager : NetworkBehaviour
     public override void OnStopServer()
     {
         base.OnStopServer();
-        gameManager.StartGame -= RPCPreRound;
+        gameManager.StartGame -= RPCStartRound;
     }
 
     public void Update()
-    {   //formatting timer in minutes and seconds
+    {   
+        //formatting timer in minutes and seconds
         int minutes = Mathf.FloorToInt(roundTimer / 60F);
         int seconds = Mathf.FloorToInt(roundTimer - minutes * 60);
         roundText = string.Format("{0:0}:{1:00}", minutes, seconds);
+        
         //updating timer text with the remaining time
         UIText.text = ("Time Remaining: " + roundText);
+        
         //able to delay the timer for the game
         if (startCount)
         {
             roundTimer = (roundTimer - Time.deltaTime);
         }
+
+        if (roundTimer <= -0.1f)
+        {
+            gameManager.EndRound();
+            startCount = false;
+            roundTimer = default;
+        }
     }
 
     [ClientRpc]
-    public void RPCPreRound()
+    public void RPCStartRound()
     {
         startCount = true;
     }
+
    
 }
