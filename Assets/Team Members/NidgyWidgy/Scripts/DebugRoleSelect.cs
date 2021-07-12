@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -8,6 +9,11 @@ public class DebugRoleSelect : NetworkBehaviour
 {
   public GameObject player;
   private GameObject thisUser;
+
+
+  public event Action GuardPlayer;
+  public event Action ThiefPlayer;
+  
   
   public void SpawnPlayer()
   {
