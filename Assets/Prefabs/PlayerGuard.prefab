@@ -66,6 +66,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1094324208175672624, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 829162933639027247, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: detectionBeam
       value: 
@@ -92,15 +96,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1051053160626339186, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.7152443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1051053160626339186, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.79
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1051053160626339186, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1051053160626339186, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: m_LocalRotation.w
