@@ -7,41 +7,48 @@ using UnityEngine.UI;
 
 public class DebugRoleSelect : NetworkBehaviour
 {
+    public GameObject roleCanvas;
+    public GameObject guardPrefab;
+    public GameObject thiefPrefab;
 
-  public GameObject roleCanvas;
-  public GameObject guardPrefab;
-  public GameObject thiefPrefab;
 
-
-  private void OnEnable()
-  {
-    if (isLocalPlayer)
+    private void OnEnable()
     {
-      roleCanvas.SetActive(true);
+        if (isLocalPlayer)
+        {
+            roleCanvas.SetActive(true);
+        }
     }
-  }
-  
-  public void GuardPlayer()
-  {
-    //TODO add players network connection
-    Debug.Log("prefab: " + guardPrefab.name);
-    CmdSpawnPlayer(guardPrefab);
-  }
 
-  public void ThiefPlayer()
-  {
-    //TODO add players network connection
-    Debug.Log("prefab: " + thiefPrefab.name);
-      CmdSpawnPlayer(thiefPrefab);
-  }
-  
-  [Command]
-  private void CmdSpawnPlayer(GameObject player)
-  {
-    GameObject newGO = Instantiate(player, transform.position, Quaternion.identity);
-      NetworkServer.Spawn(newGO, this.gameObject);
-      roleCanvas.SetActive(false);
-      
-      
-  }
+    public void GuardPlayer()
+    {
+        //TODO add players network connection
+        Debug.Log("prefab: " + guardPrefab.name);
+        CmdSpawnGuard();
+    }
+
+    public void ThiefPlayer()
+    {
+        //TODO add players network connection
+        Debug.Log("prefab: " + thiefPrefab.name);
+        CmdSpawnThief();
+    }
+
+    [Command]
+    private void CmdSpawnThief()
+    {
+        GameObject newGO = Instantiate(thiefPrefab, transform.position, Quaternion.identity);
+        newGO.transform.parent = transform;
+        NetworkServer.Spawn(newGO, this.gameObject);
+        roleCanvas.SetActive(false);
+    }
+    
+    [Command]
+    private void CmdSpawnGuard()
+    {
+        GameObject newGO = Instantiate(guardPrefab, transform.position, Quaternion.identity);
+        newGO.transform.parent = transform;
+        NetworkServer.Spawn(newGO, this.gameObject);
+        roleCanvas.SetActive(false);
+    }
 }
