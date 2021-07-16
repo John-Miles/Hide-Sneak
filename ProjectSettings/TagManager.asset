@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Thief
   - Guard
+  - Camera
   layers:
   - Default
   - TransparentFX
