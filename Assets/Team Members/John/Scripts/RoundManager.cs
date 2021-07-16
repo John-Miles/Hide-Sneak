@@ -44,7 +44,7 @@ public class RoundManager : NetworkBehaviour
         {
             roundTimer = (roundTimer - Time.deltaTime);
         }
-
+        //when the timer hits zero, stop counting and call the EndRound event in Game Manager
         if (roundTimer <= -0.1f)
         {
             gameManager.EndRound();
@@ -52,7 +52,8 @@ public class RoundManager : NetworkBehaviour
             roundTimer = default;
         }
     }
-
+    
+    //start the countdown
     [ClientRpc]
     public void RPCStartRound()
     {
