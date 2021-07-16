@@ -12,23 +12,36 @@ public class DebugRoleSelect : NetworkBehaviour
   public GameObject guardPrefab;
   public GameObject thiefPrefab;
 
+
+  private void OnEnable()
+  {
+    if (isLocalPlayer)
+    {
+      roleCanvas.SetActive(true);
+    }
+  }
+  
   public void GuardPlayer()
   {
     //TODO add players network connection
-    SpawnPlayer(guardPrefab, null);
+    Debug.Log("prefab: " + guardPrefab.name);
+    CmdSpawnPlayer(guardPrefab);
   }
 
   public void ThiefPlayer()
   {
     //TODO add players network connection
-      SpawnPlayer(thiefPrefab, null);
+    Debug.Log("prefab: " + thiefPrefab.name);
+      CmdSpawnPlayer(thiefPrefab);
   }
   
-  
-  public void SpawnPlayer(GameObject player, NetworkConnection conn)
+  [Command]
+  private void CmdSpawnPlayer(GameObject player)
   {
     GameObject newGO = Instantiate(player, transform.position, Quaternion.identity);
-      NetworkServer.Spawn(newGO,conn);
+      NetworkServer.Spawn(newGO, this.gameObject);
       roleCanvas.SetActive(false);
+      
+      
   }
 }
