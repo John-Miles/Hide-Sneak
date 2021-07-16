@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e84933d6107dc440928c2dbcc6b3a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inLight: []
 --- !u!1001 &6623792206051799183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,8 +71,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4926637597906864237}
     - target: {fileID: 1051053159196007920, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051053159196007920, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 4294967039
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051053159196007926, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
+      propertyPath: m_Name
+      value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051053159196007926, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
+      propertyPath: m_TagString
+      value: Camera
       objectReference: {fileID: 0}
     - target: {fileID: 1051053160626339186, guid: 7ae23c05e04d774408bc96ff9e8af95c, type: 3}
       propertyPath: m_RootOrder

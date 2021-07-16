@@ -11,13 +11,28 @@ public class DebugRoleSelect : NetworkBehaviour
     public GameObject guardPrefab;
     public GameObject thiefPrefab;
 
+    private bool hasRole = false;
+    
+    private Vector3 spawn = new Vector3(0,0,0);
+
 
     private void OnEnable()
     {
-        if (isLocalPlayer)
+        if (hasAuthority)
+        {
+             RoleSelect();
+        }
+    }
+
+    [Client]
+    private void RoleSelect()
+    {
+        if (!hasRole)
         {
             roleCanvas.SetActive(true);
+            hasRole = true;
         }
+
     }
 
     public void GuardPlayer()
@@ -37,7 +52,7 @@ public class DebugRoleSelect : NetworkBehaviour
     [Command]
     private void CmdSpawnThief()
     {
-        GameObject newGO = Instantiate(thiefPrefab, transform.position, Quaternion.identity);
+        GameObject newGO = Instantiate(thiefPrefab, spawn, Quaternion.identity);
         newGO.transform.parent = transform;
         NetworkServer.Spawn(newGO, this.gameObject);
         roleCanvas.SetActive(false);
@@ -46,7 +61,7 @@ public class DebugRoleSelect : NetworkBehaviour
     [Command]
     private void CmdSpawnGuard()
     {
-        GameObject newGO = Instantiate(guardPrefab, transform.position, Quaternion.identity);
+        GameObject newGO = Instantiate(guardPrefab, spawn, Quaternion.identity);
         newGO.transform.parent = transform;
         NetworkServer.Spawn(newGO, this.gameObject);
         roleCanvas.SetActive(false);
