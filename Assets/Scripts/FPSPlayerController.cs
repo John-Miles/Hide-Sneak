@@ -1,48 +1,68 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Mirror;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FPSPlayerController : NetworkBehaviour
 {
-    [Header("Movement")]
-    public float movementSpeed;
+   [SerializeField] private float movementSpeed;
+   [SerializeField] private CharacterController controller = null;
 
-    public float maxSpeed;
-    
-    
-    private float horizontalMovement;
-    private float verticalMovement;
-    private Vector3 moveDirection;
-    private Rigidbody rb;
-   
+   private Vector2 previousInput;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-    }
+   private Controls _controls;
 
-    private void Update()
-    {
-        if (hasAuthority)
-        {
-            horizontalMovement = Input.GetAxisRaw("Horizontal");
-            verticalMovement = Input.GetAxisRaw("Vertical");
+   private Controls Controls
+   {
+      get
+      {
+         if (_controls != null) { return _controls;} 
+         return _controls = new Controls();
+      }
+   }
 
-        }
-        
-        moveDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
-        
-    }
-    private void FixedUpdate()
-    {
-        rb.AddForce(moveDirection.normalized * movementSpeed, ForceMode.Acceleration);
-        
-        Vector3 vel = rb.velocity;
-        if (vel.magnitude > maxSpeed) {
-            rb.velocity = vel.normalized * maxSpeed;
-        }
-    }
+   public override void OnStartAuthority()
+   {
+      base.OnStartAuthority();
+      enabled = true;
+
+      Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
+      Controls.Player.Move.canceled += ctx => ResetMovement();
+      
+   }
+
+   [ClientCallback]
+   private void OnEnable() => Controls.Enable();
+
+   [ClientCallback]
+   private void OnDisable() => Controls.Disable();
+
+   [ClientCallback]
+   private void Update() => Move();
+
+
+   [Client]
+   private void SetMovement(Vector2 movement) => previousInput = movement;
+
+   [Client]
+   private void ResetMovement() => previousInput = Vector2.zero;
+
+   [Client]
+   private void Move()
+   {
+      Vector3 right = controller.transform.right;
+      Vector3 forward = controller.transform.forward;
+      right.y = 0;
+      forward.y = 0;
+
+      Vector3 movement = Vector3.right.normalized * previousInput.x + forward.normalized * previousInput.y;
+
+      controller.Move(movement * movementSpeed * Time.deltaTime);
+
+
+   }
 }
+
