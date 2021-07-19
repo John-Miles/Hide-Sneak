@@ -10,6 +10,12 @@ public class PlayerCameraController : NetworkBehaviour
     [Header("Camera")] 
     [SerializeField] private Transform playerTransform = null;
 
+    [SerializeField] private Camera cam = null;
+
+    [Header("Sensitivity")]
+    public float vertSens = 5f;
+    public float horiSens = 5f;
+
     private Controls _controls;
 
     private Controls Controls
@@ -25,6 +31,7 @@ public class PlayerCameraController : NetworkBehaviour
     {
         base.OnStartAuthority();
         Cursor.lockState = CursorLockMode.Locked;
+        cam.gameObject.SetActive(true);
         enabled = true;
         Controls.Player.Look.performed += ctx => Look(ctx.ReadValue<Vector2>());
     }
@@ -38,7 +45,7 @@ public class PlayerCameraController : NetworkBehaviour
 
     private void Look(Vector2 lookAxis)
     {
-       playerTransform.Rotate(0f,lookAxis.x * Time.deltaTime,0f);
+       playerTransform.Rotate(-lookAxis.y * (vertSens * Time.deltaTime),lookAxis.x * (horiSens * Time.deltaTime),0f);
 
     }
 }

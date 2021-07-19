@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class Flashlight : NetworkBehaviour
+namespace Team_Members.NidgyWidgy.Scripts
 {
+  public class Flashlight : NetworkBehaviour
+  {
 
  
-  public GameObject torch;
-  public bool TorchOn = true;
+    public GameObject torch;
+    public bool TorchOn = true;
 
 
-  void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.F))
+    void Update()
     {
-      TorchOn = !TorchOn;
-      torch.SetActive(TorchOn);
-    }
+      if (Input.GetKeyDown(KeyCode.F))
+      {
+        TorchOn = !TorchOn;
+        torch.SetActive(TorchOn);
+      }
     
-  }
+    }
   
+  }
 }

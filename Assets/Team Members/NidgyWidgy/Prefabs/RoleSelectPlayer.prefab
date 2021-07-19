@@ -574,8 +574,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   roleCanvas: {fileID: 4414772397545793022}
-  guardPrefab: {fileID: 6159368125421243899, guid: 1a6ea1017a55edb46ac7a8231b1bf8dd, type: 3}
-  thiefPrefab: {fileID: 3623966097420397311, guid: 4e2a92dbb3dbd964aa0706ec2e4e89fd, type: 3}
+  guardPrefab: {fileID: 2772658644173662837, guid: 396e147ae18385b4dbff909a6a727534, type: 3}
+  thiefPrefab: {fileID: 2523887137025795736, guid: c25daf7e3f847814299e3d4a41542df0, type: 3}
 --- !u!1 &5293475328896765080
 GameObject:
   m_ObjectHideFlags: 0

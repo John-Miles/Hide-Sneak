@@ -130,7 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  playerTransform: {fileID: 1051053160626339186}
+  mouseSensitivity: 100
+  playerBody: {fileID: 0}
 --- !u!114 &1816940152327406395
 MonoBehaviour:
   m_ObjectHideFlags: 0
