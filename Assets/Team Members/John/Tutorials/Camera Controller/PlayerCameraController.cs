@@ -12,9 +12,11 @@ public class PlayerCameraController : NetworkBehaviour
     public float maxX = 70f;
 
     public float sensitivity;
+    
     public Camera cam;
-
+    [SyncVar]
     float rotY = 0f;
+    [SyncVar]
     float rotX = 0f;
 
     public override void OnStartAuthority()
