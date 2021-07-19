@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Guard
   m_EditorClassIdentifier: 
   characterName: Guard
-  previewPrefab: {fileID: 1562390538256614046, guid: 26fa708bb60f0c84cbcef514bc52b3a4, type: 3}
-  gameplayPrefab: {fileID: 6159368125421243899, guid: 1a6ea1017a55edb46ac7a8231b1bf8dd, type: 3}
+  previewPrefab: {fileID: 100004, guid: 7ad6fa53f59b2944dbbdfaf6c7226bf0, type: 3}
+  gameplayPrefab: {fileID: 2772658644173662837, guid: 396e147ae18385b4dbff909a6a727534, type: 3}

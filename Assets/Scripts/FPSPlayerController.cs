@@ -9,7 +9,7 @@ using UnityEngine;
 public class FPSPlayerController : NetworkBehaviour
 {
    [SerializeField] private float movementSpeed;
-   [SerializeField] private CharacterController controller = null;
+   [SerializeField] private Rigidbody rb = null;
 
    private Vector2 previousInput;
 
@@ -53,14 +53,12 @@ public class FPSPlayerController : NetworkBehaviour
    [Client]
    private void Move()
    {
-      Vector3 right = controller.transform.right;
-      Vector3 forward = controller.transform.forward;
-      right.y = 0;
-      forward.y = 0;
+      Vector3 dir = new Vector3(0, 0, 0);
+      dir.x = Input.GetAxis("Horizontal");
+      dir.z = Input.GetAxis("Vertical");
+      rb.transform.Translate(dir * movementSpeed * Time.deltaTime);
 
-      Vector3 movement = Vector3.right.normalized * previousInput.x + forward.normalized * previousInput.y;
-
-      controller.Move(movement * movementSpeed * Time.deltaTime);
+      
 
 
    }

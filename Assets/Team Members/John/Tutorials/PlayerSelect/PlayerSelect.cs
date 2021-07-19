@@ -53,6 +53,7 @@ public class PlayerSelect : NetworkBehaviour
    {
       GameObject characterInstance = Instantiate(characters[characterIndex].GameplayPrefab);
       NetworkServer.Spawn(characterInstance, sender);
+      NetworkServer.ReplacePlayerForConnection(sender, characterInstance);
    }
    
    public void RightButton()
