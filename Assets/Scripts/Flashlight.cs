@@ -15,7 +15,8 @@ namespace Team_Members.NidgyWidgy.Scripts
       enabled = true;
       TorchOn = true;
     }
-
+    
+    //Client code
     public void Update()
     {
       Client();
