@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+namespace John
 {
-    [SerializeField] private NetworkManagerHnS networkManager = null;
-
-    [Header("UI")] 
-    [SerializeField] private GameObject landingPagePanel = null;
-
-    public void HostLobby()
+    public class MainMenu : MonoBehaviour
     {
-        networkManager.StartHost();
+        [SerializeField] private NetworkManagerHnS networkManager = null;
+
+        [Header("UI")] 
+        [SerializeField] private GameObject landingPagePanel = null;
+
+        public void HostLobby()
+        {
+            networkManager.StartHost();
         
-        landingPagePanel.SetActive(false);
+            landingPagePanel.SetActive(false);
         
-    }
+        }
+    }   
 }
+

@@ -6,6 +6,9 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+namespace John
+{
+   
 public class NetworkManagerHnS : NetworkManager
 {
     [Scene] [SerializeField] private string menuScene = string.Empty;
@@ -67,4 +70,6 @@ public class NetworkManagerHnS : NetworkManager
         }
     }
     
+}
+ 
 }

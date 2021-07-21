@@ -2,38 +2,43 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerNameInput : MonoBehaviour
+namespace John
 {
-    [Header("UI")] 
-    [SerializeField] private TMP_InputField nameInputField;
-    [SerializeField] private Button continueButton;
     
-    public static string DisplayName { get; private set; }
-    private const string PlayerPrefsNameKey = "PlayerName";
-
-    private void Start() => SetUpInputField();
-
-    private void SetUpInputField()
+    public class PlayerNameInput : MonoBehaviour
     {
-        if(!PlayerPrefs.HasKey(PlayerPrefsNameKey))
+        [Header("UI")] 
+        [SerializeField] private TMP_InputField nameInputField;
+        [SerializeField] private Button continueButton;
+    
+        public static string DisplayName { get; private set; }
+        private const string PlayerPrefsNameKey = "PlayerName";
+
+        private void Start() => SetUpInputField();
+
+        private void SetUpInputField()
         {
-            return;
+            if(!PlayerPrefs.HasKey(PlayerPrefsNameKey))
+            {
+                return;
+            }
+            string defaultName = PlayerPrefs.GetString(PlayerPrefsNameKey);
+            nameInputField.text = defaultName;
+
+            SetPlayerName(defaultName);
         }
-        string defaultName = PlayerPrefs.GetString(PlayerPrefsNameKey);
-        nameInputField.text = defaultName;
 
-        SetPlayerName(defaultName);
-    }
+        public void SetPlayerName(string name)
+        {
+            continueButton.interactable = !string.IsNullOrEmpty(name);
+        }
 
-    public void SetPlayerName(string name)
-    {
-        continueButton.interactable = !string.IsNullOrEmpty(name);
-    }
-
-    public void SavePlayerName()
-    {
-        DisplayName = nameInputField.text;
+        public void SavePlayerName()
+        {
+            DisplayName = nameInputField.text;
         
-        PlayerPrefs.SetString(PlayerPrefsNameKey, DisplayName);
+            PlayerPrefs.SetString(PlayerPrefsNameKey, DisplayName);
+        }
     }
+
 }

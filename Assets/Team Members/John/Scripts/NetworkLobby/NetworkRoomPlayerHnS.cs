@@ -1,5 +1,9 @@
 using Mirror;
-public class NetworkRoomPlayerHnS : NetworkBehaviour
+
+namespace John
 {
+    public class NetworkRoomPlayerHnS : NetworkBehaviour
+    {
    
+    }
 }

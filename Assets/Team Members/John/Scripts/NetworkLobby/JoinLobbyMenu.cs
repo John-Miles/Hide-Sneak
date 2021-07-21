@@ -6,47 +6,52 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JoinLobbyMenu : NetworkBehaviour
+namespace John
 {
-    [SerializeField] private NetworkManagerHnS networkManager = null;
-
-    [Header("UI")] 
-    [SerializeField] private GameObject landingPagePanel;
-    [SerializeField] private TMP_InputField ipAddressInputField;
-    [SerializeField] private Button joinButton = null;
-
-    private void OnEnable()
+    
+    public class JoinLobbyMenu : NetworkBehaviour
     {
-        NetworkManagerHnS.onClientConnected += HandleClientConnected;
-        NetworkManagerHnS.onClientDisconnected += HandleClientDisconnected;
-    }
+        [SerializeField] private NetworkManagerHnS networkManager = null;
 
-    private void OnDisable()
-    {
-        NetworkManagerHnS.onClientConnected -= HandleClientConnected;
-        NetworkManagerHnS.onClientDisconnected -= HandleClientDisconnected;
-    }
+        [Header("UI")] 
+        [SerializeField] private GameObject landingPagePanel;
+        [SerializeField] private TMP_InputField ipAddressInputField;
+        [SerializeField] private Button joinButton = null;
 
-    public void JoinLobby()
-    {
-        string ipAddress = ipAddressInputField.text;
+        private void OnEnable()
+        {
+            NetworkManagerHnS.onClientConnected += HandleClientConnected;
+            NetworkManagerHnS.onClientDisconnected += HandleClientDisconnected;
+        }
 
-        networkManager.networkAddress = ipAddress;
-        networkManager.StartClient();
+        private void OnDisable()
+        {
+            NetworkManagerHnS.onClientConnected -= HandleClientConnected;
+            NetworkManagerHnS.onClientDisconnected -= HandleClientDisconnected;
+        }
 
-        joinButton.interactable = false;
-    }
+        public void JoinLobby()
+        {
+            string ipAddress = ipAddressInputField.text;
 
-    private void HandleClientConnected()
-    {
-        joinButton.interactable = true;
+            networkManager.networkAddress = ipAddress;
+            networkManager.StartClient();
+
+            joinButton.interactable = false;
+        }
+
+        private void HandleClientConnected()
+        {
+            joinButton.interactable = true;
         
-        gameObject.SetActive(false);
-        landingPagePanel.SetActive(false);
+            gameObject.SetActive(false);
+            landingPagePanel.SetActive(false);
+        }
+
+        private void HandleClientDisconnected()
+        {
+            joinButton.interactable = true;
+        }
     }
 
-    private void HandleClientDisconnected()
-    {
-        joinButton.interactable = true;
-    }
 }
