@@ -11,8 +11,8 @@ namespace John
     {
         [Header("UI")] 
         [SerializeField] private GameObject lobbyUI = null;
-        [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[4];
-        [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[4];
+        [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[0];
+        [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[0];
         [SerializeField] private Button startGameButton = null;
         [SyncVar(hook = nameof(HandleDisplayNameChanged))]
         public string DisplayName = "Loading...";
@@ -120,8 +120,7 @@ namespace John
         {
             if (Room.RoomPlayers[0].connectionToClient != connectionToClient) { return; }
 
-            //Start the Game
-            Debug.Log("The game is now starting");
+            Room.StartGame();
         }
     }
 }

@@ -243,10 +243,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8541305673477165397}
-  - component: {fileID: 4685928162683032396}
+  - component: {fileID: 8979763979232467941}
   - component: {fileID: 8799716775026885101}
   m_Layer: 0
-  m_Name: NetworkedPlayerLobbyUI
+  m_Name: NetworkedPlayerLobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4685928162683032396
+--- !u!114 &8979763979232467941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517390006393675894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b611fd0c827c14b89978d180905c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 91c1707d7c42e3c48a5809fb8d5f5332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4685928162683032396}
+      - m_Target: {fileID: 8979763979232467941}
         m_TargetAssemblyTypeName: John.NetworkRoomPlayerHnS, Assembly-CSharp
         m_MethodName: CmdReadyUp
         m_Mode: 1
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4685928162683032396}
+      - m_Target: {fileID: 8979763979232467941}
         m_TargetAssemblyTypeName: John.NetworkRoomPlayerHnS, Assembly-CSharp
         m_MethodName: CmdStartGame
         m_Mode: 1

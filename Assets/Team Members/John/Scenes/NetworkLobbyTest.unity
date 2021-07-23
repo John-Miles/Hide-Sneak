@@ -824,7 +824,8 @@ MonoBehaviour:
   spawnPrefabs: []
   minPlayers: 1
   menuScene: Assets/Team Members/John/Scenes/NetworkLobbyTest.unity
-  roomPlayerPrefab: {fileID: 4685928162683032396, guid: c8e57c0088ee445419fbedd115649fda, type: 3}
+  roomPlayerPrefab: {fileID: 8979763979232467941, guid: c8e57c0088ee445419fbedd115649fda, type: 3}
+  gamePlayerPrefab: {fileID: 4685928162683032396, guid: 68806222b84b9c34980f0efcd9541125, type: 3}
 --- !u!114 &397761076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3767,7 +3768,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 198496352}
-        m_TargetAssemblyTypeName: PlayerNameInput, Assembly-CSharp
+        m_TargetAssemblyTypeName: John.PlayerNameInput, Assembly-CSharp
         m_MethodName: SetPlayerName
         m_Mode: 5
         m_Arguments:
