@@ -818,12 +818,13 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 1517390006393675894, guid: c8e57c0088ee445419fbedd115649fda, type: 3}
+  playerPrefab: {fileID: 844717362685181648, guid: 4ab0a427bdc13244499c6e044ad7eb40, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
-  menuScene: 
-  roomPlayerPrefab: {fileID: 0}
+  minPlayers: 1
+  menuScene: Assets/Team Members/John/Scenes/NetworkLobbyTest.unity
+  roomPlayerPrefab: {fileID: 4685928162683032396, guid: c8e57c0088ee445419fbedd115649fda, type: 3}
 --- !u!114 &397761076
 MonoBehaviour:
   m_ObjectHideFlags: 0
