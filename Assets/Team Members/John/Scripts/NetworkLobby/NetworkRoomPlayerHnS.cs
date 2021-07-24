@@ -1,7 +1,7 @@
+using System;
 using Mirror;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +9,12 @@ namespace John
 {
     public class NetworkRoomPlayerHnS : NetworkBehaviour
     {
+        [Header("Game Options")]
+        [SerializeField] private PlayerBase[] characters = default;
+        [SerializeField] private TMP_Text[] characterNameText = new TMP_Text[0];
+        private int currentCharacterIndex = 0;
+        private List<GameObject> characterInstances = new List<GameObject>();
+        
         [Header("UI")] 
         [SerializeField] private GameObject lobbyUI = null;
         [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[0];
@@ -18,6 +24,8 @@ namespace John
         public string DisplayName = "Loading...";
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsReady = false;
+
+        public bool IsThief = false; 
 
         public bool isLeader;
         public bool IsLeader
@@ -83,6 +91,7 @@ namespace John
             {
                 playerNameTexts[i].text = "Waiting For Player...";
                 playerReadyTexts[i].text = string.Empty;
+                characterNameText[i].text = string.Empty;
             }
 
             for (int i = 0; i < Room.RoomPlayers.Count; i++)
@@ -91,6 +100,10 @@ namespace John
                 playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady ?
                     "<color=green>Ready</color>" :
                     "<color=red>Not Ready</color>";
+                characterNameText[i].text = Room.RoomPlayers[i].IsThief
+                    ? "Thief"
+                    : "Guard";
+                
             }
         }
 
@@ -121,6 +134,18 @@ namespace John
             if (Room.RoomPlayers[0].connectionToClient != connectionToClient) { return; }
 
             Room.StartGame();
+        }
+
+        [Command]
+        public void CmdChangeRole()
+        {
+            RPCDisplay();
+        }
+        [ClientRpc]
+        public void RPCDisplay()
+        {
+            IsThief = !IsThief;
+            UpdateDisplay();
         }
     }
 }
