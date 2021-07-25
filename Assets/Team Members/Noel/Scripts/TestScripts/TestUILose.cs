@@ -6,12 +6,14 @@ public class TestUILose : MonoBehaviour
 {
 
     public GameObject UILose;
+    public GameObject BlurBkg;
     public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
         UILose.SetActive(false);
+        BlurBkg.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class TestUILose : MonoBehaviour
         if (player.gameObject.tag == ("Thief"))
         {
             UILose.SetActive(true);
+            BlurBkg.SetActive(true);
             active = true;
         }
 
@@ -35,6 +38,7 @@ public class TestUILose : MonoBehaviour
         if (player.gameObject.tag == ("Thief"))
         {
             UILose.SetActive(false);
+            BlurBkg.SetActive(false);
             active = false;
         }
     }

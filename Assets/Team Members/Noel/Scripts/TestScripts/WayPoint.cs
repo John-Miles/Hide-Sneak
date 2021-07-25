@@ -13,21 +13,38 @@ public class WayPoint : MonoBehaviour
 
     private Vector3 offset = new Vector3(0, 4, 0);
 
+    public GameObject ParentMarker;
+
+    public bool isOn = false;
+
     void Start()
-    {
+    {    
         var canvas = GameObject.Find("Waypoints").transform;
         waypoint = Instantiate(prefab, canvas);
         player = GameObject.Find("TestPlayer").transform;
+
+        //ParentMarker.SetActive(false);
     }
 
     void Update()
     {
         var screenPos = Camera.main.WorldToScreenPoint(transform.position + offset);
         waypoint.position = screenPos;
-
         waypoint.gameObject.SetActive(screenPos.z > 0);
 
-
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (isOn == true)
+            {
+                ParentMarker.SetActive(false);
+                isOn = false;
+            }
+            else if (isOn == false)
+            {
+                ParentMarker.SetActive(true);
+                isOn = true;
+            }
+        }
     }
 }
 

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speedBoost = 2f;
 
     public GameObject UIObjective;
+    public GameObject BlurBkg;
     public bool isActive = false;    
 
     Vector3 velocity;
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         UIObjective.SetActive(false);
+        BlurBkg.SetActive(false);
         animator = this.gameObject.GetComponent<Animator>();
     }
 
@@ -59,12 +61,14 @@ public class PlayerMovement : MonoBehaviour
             if (isActive == false)
             {
                 UIObjective.SetActive(true);
+                BlurBkg.SetActive(true);
                 isActive = true;
             }
 
             else if (isActive == true)
             {
                 UIObjective.SetActive(false);
+                BlurBkg.SetActive(false);
                 isActive = false;
             }
         }

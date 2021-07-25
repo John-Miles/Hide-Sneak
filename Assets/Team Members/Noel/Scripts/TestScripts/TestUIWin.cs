@@ -6,12 +6,14 @@ public class TestUIWin : MonoBehaviour
 {
 
     public GameObject UIWin;
+    public GameObject BlurBkg;
     public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
         UIWin.SetActive(false);
+        BlurBkg.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class TestUIWin : MonoBehaviour
         if (player.gameObject.tag == ("Thief"))
         {
             UIWin.SetActive(true);
+            BlurBkg.SetActive(true);
             active = true;
         }
 
@@ -35,6 +38,7 @@ public class TestUIWin : MonoBehaviour
         if (player.gameObject.tag == ("Thief"))
         {
             UIWin.SetActive(false);
+            BlurBkg.SetActive(false);
             active = false;
         }
     }
