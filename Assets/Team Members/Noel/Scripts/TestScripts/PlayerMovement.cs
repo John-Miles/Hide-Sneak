@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject UIObjective;
     public GameObject BlurBkg;
+    public GameObject ParentMarker;
     public bool isActive = false;    
 
     Vector3 velocity;
@@ -49,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     {
         UIObjective.SetActive(false);
         BlurBkg.SetActive(false);
+        ParentMarker.SetActive(false);
+
         animator = this.gameObject.GetComponent<Animator>();
     }
 
@@ -62,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 UIObjective.SetActive(true);
                 BlurBkg.SetActive(true);
+                
                 isActive = true;
             }
 
@@ -69,21 +73,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 UIObjective.SetActive(false);
                 BlurBkg.SetActive(false);
+                
                 isActive = false;
             }
         }
-        
-
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        
         
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
-    
         float x = Input.GetAxis("Horizontal");
         walkingV = Input.GetAxis("Vertical");
   
