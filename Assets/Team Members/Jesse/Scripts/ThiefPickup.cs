@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ThiefPickup : MonoBehaviour
 {
-    public GameObject Interactable;
-    public GameObject craftingUI;
     public Camera camera;
+    public int itemList;
     private TargetItem itemBeingPickedUp;
 
-    private void Start()
+    void Start()
     {
 
     }
@@ -20,12 +19,15 @@ public class ThiefPickup : MonoBehaviour
 
         if (HasItemTargetted())
         {
+            Debug.Log("An Item Is Highlighted");
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (itemBeingPickedUp.tag == "Item")
                 {
                     Destroy(itemBeingPickedUp.gameObject);
                     itemBeingPickedUp = null;
+                    itemList++;
                     Debug.Log("Item Picked Up");
                 }
             }
@@ -54,24 +56,7 @@ public class ThiefPickup : MonoBehaviour
             else if (hitItem != null && hitItem != itemBeingPickedUp)
             {
                 itemBeingPickedUp = hitItem;
-
-                if (itemBeingPickedUp.tag == "Crystal")
-                {
-
-                }
-
-                }
-                else if (itemBeingPickedUp.tag == "Water")
-                {
-                    pickUpMessage.text = "(Hold E) Drink Water";
-                }
-                else if (itemBeingPickedUp.tag == "CraftingTable")
-                {
-                    pickUpMessage.text = "(E) Open Crafting Menu";
-                }
-
             }
-
         }
         else
         {
