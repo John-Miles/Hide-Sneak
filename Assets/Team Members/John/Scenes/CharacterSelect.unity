@@ -495,62 +495,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &5094479960524528046
+--- !u!1001 &1730529449125441206
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5094479960023528698, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001308, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: sceneId
       value: 1486451156
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001308, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+      propertyPath: m_AssetId
+      value: 4b11aee863f8e124887185173de76bce
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528699, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001309, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094479960023528700, guid: 4b11aee863f8e124887185173de76bce, type: 3}
+    - target: {fileID: 1730529450970001310, guid: 4b11aee863f8e124887185173de76bce, type: 3}
       propertyPath: m_Name
       value: CharacterSelect
       objectReference: {fileID: 0}

@@ -20,20 +20,21 @@ namespace John
 
         private void OnEnable()
         {
-            NetworkManagerHnS.onClientConnected += HandleClientConnected;
-            NetworkManagerHnS.onClientDisconnected += HandleClientDisconnected;
+            NetworkManagerHnS.OnClientConnected += HandleClientConnected;
+            NetworkManagerHnS.OnClientDisconnected += HandleClientDisconnected;
         }
 
         private void OnDisable()
         {
-            NetworkManagerHnS.onClientConnected -= HandleClientConnected;
-            NetworkManagerHnS.onClientDisconnected -= HandleClientDisconnected;
+            NetworkManagerHnS.OnClientConnected -= HandleClientConnected;
+            NetworkManagerHnS.OnClientDisconnected -= HandleClientDisconnected;
         }
 
         public void JoinLobby()
         {
             string ipAddress = ipAddressInputField.text;
-
+            
+            Debug.Log("Connecting to IP Address: " + ipAddress);
             networkManager.networkAddress = ipAddress;
             networkManager.StartClient();
 
