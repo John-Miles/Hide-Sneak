@@ -10,6 +10,8 @@ public class DetectionManager : NetworkBehaviour
    public List<GameObject> guardList;
    public List<GameObject> thiefList;
 
+   [SerializeField] private GameManager gm;
+
    // Get a reference to all players within the game
    public override void OnStartServer()
    {
@@ -19,6 +21,11 @@ public class DetectionManager : NetworkBehaviour
 
    private void Awake()
    {
+
+      GameObject tempgm = GameObject.FindGameObjectWithTag("GameManager");
+
+      gm = tempgm.GetComponent<GameManager>();
+      
       var players = GameObject.FindGameObjectsWithTag("Player");
       foreach (GameObject p in players)
       {
@@ -38,9 +45,7 @@ public class DetectionManager : NetworkBehaviour
       }
    }
 
-   // Get reference to the detection beam of the guards
-
-   //Get reference to the detection amount of each thief
+ 
 
    //When a thief enters a guards beam, add them to a list to increase their detection
 

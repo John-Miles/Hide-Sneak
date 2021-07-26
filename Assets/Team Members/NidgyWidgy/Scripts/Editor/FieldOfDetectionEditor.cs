@@ -24,11 +24,10 @@ public class FieldOfDetectionEditor : Editor
         foreach (GameObject thief in fod.thiefRef)
         {
             {
-                if (fod.canSeePlayer)
-                {
+                
                     Handles.color = Color.green;
                     Handles.DrawLine(fod.transform.position, thief.transform.position);
-                }
+                
             }
         }
 

@@ -7,8 +7,7 @@ using UnityEngine.ProBuilder.MeshOperations;
 public class FieldOfDetection : NetworkBehaviour
 {
     public float radius;
-    [Range(0,360)]
-    public float angle;
+    [Range(0, 360)] public float angle;
 
     public List<GameObject> thiefRef = new List<GameObject>();
 
@@ -20,7 +19,8 @@ public class FieldOfDetection : NetworkBehaviour
 
     void OnEnable()
     {
-        thiefRef.Add(GameObject.FindGameObjectWithTag("Thief"));
+
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief")) thiefRef.Add(o);
         StartCoroutine(FODRoutine());
     }
 
@@ -37,37 +37,33 @@ public class FieldOfDetection : NetworkBehaviour
 
     void FieldOfDetectionCheck()
     {
+        thiefRef.Clear();
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+
 
         if (rangeChecks.Length != 0)
         {
-            foreach (var t in rangeChecks)
+            for (int t = 0; t < rangeChecks.Length; t++)
+
             {
-                Transform target = t.transform;
-                Vector3 directionToTarget = (target.position - transform.position).normalized;
+                Collider target = rangeChecks[t];
+                Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
 
                 if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                 {
-                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                    float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
-                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                    RaycastHit hit;
+
+                    Physics.Raycast(transform.position, directionToTarget, out hit, obstructionMask);
+                    if (hit.collider == rangeChecks[t])
                     {
-                        canSeePlayer = true;
+                        thiefRef.Add(target.gameObject);
+
                     }
-                    else
-                    {
-                        canSeePlayer = false;
-                    }
-                }
-                else
-                {
-                    canSeePlayer = false;
+
                 }
             }
-        }
-        else if (canSeePlayer)
-        {
-            canSeePlayer = false;
         }
     }
 }
