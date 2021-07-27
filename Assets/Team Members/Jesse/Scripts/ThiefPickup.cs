@@ -7,14 +7,9 @@ using UnityEngine;
 public class ThiefPickup : MonoBehaviour
 {
     public Camera camera;
-    public int itemList;
-    public GameObject[] targetItems;
-    public List<GameObject> collectedList;
     public GameManager manager;
-    public GameObject greenSquare;
 
     private TargetItem itemBeingPickedUp;
-    private bool roundOver = false;
 
     void Awake()
     {
@@ -34,28 +29,12 @@ public class ThiefPickup : MonoBehaviour
                 if (itemBeingPickedUp.tag == "Item")
                 {
                     itemBeingPickedUp.gameObject.SetActive(false);
-                    collectedList.Add(itemBeingPickedUp.gameObject);
+                    manager.collectedList.Add(itemBeingPickedUp.gameObject);
                     itemBeingPickedUp = null;
                     Debug.Log("Item Picked Up");
                 }
             }
-        }
-
-        
-        targetItems = GameObject.FindGameObjectsWithTag("Item");
-        //targetList.Add(FindObjectOfType<ItemBase>().gameObject);
-
-        if (targetItems.Length <= 0)
-        {
-            if(!roundOver)
-            {
-                greenSquare.SetActive(true);
-                manager.EndRound();
-                roundOver = true;
-            }
-            
-        }
-
+        }     
     }
 
     private bool HasItemTargetted()

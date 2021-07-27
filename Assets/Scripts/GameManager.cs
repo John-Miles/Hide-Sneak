@@ -5,23 +5,53 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
- private bool RandomRole;
+    private bool RandomRole;
 
- public event Action StartGame;
- public event Action EndGame;
+    public event Action StartGame;
+    public event Action EndGame;
 
+    public GameObject[] targetItems;
+    public List<GameObject> collectedList;
+    public GameObject greenSquare;
+    public bool gameBegins = false;
 
+    private bool roundOver = false;
 
- public void StartRound()
- {
-   StartGame?.Invoke(); 
-   Debug.Log("The round has started");
- }
+    void Update()
+    {
+        targetItems = GameObject.FindGameObjectsWithTag("Item");
 
- public void EndRound()
- {
-     EndGame?.Invoke();
-     Debug.Log("The round is over");
- }
+        if (gameBegins == true)
+        {
+            if (targetItems.Length <= 0)
+            {
+                if (!roundOver)
+                {
+                    greenSquare.SetActive(true);
+                    EndRound();
+                    roundOver = true;
+                }
+
+            }
+        }
+        
+    }
+
+    public void BeginGame()
+    {
+        gameBegins = true;
+    }
+
+    public void StartRound()
+    {
+        StartGame?.Invoke(); 
+        Debug.Log("The round has started");
+    }
+
+    public void EndRound()
+    {
+        EndGame?.Invoke();
+        Debug.Log("The round is over");
+    }
  
 }
