@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
  public event Action StartGame;
  public event Action EndGame;
 
+
+
  public void StartRound()
  {
    StartGame?.Invoke(); 

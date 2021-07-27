@@ -9,7 +9,6 @@ namespace John
     {
         public string name;
         public GameObject ItemPrefab;
-        
     }
 }
 

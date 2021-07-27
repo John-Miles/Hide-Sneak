@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 3755526800539360989}
   - component: {fileID: 3940569703773597847}
   - component: {fileID: 4085472330618867661}
+  - component: {fileID: -3779997864504061683}
   - component: {fileID: 1578237724848115514}
   m_Layer: 0
   m_Name: Laptop
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-3779997864504061683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848416321495734695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a29919b1e9e9cf4b8ab90674d403089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHighlighted: 0
 --- !u!135 &1578237724848115514
 SphereCollider:
   m_ObjectHideFlags: 0

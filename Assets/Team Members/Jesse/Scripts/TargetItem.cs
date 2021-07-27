@@ -19,6 +19,7 @@ public class TargetItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         var outline = gameObject.GetComponent<Outline>();
         if (isHighlighted == true)
         {
@@ -28,5 +29,6 @@ public class TargetItem : MonoBehaviour
         {
             outline.OutlineWidth = 0f;
         }
+        */
     }
 }
