@@ -15,6 +15,8 @@ public class ItemSpawnManager : MonoBehaviour
       {
          availableSpawns.Add(spawner.transform);
       }
+
+        SpawnItems();
    }
 
    public void SpawnItems()

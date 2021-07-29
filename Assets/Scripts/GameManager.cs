@@ -17,24 +17,24 @@ public class GameManager : MonoBehaviour
 
     private bool roundOver = false;
 
+    void Start()
+    {
+        StartRound();
+    }
+
     void Update()
     {
         targetItems = GameObject.FindGameObjectsWithTag("Item");
 
-        if (gameBegins == true)
+        if (targetItems.Length <= 0)
         {
-            if (targetItems.Length <= 0)
+            if (!roundOver)
             {
-                if (!roundOver)
-                {
-                    greenSquare.SetActive(true);
-                    EndRound();
-                    roundOver = true;
-                }
-
+                greenSquare.SetActive(true);
+                EndRound();
+                roundOver = true;
             }
         }
-        
     }
 
     public void BeginGame()
