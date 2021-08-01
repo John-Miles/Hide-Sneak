@@ -11,6 +11,8 @@ namespace John
     {
         [SyncVar]
         private string displayName = "Loading...";
+
+        public bool isThief;
         private NetworkManagerHnS room;
         private NetworkManagerHnS Room
         {
@@ -35,6 +37,12 @@ namespace John
         public void SetDisplayName(string displayName)
         {
             this.displayName = displayName;
+        }
+
+        [Server]
+        public void SetRole(bool isTheif)
+        {
+            isThief = isTheif;
         }
        
     }

@@ -8,11 +8,24 @@ using UnityEngine;
 
 public class PlayerSpawnSystem : NetworkBehaviour
 {
-    [SerializeField] private GameObject playerPrefab = null;
+    [SerializeField] private GameObject guardPlayerPrefab = null;
+    [SerializeField] private GameObject thiefPlayerPrefab = null;
+    private GameObject playerPrefab;
+    public bool player;
 
     private static List<Transform> spawnPoints = new List<Transform>();
 
     private int nextIndex = 0;
+    
+    private NetworkManagerHnS room;
+    private NetworkManagerHnS Room
+    {
+        get
+        {
+            if (room != null) { return room; }
+            return room = NetworkManager.singleton as NetworkManagerHnS;
+        }
+    }
 
     public static void AddSpawnPoint(Transform transform)
     {
@@ -22,24 +35,40 @@ public class PlayerSpawnSystem : NetworkBehaviour
     }
     public static void RemoveSpawnPoint(Transform transform) => spawnPoints.Remove(transform);
 
-    public override void OnStartServer() => NetworkManagerHnS.OnServerReadied += SpawnPlayer;
+    public override void OnStartServer()
+    {
+        NetworkManagerHnS.OnServerReadied += SpawnPlayer;
+        
+    }
     [ServerCallback]
     private void OnDestroy() => NetworkManagerHnS.OnServerReadied -= SpawnPlayer;
 
     [Server]
     public void SpawnPlayer(NetworkConnection conn)
     {
-        Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
+       player = conn.identity.GetComponent<NetworkGamePlayerHnS>().isThief;
+        if (player)
+            {
+                playerPrefab = thiefPlayerPrefab;
+            }
+            else
+            {
+                playerPrefab = guardPlayerPrefab;
+            }
 
-        if (spawnPoint == null)
-        {
-            Debug.LogError($"Missing spawn point for player {nextIndex}");
-            return;
-        }
+            Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
 
-        GameObject playerInstance = Instantiate(playerPrefab, spawnPoints[nextIndex].position, spawnPoints[nextIndex].rotation);
-        NetworkServer.AddPlayerForConnection(conn, playerInstance);
+            if (spawnPoint == null)
+            {
+                Debug.LogError($"Missing spawn point for player {nextIndex}");
+                return;
+            }
 
-        nextIndex++;
+            GameObject playerInstance = Instantiate(playerPrefab, spawnPoints[nextIndex].position,
+                spawnPoints[nextIndex].rotation);
+            NetworkServer.AddPlayerForConnection(conn, playerInstance);
+            NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject,true);
+            nextIndex++;
+        
     }
 }

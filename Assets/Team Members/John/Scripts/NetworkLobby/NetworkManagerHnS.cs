@@ -25,6 +25,7 @@ namespace John
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
         public static event Action<NetworkConnection> OnServerReadied; 
+        
 
         public List<NetworkRoomPlayerHnS> RoomPlayers { get; } = new List<NetworkRoomPlayerHnS>();
         public List<NetworkGamePlayerHnS> GamePlayers { get; } = new List<NetworkGamePlayerHnS>();
@@ -156,9 +157,12 @@ namespace John
                     var gameplayerInstance = Instantiate(gamePlayerPrefab);
                     
                     gameplayerInstance.SetDisplayName(RoomPlayers[i].DisplayName);
+                    gameplayerInstance.SetRole(RoomPlayers[i].IsThief);
+                    
+                    Debug.Log("Now spawning " + RoomPlayers[i].DisplayName);
                     
                     NetworkServer.ReplacePlayerForConnection(conn, gameplayerInstance.gameObject,true);
-                    NetworkServer.Destroy(conn.identity.gameObject);
+                    //NetworkServer.Destroy(conn.identity.gameObject);
                 }
                 
                 base.ServerChangeScene(newSceneName);

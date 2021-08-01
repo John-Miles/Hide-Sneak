@@ -13,7 +13,6 @@ namespace John
         [SerializeField] private PlayerBase[] characters = default;
         [SerializeField] private TMP_Text[] characterNameText = new TMP_Text[0];
         private int currentCharacterIndex = 0;
-        private List<GameObject> characterInstances = new List<GameObject>();
         
         [Header("UI")] 
         [SerializeField] private GameObject lobbyUI = null;
@@ -58,7 +57,6 @@ namespace John
         public override void OnStartClient()
         {
             Room.RoomPlayers.Add(this);
-
             UpdateDisplay();
         }
 
