@@ -59,9 +59,15 @@ public class FieldOfDetection : NetworkBehaviour
                     if (hit.collider == rangeChecks[t])
                     {
                         thiefRef.Add(target.gameObject);
-
+                        if (!target.GetComponentInParent<ThiefStats>().seen)
+                        {
+                            target.GetComponentInParent<ThiefStats>().seen = true;
+                        }
                     }
-
+                }
+                else
+                {
+                    target.GetComponentInParent<ThiefStats>().seen = false;
                 }
             }
         }

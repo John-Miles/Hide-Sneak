@@ -1,10 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using ParrelSync.NonCore;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DetectionBar : MonoBehaviour
 {
+    public Slider slider;
+    private Camera cam;
+
+    // TODO have bar show up on guard's camera.
+    void OnEnable()
+    {
+        cam = GetComponent<Camera>();
+    }
+
+    void Update()
+    {
+        Vector3 barPos = cam.WorldToScreenPoint(transform.position);
+        slider.transform.position = barPos;
+    }
+
+  
+
+    /*
     public Slider bar;
 
     public Text text;
@@ -73,5 +92,5 @@ public class DetectionBar : MonoBehaviour
         decreaseRate = 0;
         text.text = ("Thief Has Been Detected!");
         Debug.LogWarning("Thief Is Detected!");
-    }
+    } */
 }
