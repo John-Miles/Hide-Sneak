@@ -13,14 +13,16 @@ public class FieldOfDetection : NetworkBehaviour
 
     public LayerMask targetMask;
     public LayerMask obstructionMask;
-
-    public bool canSeePlayer;
+    
 
 
     void OnEnable()
     {
 
-        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief")) thiefRef.Add(o);
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
+        {
+            thiefRef.Add(o);
+        }
         StartCoroutine(FODRoutine());
     }
 
@@ -44,18 +46,19 @@ public class FieldOfDetection : NetworkBehaviour
         if (rangeChecks.Length != 0)
         {
             for (int t = 0; t < rangeChecks.Length; t++)
-
             {
                 Collider target = rangeChecks[t];
                 Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
-
+                
+                float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+                
                 if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                 {
-                    float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-
+                    
                     RaycastHit hit;
 
                     Physics.Raycast(transform.position, directionToTarget, out hit, obstructionMask);
+                    // if there is no walls/objects in the way of the target.
                     if (hit.collider == rangeChecks[t])
                     {
                         thiefRef.Add(target.gameObject);
@@ -63,7 +66,21 @@ public class FieldOfDetection : NetworkBehaviour
                         {
                             target.GetComponentInParent<ThiefStats>().seen = true;
                         }
+
+                        else if (distanceToTarget > radius)
+                        {
+                            target.GetComponentInParent<ThiefStats>().seen = false;
+                        }
+                        
                     }
+
+                    else if (hit.collider != rangeChecks[t])
+                    {
+                        target.GetComponentInParent<ThiefStats>().seen = false;
+                    }
+                    
+                    
+
                 }
                 else
                 {
@@ -72,4 +89,6 @@ public class FieldOfDetection : NetworkBehaviour
             }
         }
     }
+    
+    
 }

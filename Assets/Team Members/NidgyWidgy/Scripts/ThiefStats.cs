@@ -16,13 +16,14 @@ public class ThiefStats : MonoBehaviour
 
    public bool seen = false;
 
-   private Slider detectSlider;
+   private DetectManager detectManager;
    
    // TODO detection amount increase on detected, decrease out of detection.
    // TODO max detection amount causes game over, clamp between 0 and max amount.
    private void OnEnable()
    {
       StartCoroutine(DetectRoutine());
+      detectManager = GameObject.Find("DetectionManager")?.GetComponent<DetectManager>();
    }
 
    IEnumerator DetectRoutine()
@@ -37,21 +38,36 @@ public class ThiefStats : MonoBehaviour
    }
   public void ValueChange()
    {
+
+      if (detectManager == null)
+      {
+         detectManager = GameObject.Find("DetectionManager")?.GetComponent<DetectManager>();
+      }
       if (seen)
       {
          detectAmount += seenFloat;
-         Debug.Log(  gameObject.name + "Detect Amount: " + detectAmount);
+       //  Debug.Log(  gameObject.name + "Detect Amount: " + detectAmount);
+       if (detectManager)
+       {
+          detectManager.DisplayDetection(detectAmount, gameObject);
+       }
       }
 
       if (!seen)
       {
          detectAmount -= hiddenFloat;
-         Debug.Log(  gameObject.name + "Detect Amount: " + detectAmount);
+        // Debug.Log(  gameObject.name + "Detect Amount: " + detectAmount);
 
          if (detectAmount <= 0f)
          {
             detectAmount = 0f;
          }
+
+         if (detectManager)
+         {
+            detectManager.DisplayDetection(detectAmount, gameObject);
+         }
+         
       }
       
       
