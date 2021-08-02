@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Mirror;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FPSPlayerController : NetworkBehaviour
 {
@@ -57,10 +58,6 @@ public class FPSPlayerController : NetworkBehaviour
       dir.x = Input.GetAxis("Horizontal");
       dir.z = Input.GetAxis("Vertical");
       rb.transform.Translate(dir * movementSpeed * Time.deltaTime);
-
-      
-
-
    }
 }
 

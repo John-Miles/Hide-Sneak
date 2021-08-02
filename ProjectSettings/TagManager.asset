@@ -8,6 +8,7 @@ TagManager:
   - Guard
   - Camera
   - Item
+  - EscapePoint
   layers:
   - Default
   - TransparentFX
