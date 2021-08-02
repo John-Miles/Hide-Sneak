@@ -12,7 +12,7 @@ public class DetectionBar : MonoBehaviour
     // TODO have bar show up on guard's camera.
     void OnEnable()
     {
-        cam = GetComponent<Camera>();
+      //  cam = GetComponent<Camera>();
     }
 
     void Update()
