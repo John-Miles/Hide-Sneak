@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: -1736605142821645231}
   - component: {fileID: 8617592868393244380}
   - component: {fileID: 8855576450285708081}
+  - component: {fileID: 4619366192215155902}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Thief
@@ -210,6 +211,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &4619366192215155902
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523887137025795736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4199373299334863080
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,10 +236,9 @@ GameObject:
   - component: {fileID: 5141469700470519918}
   - component: {fileID: 3233794944995584050}
   - component: {fileID: 7673524015247276422}
-  - component: {fileID: 4147109989188184683}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Thief
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,17 +307,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4147109989188184683
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4199373299334863080}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

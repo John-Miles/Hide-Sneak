@@ -8,8 +8,14 @@ public class GameManager : MonoBehaviour
     public event Action StartGame;
     public event Action EndGame;
     public event Action Escape;
+    
+    public List<GameObject> thievesInScene = new List<GameObject>();
+    public List<GameObject> guardsInScene = new List<GameObject>();
 
-   
+    private List<GameObject> escaped = new List<GameObject>();
+    private List<GameObject> caught = new List<GameObject>();
+    
+  
 
     private bool roundOver = false;
 
@@ -20,6 +26,15 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         StartGame?.Invoke();
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
+        {
+            thievesInScene.Add(o);
+        }
+
+        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Guard"))
+        {
+            guardsInScene.Add(a);
+        }
         Debug.Log("The round has started");
     }
 
@@ -29,14 +44,33 @@ public class GameManager : MonoBehaviour
         Debug.Log("The round is over");
     }
 
-    public void ThiefEscaped()
+    public void ThiefEscaped(GameObject escapingThief)
     {
+        if (thievesInScene.Count == 0)
+        {
+            foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
+            {
+                thievesInScene.Add(o);
+            }
+        }
+        escaped.Add(escapingThief);
         Escape?.Invoke();
         Debug.Log("The thief is escaping");
-        
+
+         EndCheck(); 
+
         //in game UI needs to subscribe to this function so that it can display the right graphics on screen
         //needs to remove the mouse cursor lock for each player
         //needs to slow the time scale and then lock rigidbodies of the players
+    }
+
+    void EndCheck()
+    {
+        if ((escaped.Count + caught.Count) >= thievesInScene.Count)
+        {
+            Debug.Log("GAME OVER MAN, GAME OVER!");
+           // EndRound();
+        }
     }
     
     

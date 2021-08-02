@@ -11,7 +11,7 @@ public class EscapePoint : MonoBehaviour
     {
         if (other.CompareTag("Thief"))
         {
-            gameManager.ThiefEscaped();
+            gameManager.ThiefEscaped(other.gameObject);
         }
     }
 
