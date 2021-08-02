@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-public class ItemSpawnManager : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
    public List<Transform> availableSpawns = new List<Transform>();
    public List<John.ItemBase> items;
