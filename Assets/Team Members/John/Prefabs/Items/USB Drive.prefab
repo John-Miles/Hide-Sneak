@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHighlighted: 0
+  alertLights: {fileID: 7495947370787836721, guid: 7ad9c4ad4df89d949b7901518d0d8097, type: 3}
 --- !u!65 &5307852101335605624
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetItem : MonoBehaviour
 {
     public bool isHighlighted;
+    public GameObject alertLights;
 
     void Awake()
     {
@@ -14,6 +15,12 @@ public class TargetItem : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void Destruction()
+    {
+        Instantiate(alertLights, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
