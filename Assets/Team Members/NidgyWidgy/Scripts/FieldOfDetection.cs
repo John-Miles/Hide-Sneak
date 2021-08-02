@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -25,7 +26,7 @@ public class FieldOfDetection : NetworkBehaviour
         }
         StartCoroutine(FODRoutine());
     }
-
+    
     IEnumerator FODRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
@@ -46,7 +47,7 @@ public class FieldOfDetection : NetworkBehaviour
         if (rangeChecks.Length != 0)
         {
             for (int t = 0; t < rangeChecks.Length; t++)
-            {
+            {      
                 Collider target = rangeChecks[t];
                 Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
                 

@@ -51,6 +51,12 @@ public class ThiefStats : MonoBehaviour
        {
           detectManager.DisplayDetection(detectAmount, gameObject);
        }
+
+       if (detectAmount >= 100f)
+       {
+          detectAmount = 100f;
+          // thief found. do the thing here!!!
+       }
       }
 
       if (!seen)
