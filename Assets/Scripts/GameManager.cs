@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool RandomRole;
-
     public event Action StartGame;
     public event Action EndGame;
     public event Action Escape;
