@@ -882,10 +882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da676b56cd3604895a9265397e1dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetItems: []
-  collectedList: []
-  greenSquare: {fileID: 91368298}
-  gameBegins: 0
+  thievesInScene: []
+  guardsInScene: []
+  targetItemsInScene: []
 --- !u!4 &842253919
 Transform:
   m_ObjectHideFlags: 0
@@ -1121,7 +1120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1498884896}
-  manager: {fileID: 0}
+  manager: {fileID: 842253918}
 --- !u!1 &1303209840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1157,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd8842062f003e545946cd48d1d7530d, type: 2}
   - {fileID: 11400000, guid: 3789207dd2df9c4459e309062b6ba99e, type: 2}
   - {fileID: 11400000, guid: c5b34d7f6327ad94998460685393d41b, type: 2}
+  collectedItems: []
+  itemsToCollect: []
 --- !u!4 &1303209842
 Transform:
   m_ObjectHideFlags: 0

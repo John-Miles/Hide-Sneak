@@ -19,8 +19,8 @@ public class TargetItem : MonoBehaviour
 
     public void Destruction()
     {
-        Instantiate(alertLights, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        Instantiate(alertLights, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame

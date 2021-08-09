@@ -28,10 +28,11 @@ public class ThiefPickup : MonoBehaviour
             {
                 if (itemBeingPickedUp.tag == "Item")
                 {
-                    itemBeingPickedUp.gameObject.SetActive(false);
-                   // manager.collectedList.Add(itemBeingPickedUp.gameObject);
+                    itemBeingPickedUp.GetComponent<TargetItem>().Destruction();
                     itemBeingPickedUp = null;
+                    manager.ItemCheck();
                     Debug.Log("Item Picked Up");
+
                 }
             }
         }     

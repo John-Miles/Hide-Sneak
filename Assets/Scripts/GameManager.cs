@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> thievesInScene = new List<GameObject>();
     public List<GameObject> guardsInScene = new List<GameObject>();
+    public List<GameObject> targetItemsInScene = new List<GameObject>();
 
     private List<GameObject> escaped = new List<GameObject>();
     private List<GameObject> caught = new List<GameObject>();
@@ -24,12 +25,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartRound();
+
     }
 
     public void StartRound()
     {
         ListReset();
         StartGame?.Invoke();
+        ItemCheck();
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
         {
             thievesInScene.Add(o);
@@ -41,6 +44,22 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("The round has started");
+    }
+
+    public void ItemCheck()
+    {
+        targetItemsInScene.Clear();
+        foreach (GameObject i in GameObject.FindGameObjectsWithTag("Item"))
+        {
+            targetItemsInScene.Add(i);
+        }
+
+        if (targetItemsInScene.Count <= 0)
+        {
+            //Code here checks items are all collected.
+        }
+
+        Debug.Log("There are " + targetItemsInScene.Count + " items in the scene");
     }
 
     public void EndRound()
