@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a29919b1e9e9cf4b8ab90674d403089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHighlighted: 0
   alertLights: {fileID: 7495947370787836721, guid: 7ad9c4ad4df89d949b7901518d0d8097, type: 3}
 --- !u!136 &2315916271655972109
 CapsuleCollider:

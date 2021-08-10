@@ -885,6 +885,7 @@ MonoBehaviour:
   thievesInScene: []
   guardsInScene: []
   targetItemsInScene: []
+  itemsCollected: []
 --- !u!4 &842253919
 Transform:
   m_ObjectHideFlags: 0
@@ -1119,8 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9987d295e2c884a96100c5d8401455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1498884896}
-  manager: {fileID: 842253918}
+  playerCamera: {fileID: 1498884896}
 --- !u!1 &1303209840
 GameObject:
   m_ObjectHideFlags: 0

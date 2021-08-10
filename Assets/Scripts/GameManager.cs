@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> thievesInScene = new List<GameObject>();
     public List<GameObject> guardsInScene = new List<GameObject>();
     public List<GameObject> targetItemsInScene = new List<GameObject>();
+    public List<GameObject> itemsCollected = new List<GameObject>();
 
     private List<GameObject> escaped = new List<GameObject>();
     private List<GameObject> caught = new List<GameObject>();
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
 
         if (targetItemsInScene.Count <= 0)
         {
-            //Code here checks items are all collected.
+            Debug.LogWarning("All Items Have Been Collected");
         }
 
         Debug.Log("There are " + targetItemsInScene.Count + " items in the scene");
@@ -137,27 +138,4 @@ public class GameManager : MonoBehaviour
         thievesInScene.Clear();
         guardsInScene.Clear();
     }
-
-
-    /*
-    old Update code related to item pick up
-     public GameObject[] targetItems;
-    public List<GameObject> collectedList;
-    public GameObject greenSquare;
-    public bool gameBegins = false;
-    
-    
-    targetItems = GameObject.FindGameObjectsWithTag("Item");
-
-        if (targetItems.Length <= 0)
-        {
-            if (!roundOver)
-            {
-                greenSquare.SetActive(true);
-                EndRound();
-                roundOver = true;
-            }
-        }
-    
-    */
 }

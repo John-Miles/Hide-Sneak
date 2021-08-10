@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class ThiefPickup : MonoBehaviour
 {
-    public Camera camera;
-    public GameManager manager;
+    public Camera playerCamera;
 
+    private GameManager manager;
     private TargetItem itemBeingPickedUp;
 
     void Awake()
     {
+        //Assigns the Game Manager of the scene to the manager variable
         manager = FindObjectOfType<GameManager>();
     }
 
@@ -22,16 +23,23 @@ public class ThiefPickup : MonoBehaviour
 
         if (HasItemTargetted())
         {
-            Debug.Log("An Item Is Highlighted");
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (itemBeingPickedUp.tag == "Item")
                 {
+                    //Adds the item being picked up to the ItemsCollected list
+                    manager.itemsCollected.Add(itemBeingPickedUp.gameObject);
+
+                    //This function is called to "Destroy" the item
                     itemBeingPickedUp.GetComponent<TargetItem>().Destruction();
+
+                    //This resets the item being picked up to null to avoid breaks when a new item is picked up
                     itemBeingPickedUp = null;
+
+                    //This runs the function to search for remaining items and refresh the list
                     manager.ItemCheck();
-                    Debug.Log("Item Picked Up");
+
+                    //Debug.Log("Item Picked Up");
 
                 }
             }
@@ -45,7 +53,7 @@ public class ThiefPickup : MonoBehaviour
 
     private void SelectItemBeingPickedUpFromRay()
     {
-        Ray ray = camera.ViewportPointToRay(Vector3.one / 2f);
+        Ray ray = playerCamera.ViewportPointToRay(Vector3.one / 2f);
         Debug.DrawRay(ray.origin, ray.direction * 4f, Color.red);
 
         RaycastHit hitInfo;
