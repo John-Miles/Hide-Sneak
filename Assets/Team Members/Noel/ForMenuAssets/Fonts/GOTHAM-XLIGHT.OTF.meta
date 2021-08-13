@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 1f5f039b4a62bbc49931e499dc0d4390
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gotham
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: aa01a06d99ef8b14dab6b809328819f2, type: 3}
+  - {fileID: 12800000, guid: 5bc72ed7d8a470f418531dd1eb46fa31, type: 3}
+  - {fileID: 12800000, guid: 30e49bf94ab94b34a9982c754680a692, type: 3}
+  - {fileID: 12800000, guid: 865339e6452cfdf4eab8ca0e72796db3, type: 3}
+  - {fileID: 12800000, guid: d63f5c9bdfb44c04ba6f87882f17fef9, type: 3}
+  - {fileID: 12800000, guid: f302b22d3b03fef42bbe869c63369450, type: 3}
+  - {fileID: 12800000, guid: 17a667e4175691d4fa11318d08e9a595, type: 3}
+  - {fileID: 12800000, guid: 031b61bb10e1477499d601bcfa8f98f2, type: 3}
+  - {fileID: 12800000, guid: 59315241e5bf4eb49be199f0ee55c2ad, type: 3}
+  - {fileID: 12800000, guid: dc91c8df81f6e474b814133f3942d783, type: 3}
+  - {fileID: 12800000, guid: 7dd50dca3b7ccf449bd6dac3de588bba, type: 3}
+  - {fileID: 12800000, guid: 1eecd6790d6dc6345810927c08506c01, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
