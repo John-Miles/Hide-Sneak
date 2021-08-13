@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8617592868393244380}
   - component: {fileID: 8855576450285708081}
   - component: {fileID: 4619366192215155902}
+  - component: {fileID: 5262018616284929581}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Thief
@@ -225,6 +226,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5262018616284929581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523887137025795736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dda598efe22dd48b95f04a7860ab51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  rm: {fileID: 0}
+  timerText: {fileID: 0}
+  NVGOn: {fileID: 0}
+  NVGOff: {fileID: 0}
 --- !u!1 &4199373299334863080
 GameObject:
   m_ObjectHideFlags: 0

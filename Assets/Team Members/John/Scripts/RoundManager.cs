@@ -36,8 +36,7 @@ public class RoundManager : NetworkBehaviour
         int seconds = Mathf.FloorToInt(roundTimer - minutes * 60);
         roundText = string.Format("{0:0}:{1:00}", minutes, seconds);
         
-        //updating timer text with the remaining time
-        UIText.text = ("Time Remaining: " + roundText);
+        
         
         //able to delay the timer for the game
         if (startCount)
