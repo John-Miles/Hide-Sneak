@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 3bf5cb0d0b555af44ad4c1dee8ba4366
+timeCreated: 1561226375
+licenseType: Store
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ForkLift01
+    100004: Lift01
+    100006: Lift02
+    100008: WheelBL
+    100010: WheelBR
+    100012: WheelFL
+    100014: WheelFR
+    100016: WindowBack
+    100018: WindowFront
+    100020: WindowLeft
+    100022: WindowRight
+    400000: //RootNode
+    400002: ForkLift01
+    400004: Lift01
+    400006: Lift02
+    400008: WheelBL
+    400010: WheelBR
+    400012: WheelFL
+    400014: WheelFR
+    400016: WindowBack
+    400018: WindowFront
+    400020: WindowLeft
+    400022: WindowRight
+    2100000: ForkLift01
+    2100002: ForkLift01_Alpha
+    2300000: ForkLift01
+    2300002: Lift01
+    2300004: Lift02
+    2300006: WheelBL
+    2300008: WheelBR
+    2300010: WheelFL
+    2300012: WheelFR
+    2300014: WindowBack
+    2300016: WindowFront
+    2300018: WindowLeft
+    2300020: WindowRight
+    3300000: ForkLift01
+    3300002: Lift01
+    3300004: Lift02
+    3300006: WheelBL
+    3300008: WheelBR
+    3300010: WheelFL
+    3300012: WheelFR
+    3300014: WindowBack
+    3300016: WindowFront
+    3300018: WindowLeft
+    3300020: WindowRight
+    4300000: ForkLift01
+    4300002: Lift02
+    4300004: Lift01
+    4300006: WindowFront
+    4300008: WindowBack
+    4300010: WindowLeft
+    4300012: WindowRight
+    4300014: WheelFR
+    4300016: WheelFL
+    4300018: WheelBL
+    4300020: WheelBR
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ForkLift01
+    second: {fileID: 2100000, guid: 0e00660a02f027c4282447f67551c9e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ForkLift01_Alpha
+    second: {fileID: 2100000, guid: f29c60382475e8a4dbeca542920857f3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
