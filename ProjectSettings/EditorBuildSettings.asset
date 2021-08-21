@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Team Members/John/Scenes/NetworkLobbyTest.unity
+    path: Assets/Scenes/NetworkLobbyTest.unity
     guid: 26989e2cfc8bbb044887be2bb6a5e305
   - enabled: 1
     path: Assets/Scenes/Gameplay_Level_1.unity
+    guid: ca6b0126b0c9fa640902eaf5fea08e3d
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Level_2.unity
     guid: aa33596844b7daa4bad4971ddc77c508
   m_configObjects: {}
