@@ -1,18 +1,21 @@
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
-public class ItemManager : MonoBehaviour
+public class ItemManager : NetworkBehaviour
 {
    public List<Transform> availableSpawns = new List<Transform>();
    public List<John.ItemBase> items;
    public List<John.ItemBase> collectedItems;
    public List<John.ItemBase> itemsToCollect;
-   private int nextItem;
-   private int nextLocation;
+   [SyncVar]
+   public int nextItem;
+   [SyncVar]
+   public int nextLocation;
 
    public void Awake()
    {
       var spawns = FindObjectsOfType(typeof(ItemSpawner));
-
+      
       foreach (ItemSpawner spawner in spawns)
       {
          availableSpawns.Add(spawner.transform);
@@ -25,9 +28,12 @@ public class ItemManager : MonoBehaviour
    {
       for (int i = availableSpawns.Count - 1; i >= 0; i--)
       {
-         nextItem = Random.Range(0, items.Count);
-         nextLocation = Random.Range(0, availableSpawns.Count);
-
+         if (isServer)
+         {
+            nextItem = Random.Range(0, items.Count);
+            nextLocation = Random.Range(0, availableSpawns.Count);
+         }
+         
          Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,availableSpawns[nextLocation].rotation);
          itemsToCollect.Add(items[nextItem]);
          

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ThiefUI : MonoBehaviour
 {
     public GameManager gm;
-    public RoundManager rm;
+    public Timer rm;
     public TMP_Text timerText;
 
     public Image NVGSprite;
@@ -16,7 +16,7 @@ public class ThiefUI : MonoBehaviour
     {
         //collecting reference to managers in the scene
         gm = FindObjectOfType<GameManager>();
-        rm = FindObjectOfType<RoundManager>();
+        rm = FindObjectOfType<Timer>();
     }
 
   
