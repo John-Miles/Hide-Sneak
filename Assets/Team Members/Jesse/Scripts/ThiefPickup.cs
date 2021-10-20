@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ThiefPickup : MonoBehaviour
 {
+    /*
     public Camera playerCamera;
 
     private GameManager manager;
@@ -28,7 +29,7 @@ public class ThiefPickup : MonoBehaviour
                 if (itemBeingPickedUp.tag == "Item")
                 {
                     //Adds the item being picked up to the ItemsCollected list
-                    manager.itemsCollected.Add(itemBeingPickedUp.gameObject);
+                    //manager.itemsCollected.Add(itemBeingPickedUp.gameObject);
 
                     //This function is called to "Destroy" the item
                     itemBeingPickedUp.GetComponent<TargetItem>().Destruction();
@@ -37,7 +38,8 @@ public class ThiefPickup : MonoBehaviour
                     itemBeingPickedUp = null;
 
                     //This runs the function to search for remaining items and refresh the list
-                    manager.ItemCheck();
+                   
+                    //manager.ItemCheck();
 
                     //Debug.Log("Item Picked Up");
 
@@ -75,4 +77,5 @@ public class ThiefPickup : MonoBehaviour
             itemBeingPickedUp = null;
         }
     }
+    */
 }

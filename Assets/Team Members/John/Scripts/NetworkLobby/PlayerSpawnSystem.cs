@@ -55,7 +55,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
             {
                 playerPrefab = guardPlayerPrefab;
             }
-
+            
             Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
 
             if (spawnPoint == null)

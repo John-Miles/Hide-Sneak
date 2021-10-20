@@ -4650,6 +4650,10 @@ PrefabInstance:
       propertyPath: onlineScene
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
+      propertyPath: itemSpawnSystem
+      value: 
+      objectReference: {fileID: 5298980907221878734, guid: 322f07bf7c6080c4591ed6e32c03fc56, type: 3}
     - target: {fileID: 1333187422389400741, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
       propertyPath: m_Name
       value: HnS Network Manager

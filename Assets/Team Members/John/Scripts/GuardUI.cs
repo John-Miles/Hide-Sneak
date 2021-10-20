@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GuardUI : MonoBehaviour
 {
     public GameManager gm;
+    public ItemManager im;
     public Timer timer;
     public Text timerText;
 
@@ -19,6 +20,7 @@ public class GuardUI : MonoBehaviour
     {
         //collecting references to managers in the scene
         gm = FindObjectOfType<GameManager>();
+        im = FindObjectOfType<ItemManager>();
         timer = FindObjectOfType<Timer>();
     }
 

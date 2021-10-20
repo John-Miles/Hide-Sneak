@@ -6,7 +6,7 @@ public class ThiefUI : MonoBehaviour
 {
     public GameManager gm;
     public Timer rm;
-    public TMP_Text timerText;
+    public Text timerText;
 
     public Image NVGSprite;
     //HUD sprite elements
@@ -23,6 +23,6 @@ public class ThiefUI : MonoBehaviour
     void Update()
     {
         //updating timer text with the remaining time
-        timerText.text = ("Time Remaining: " + rm.roundText);
+        timerText.text = (rm.roundText);
     }
 }

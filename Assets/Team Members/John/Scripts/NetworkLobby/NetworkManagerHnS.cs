@@ -21,10 +21,13 @@ namespace John
         [Header("Game")] 
         [SerializeField] private NetworkGamePlayerHnS gamePlayerPrefab = null;
         [SerializeField] private GameObject playerSpawnSystem = null;
+        [SerializeField] private GameObject itemSpawnSystem = null;
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
-        public static event Action<NetworkConnection> OnServerReadied; 
+        public static event Action<NetworkConnection> OnServerReadied;
+
+        public static event Action OnItemReady;
         
 
         public List<NetworkRoomPlayerHnS> RoomPlayers { get; } = new List<NetworkRoomPlayerHnS>();
@@ -175,6 +178,9 @@ namespace John
             {
                 GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
                 NetworkServer.Spawn(playerSpawnSystemInstance);
+
+                GameObject itemSpawnInstance = Instantiate(itemSpawnSystem);
+                NetworkServer.Spawn(itemSpawnInstance);
             }
         }
 
@@ -183,6 +189,7 @@ namespace John
             base.OnServerReady(conn);
             
             OnServerReadied?.Invoke(conn);
+            OnItemReady?.Invoke();
             
             
         }
