@@ -46,7 +46,7 @@ public class Timer : NetworkBehaviour
         //when the timer hits zero, stop counting and call the EndRound event in Game Manager
         if (roundTimer <= -0.1f)
         {
-            gameManager.EndRound();
+            gameManager.TimeExpired();
             startCount = false;
             roundTimer = default;
         }

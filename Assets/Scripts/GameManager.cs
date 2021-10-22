@@ -6,18 +6,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public event Action StartGame;
-    public event Action EndGame;
-    public event Action Escape;
-    public event Action Caught;
-    public event Action TimedOut;
-
+ 
     [SerializeField] private GameObject escapePoints;
 
     public List<GameObject> thievesInScene = new List<GameObject>();
     public List<GameObject> guardsInScene = new List<GameObject>();
     private List<GameObject> escaped = new List<GameObject>();
     private List<GameObject> caught = new List<GameObject>();
-    private List<GameObject> timedOut = new List<GameObject>();
+   
 
 
     private bool roundOver = false;
@@ -47,15 +43,62 @@ public class GameManager : MonoBehaviour
         Debug.Log("The round has started");
     }
 
-    public void EndRound()
+    public void TimeExpired()
     {
-        EndGame?.Invoke();
-        Debug.Log("The round is over");
+        //EndGame?.Invoke();
+        Debug.Log("The time has expired!");
+        //set UI to time loss UI for all thieves
+        //set UI to time win UI for all guards
+        //disable pick up on all thieves
+        //disable gameplay UI for all thieves/guards
+        //UI will include buttons to return to main menu/dc from server
+        
     }
 
-    public void BeginEscape()
+    public void AllowEscape()
     {
         escapePoints.SetActive(true);
+    }
+
+    public void EscapedCheck(GameObject thief)
+    {
+        //add the escaping thief to the list of escaped thieves
+        escaped.Add(thief);
+        
+            if(escaped.Count == thievesInScene.Count)
+            { 
+                //if all the theives in the scene have escaped, end the game
+                AllEscaped();
+            }
+    }
+
+    public void AllEscaped()
+    {
+        //end the game
+        //show victory UI for thief by escape
+        //show loss UI for guard by escape
+        //disable gameplay UI for all thieves/guards
+        //UI will include buttons to return to main menu/dc from server
+        Debug.Log("All theives escaped");
+    }
+
+    public void CaughtCheck(GameObject thief)
+    {
+        //add the thief to caught list
+        caught.Add(thief);
+        if (caught.Count == thievesInScene.Count)
+        {
+            AllCaught();
+        }
+    }
+
+    public void AllCaught()
+    {
+        //end the game
+        //show loss UI to theif by caught
+        //show victory UI to guard by capture
+        //disable gameplay UI for all thieves/guards
+        //UI will include buttons to return to main menu/dc from server
     }
 }
 

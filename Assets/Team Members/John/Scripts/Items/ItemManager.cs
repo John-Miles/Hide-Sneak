@@ -77,7 +77,7 @@ public class ItemManager : NetworkBehaviour
       collectedItems.Add(item.gameObject);
       if (collectedItems.Count == requiredItems.Count)
       {
-         gm.BeginEscape();
+         gm.AllowEscape();
       }
       //check if the list of collected items matches the required items
       //if true, enable escape
