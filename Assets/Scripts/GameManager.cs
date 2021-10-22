@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public event Action Caught;
     public event Action TimedOut;
 
+    [SerializeField] private GameObject escapePoints;
+
     public List<GameObject> thievesInScene = new List<GameObject>();
     public List<GameObject> guardsInScene = new List<GameObject>();
     private List<GameObject> escaped = new List<GameObject>();
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void BeginEscape()
     {
-        
+        escapePoints.SetActive(true);
     }
 }
 
