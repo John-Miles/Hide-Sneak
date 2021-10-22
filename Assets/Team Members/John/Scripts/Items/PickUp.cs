@@ -7,7 +7,13 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     public float range;
-    
+    private ItemManager im;
+
+    private void Awake()
+    {
+        im = FindObjectOfType<ItemManager>();
+    }
+
     //use raycast to target item in scene
     //call pick up event on itemManager
     //pass item reference to itemManager to add ti collected items
@@ -28,10 +34,18 @@ public class PickUp : MonoBehaviour
                 
                 if (hit.collider.CompareTag("Item"))
                 { 
-                    Debug.Log( hit.collider.gameObject.name + " has been collected!");
+                    ItemHit(hit);
                 }
             }
         }
+    }
+
+    void ItemHit(RaycastHit hit)
+    {
+        Debug.Log( hit.collider.gameObject.name + " has been collected!");
+        var item = hit.collider.gameObject;
+        im.ItemUpdate(item);
+        im.ItemRemove(item);
     }
 
     private void OnDrawGizmos()

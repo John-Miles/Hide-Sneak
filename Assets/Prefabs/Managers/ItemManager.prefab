@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  gm: {fileID: 0}
   items:
   - {fileID: 11400000, guid: c5b34d7f6327ad94998460685393d41b, type: 2}
   - {fileID: 11400000, guid: 3789207dd2df9c4459e309062b6ba99e, type: 2}
@@ -71,5 +72,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55c87e5b7ab13e24f840d71cd379a564, type: 2}
   collectedItems: []
   requiredItems: []
-  nextItem: 0
-  nextLocation: 0
+  collectionPoint: {fileID: 0}

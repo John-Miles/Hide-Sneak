@@ -50,6 +50,11 @@ public class GameManager : MonoBehaviour
         EndGame?.Invoke();
         Debug.Log("The round is over");
     }
+
+    public void BeginEscape()
+    {
+        
+    }
 }
 
 

@@ -52,7 +52,7 @@ MonoBehaviour:
   serverBatching: 1
   serverBatchInterval: 0
   offlineScene: 
-  onlineScene: Assets/Team Members/John/Scenes/NetworkLobbyTest.unity
+  onlineScene: 
   transport: {fileID: 1333187422389400739}
   networkAddress: localhost
   maxConnections: 100
@@ -64,10 +64,11 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs: []
   minPlayers: 2
-  menuScene: Assets/Team Members/John/Scenes/NetworkLobbyTest.unity
+  menuScene: 
   roomPlayerPrefab: {fileID: 8979763979232467941, guid: c8e57c0088ee445419fbedd115649fda, type: 3}
   gamePlayerPrefab: {fileID: 4685928162683032396, guid: 68806222b84b9c34980f0efcd9541125, type: 3}
   playerSpawnSystem: {fileID: 829482571143350967, guid: 7a64bd71e4077b942a37e5d90b5a33ca, type: 3}
+  itemSpawnSystem: {fileID: 0}
 --- !u!114 &1333187422389400739
 MonoBehaviour:
   m_ObjectHideFlags: 0

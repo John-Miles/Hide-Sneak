@@ -9,14 +9,17 @@ using Random = UnityEngine.Random;
 
 public class ItemManager : NetworkBehaviour
 {
+   [SerializeField] private GameManager gm;
+   
    public static List<Transform> availableSpawns = new List<Transform>();
    public List<John.ItemBase> items;
-   public List<John.ItemBase> collectedItems;
-   public List<John.ItemBase> requiredItems;
+   public List<GameObject> collectedItems;
+   public List<GameObject> requiredItems;
+   [SerializeField] private Transform collectionPoint;
    [SyncVar]
-   public int nextItem;
+   int nextItem;
    [SyncVar]
-   public int nextLocation;
+   int nextLocation;
 
    private int nextIndex = 0;
     
@@ -47,7 +50,7 @@ public class ItemManager : NetworkBehaviour
    [Server]
    public void SpawnItems()
    {
-      for (int i = 0; i < items.Count;)
+      for (float i = .5f; i < items.Count;)
       {
          nextItem = Random.Range(0, items.Count);
          nextLocation = Random.Range(0, availableSpawns.Count);
@@ -62,14 +65,27 @@ public class ItemManager : NetworkBehaviour
          GameObject itemInstance = Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,
             availableSpawns[nextLocation].rotation);
          NetworkServer.Spawn(itemInstance);
-         requiredItems.Add(items[nextItem]);
+         requiredItems.Add(items[nextItem].ItemPrefab);
          items.RemoveAt(nextItem);
          availableSpawns.RemoveAt(nextLocation);
-         
-         
       }
+   }
+
+   public void ItemUpdate(GameObject item)
+   {
+      Debug.Log(item.name);
+      collectedItems.Add(item.gameObject);
+      if (collectedItems.Count == requiredItems.Count)
+      {
+         gm.BeginEscape();
+      }
+      //check if the list of collected items matches the required items
+      //if true, enable escape
       
-      
-      
+   }
+
+   public void ItemRemove(GameObject item)
+   {
+      item.transform.position = collectionPoint.transform.position;
    }
 }
