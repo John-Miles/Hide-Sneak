@@ -45,22 +45,46 @@ public class GameManager : MonoBehaviour
 
     public void TimeExpired()
     {
-        //EndGame?.Invoke();
         Debug.Log("The time has expired!");
-        //set UI to time loss UI for all thieves
-        //set UI to time win UI for all guards
-        //disable pick up on all thieves
-        //disable gameplay UI for all thieves/guards
+        foreach (GameObject thief in thievesInScene)
+        {
+            var ui = GetComponentInChildren<ThiefUI>();
+            thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            thief.transform.Find("UI").Find("Canvas").Find("LoseTimeHUD").gameObject.SetActive(true);
+            thief.GetComponent<PickUp>().enabled = false;
+            thief.GetComponent<FPSPlayerController>().enabled = false;
+
+        }
+
+        foreach (GameObject guard in guardsInScene)
+        {
+            var ui = GetComponentInChildren<GuardUI>();
+            guard.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            guard.transform.Find("UI").Find("Canvas").Find("WinTimeHUD").gameObject.SetActive(true);
+            guard.GetComponent<FPSPlayerController>().enabled = false;
+        }
+        //set UI to time loss UI for all thieves - COMPELTE
+        //set UI to time win UI for all guards - COMPLETE
+        //disable pick up on all thieves - COMPLETE
+        //disable gameplay UI for all thieves/guards - COMPLETE
+        //disable movement for all players - COMPLETE
         //UI will include buttons to return to main menu/dc from server
         
     }
-
+    ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    /// WHEN PLAYERS ESCAPE TURN OFF FPS PLAYER CONTROLLER AND MODEL RENDERER
+    /// THEN TELEPORT PLAYERS TO SPECTATOR MODE
+    ///
+    /// WHEN PLAYERS GET CAUGHT TELEPORT THEM TO A POLICE CAR (???)
+    ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+    
     public void AllowEscape()
     {
         escapePoints.SetActive(true);
     }
 
-    public void EscapedCheck(GameObject thief)
+    public void Escape(GameObject thief)
     {
         //add the escaping thief to the list of escaped thieves
         escaped.Add(thief);
@@ -80,6 +104,23 @@ public class GameManager : MonoBehaviour
         //disable gameplay UI for all thieves/guards
         //UI will include buttons to return to main menu/dc from server
         Debug.Log("All theives escaped");
+        foreach (GameObject thief in thievesInScene)
+        {
+            var ui = GetComponentInChildren<ThiefUI>();
+            thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            thief.transform.Find("UI").Find("Canvas").Find("WinEscapeHUD").gameObject.SetActive(true);
+            thief.GetComponent<PickUp>().enabled = false;
+            thief.GetComponent<FPSPlayerController>().enabled = false;
+
+        }
+
+        foreach (GameObject guard in guardsInScene)
+        {
+            var ui = GetComponentInChildren<GuardUI>();
+            guard.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            guard.transform.Find("UI").Find("Canvas").Find("LoseEscapeHUD").gameObject.SetActive(true);
+            guard.GetComponent<FPSPlayerController>().enabled = false;
+        }
     }
 
     public void CaughtCheck(GameObject thief)
@@ -99,6 +140,24 @@ public class GameManager : MonoBehaviour
         //show victory UI to guard by capture
         //disable gameplay UI for all thieves/guards
         //UI will include buttons to return to main menu/dc from server
+        
+        foreach (GameObject thief in thievesInScene)
+        {
+            var ui = GetComponentInChildren<ThiefUI>();
+            thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            thief.transform.Find("UI").Find("Canvas").Find("LoseCaptureHUD").gameObject.SetActive(true);
+            thief.GetComponent<PickUp>().enabled = false;
+            thief.GetComponent<FPSPlayerController>().enabled = false;
+
+        }
+
+        foreach (GameObject guard in guardsInScene)
+        {
+            var ui = GetComponentInChildren<GuardUI>();
+            guard.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            guard.transform.Find("UI").Find("Canvas").Find("WinCaptureHUD").gameObject.SetActive(true);
+            guard.GetComponent<FPSPlayerController>().enabled = false;
+        }
     }
 }
 
