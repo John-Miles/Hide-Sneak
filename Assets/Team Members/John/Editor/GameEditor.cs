@@ -21,12 +21,12 @@ public class GameEditor : Editor
 
         if (GUILayout.Button("Call Thief Escaped"))
         {
-            (target as GameManager)?.AllEscaped();
+            (target as GameManager)?.RpcAllEscaped();
         }
 
         if (GUILayout.Button("Call Thief Caught"))
         {
-            (target as GameManager)?.AllCaught();
+            (target as GameManager)?.RpcAllCaught();
         }
 
         if (GUILayout.Button("Allow Escape"))

@@ -21,7 +21,7 @@ namespace John
         [Header("Game")] 
         [SerializeField] private NetworkGamePlayerHnS gamePlayerPrefab = null;
         [SerializeField] private GameObject playerSpawnSystem = null;
-        [SerializeField] private GameObject itemSpawnSystem = null;
+        
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;

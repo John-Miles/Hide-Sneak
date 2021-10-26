@@ -28,8 +28,8 @@ public class Timer : NetworkBehaviour
 
     public override void OnStopServer()
     {
+        NetworkManagerHnS.OnItemReady -= StartRound;
         base.OnStopServer();
-        
     }
 
     public void Update()

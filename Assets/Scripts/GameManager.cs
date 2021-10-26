@@ -89,11 +89,12 @@ public class GameManager : NetworkBehaviour
             if(escaped.Count == thievesInScene.Count)
             { 
                 //if all the theives in the scene have escaped, end the game
-                AllEscaped();
+                RpcAllEscaped();
             }
     }
-
-    public void AllEscaped()
+    
+    [ClientRpc]
+    public void RpcAllEscaped()
     {
         //end the game
         //show victory UI for thief by escape
@@ -126,11 +127,12 @@ public class GameManager : NetworkBehaviour
         caught.Add(thief);
         if (caught.Count == thievesInScene.Count)
         {
-            AllCaught();
+            RpcAllCaught();
         }
     }
 
-    public void AllCaught()
+    [ClientRpc]
+    public void RpcAllCaught()
     {
         //end the game
         //show loss UI to theif by caught
