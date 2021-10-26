@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using John;
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,25 +9,27 @@ using UnityEngine.UI;
 public class Timer : NetworkBehaviour
 {
     public GameManager gameManager;
-    [SyncVar] public float roundTimer;
+    [SyncVar] 
+    public float roundTimer;
     public string roundText;
+    [SyncVar]
     public bool startCount;
     
     public override void OnStartServer()
     {
-        base.OnStartServer();
-        gameManager = FindObjectOfType<GameManager>();
-        if (isServer)
-        {
-            gameManager.StartGame += RPCStartRound;
-            roundTimer = 300.0f;
-            
-        }
+        NetworkManagerHnS.OnItemReady += StartRound;
+       
     }
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     public override void OnStopServer()
     {
         base.OnStopServer();
-        gameManager.StartGame -= RPCStartRound;
+        
     }
 
     public void Update()
@@ -46,17 +49,25 @@ public class Timer : NetworkBehaviour
         //when the timer hits zero, stop counting and call the EndRound event in Game Manager
         if (roundTimer <= -0.1f)
         {
-            gameManager.TimeExpired();
+            CmdTimeExpired();
             startCount = false;
             roundTimer = default;
         }
     }
+
+    [Command(requiresAuthority = false)]
+    public void CmdTimeExpired()
+    {
+        gameManager.RPCTimeExpired();
+    }
+    
     
     //start the countdown
-    [ClientRpc]
-    public void RPCStartRound()
+    [Server]
+    public void StartRound()
     {
         startCount = true;
+        roundTimer = 300.0f;
     }
 
    

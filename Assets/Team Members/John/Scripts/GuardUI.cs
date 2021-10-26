@@ -1,20 +1,27 @@
+using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-public class GuardUI : MonoBehaviour
+public class GuardUI : NetworkBehaviour
 {
+    public GameObject UI;
+    //MANAGERS
     public GameManager gm;
     public ItemManager im;
     public Timer timer;
+    
+    //UI ELEMENTS
     public Text timerText;
 
-    //public Image flashlightSprite;
-    //HUD sprite elements
-    //public Sprite flashlightOn;
-    //public Sprite flashlightOff;
-
+    public override void OnStartAuthority()
+    {
+        base.OnStartAuthority();
+        enabled = true;
+        UI.SetActive(true);
+    }
+    
 
     private void Awake()
     {

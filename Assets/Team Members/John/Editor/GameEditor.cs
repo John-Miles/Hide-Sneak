@@ -11,12 +11,12 @@ public class GameEditor : Editor
 
         if (GUILayout.Button("Start The Game"))
         {
-            (target as GameManager)?.StartRound();
+            (target as GameManager)?.RpcPlayerListUpdate();
         }
         
         if (GUILayout.Button("Call Time Up"))
         {
-            (target as GameManager)?.TimeExpired();
+            (target as GameManager)?.RPCTimeExpired();
         }
 
         if (GUILayout.Button("Call Thief Escaped"))

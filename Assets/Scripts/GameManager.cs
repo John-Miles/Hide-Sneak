@@ -1,35 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using John;
+using Mirror;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
-    public event Action StartGame;
- 
-    [SerializeField] private GameObject escapePoints;
+   [SerializeField] private GameObject escapePoints;
 
     public List<GameObject> thievesInScene = new List<GameObject>();
     public List<GameObject> guardsInScene = new List<GameObject>();
     private List<GameObject> escaped = new List<GameObject>();
     private List<GameObject> caught = new List<GameObject>();
-   
 
 
-    private bool roundOver = false;
-
-    void Start()
+    public void Awake()
     {
-        StartRound();
-
-    }
-
-    public void StartRound()
-    {
-        //ListReset();
-        //ItemCheck();
+        NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
         
-        StartGame?.Invoke();
+    }
+    
+    [ClientRpc]
+    public void RpcPlayerListUpdate()
+    {
+        thievesInScene.Clear();
+        guardsInScene.Clear();
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
         {
             thievesInScene.Add(o);
@@ -42,8 +38,9 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("The round has started");
     }
-
-    public void TimeExpired()
+    
+    [ClientRpc]
+    public void RPCTimeExpired()
     {
         Debug.Log("The time has expired!");
         foreach (GameObject thief in thievesInScene)

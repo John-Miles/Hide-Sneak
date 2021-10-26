@@ -435,12 +435,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04dda598efe22dd48b95f04a7860ab51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  UI: {fileID: 5302586614342302802}
   gm: {fileID: 0}
-  rm: {fileID: 0}
+  timer: {fileID: 0}
+  im: {fileID: 0}
   timerText: {fileID: 3595047059658669818}
-  NVGSprite: {fileID: 0}
-  NVGOn: {fileID: 0}
-  NVGOff: {fileID: 0}
 --- !u!114 &-5946055795507345542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5678141930359457335
 Transform:
   m_ObjectHideFlags: 0

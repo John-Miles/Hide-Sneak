@@ -1,28 +1,40 @@
+using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThiefUI : MonoBehaviour
+public class ThiefUI : NetworkBehaviour
 {
+    public GameObject UI;
+    
+    //MANAGERS
     public GameManager gm;
-    public Timer rm;
+    public Timer timer;
+    public ItemManager im;
+    
+    //UI ELEMENTS
     public Text timerText;
 
-    public Image NVGSprite;
-    //HUD sprite elements
-    public Sprite NVGOn;
-    public Sprite NVGOff;
+    public override void OnStartAuthority()
+    {
+        base.OnStartAuthority();
+        enabled = true;
+        UI.SetActive(true);
+    }
+    
+
     private void Awake()
     {
         //collecting reference to managers in the scene
         gm = FindObjectOfType<GameManager>();
-        rm = FindObjectOfType<Timer>();
+        timer = FindObjectOfType<Timer>();
+        im = FindObjectOfType<ItemManager>();
     }
 
   
     void Update()
     {
         //updating timer text with the remaining time
-        timerText.text = (rm.roundText);
+        timerText.text = (timer.roundText);
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 712615927709085797}
   - component: {fileID: 4489072864282918848}
   - component: {fileID: 1848891154502601482}
+  - component: {fileID: 3639077096501152826}
   m_Layer: 0
   m_Name: GreenContainer
   m_TagString: Untagged
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191518182615476959}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 18.518799, y: 20.304, z: 30.00456}
+  m_LocalScale: {x: 18.52, y: 20.3, z: 30.0057}
   m_Children:
   - {fileID: 4705702981810807546}
   - {fileID: 3544259742199248732}
@@ -86,6 +87,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3639077096501152826
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191518182615476959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3406084180814019611, guid: 2dce1321c98047e459b021ce8a08ebfc, type: 3}
 --- !u!1 &1090419951919356093
 GameObject:
   m_ObjectHideFlags: 0
