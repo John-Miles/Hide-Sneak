@@ -10,17 +10,20 @@ using Random = UnityEngine.Random;
 public class ItemManager : NetworkBehaviour
 {
    [SerializeField] private GameManager gm;
-   
+   //LISTS
    public static List<Transform> availableSpawns = new List<Transform>();
    public List<John.ItemBase> items;
    public List<GameObject> collectedItems;
    public List<GameObject> requiredItems;
+   
+   //LOCATION FOR STORING COLLECTED ITEMS
    [SerializeField] private Transform collectionPoint;
-   [SyncVar]
-   int nextItem;
-   [SyncVar]
-   int nextLocation;
-
+   //VARIABLES FOR ITEM SPAWNING   
+   [SyncVar] int nextItem;
+   [SyncVar] int nextLocation;
+   //LOCATION TO SPAWN ALERT SYSTEM PREFAB
+   [SyncVar] public Transform alertLocation;
+   [SerializeField] private GameObject alertPrefab;
    private int nextIndex = 0;
     
    private NetworkManagerHnS room;
@@ -87,6 +90,9 @@ public class ItemManager : NetworkBehaviour
    [ClientRpc]
    public void RpcItemRemove(GameObject item)
    {
+      alertLocation = item.transform;
+      GameObject alertInstance = Instantiate(alertPrefab, alertLocation.position, alertLocation.rotation);
+      NetworkServer.Spawn(alertInstance);
       item.transform.position = collectionPoint.transform.position;
    }
 }
