@@ -840,6 +840,7 @@ MonoBehaviour:
   maxX: 70
   sensitivity: 5
   cam: {fileID: 724995239923927499}
+  audio: {fileID: 2587305127751035229}
 --- !u!114 &-3441648915286256593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +944,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2772658644173662837}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0ab8f61add5a884cbc31f85323cf45d, type: 3}
   m_Name: 
@@ -1536,7 +1537,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6502820942084470504}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &3381884132758988449
 MonoBehaviour:
   m_ObjectHideFlags: 0

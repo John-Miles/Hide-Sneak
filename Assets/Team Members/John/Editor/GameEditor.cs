@@ -31,7 +31,7 @@ public class GameEditor : Editor
 
         if (GUILayout.Button("Allow Escape"))
         {
-            (target as GameManager)?.AllowEscape();
+            (target as GameManager)?.RpcAllowEscape();
         }
         
        

@@ -10,6 +10,12 @@ public class PickUp : NetworkBehaviour
     public float range;
     private ItemManager im;
 
+    public override void OnStartAuthority()
+    {
+        enabled = true;
+        base.OnStartAuthority();
+    }
+
     private void Awake()
     {
         im = FindObjectOfType<ItemManager>();
@@ -48,7 +54,7 @@ public class PickUp : NetworkBehaviour
             if (hit.collider.CompareTag("Item"))
             { 
                 im.RpcItemUpdate(hit.collider.gameObject);
-                im.RpcItemRemove(hit.collider.gameObject);
+                //im.ItemRemove(hit.collider.gameObject);
             }
         }
     }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  gm: {fileID: 0}
   items:
   - {fileID: 11400000, guid: c5b34d7f6327ad94998460685393d41b, type: 2}
   - {fileID: 11400000, guid: 3789207dd2df9c4459e309062b6ba99e, type: 2}
@@ -53,9 +54,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c66df1e9bda6af64e879371ead6b8c53, type: 2}
   - {fileID: 11400000, guid: 55c87e5b7ab13e24f840d71cd379a564, type: 2}
   collectedItems: []
-  itemsToCollect: []
-  nextItem: 0
-  nextLocation: 0
+  requiredItems: []
+  collectionPoint: {fileID: 0}
+  alertLocation: {fileID: 0}
+  alertPrefab: {fileID: 6654006210326808973, guid: 396753db4004dfe44ae9ddc7b8cd794e, type: 3}
 --- !u!114 &5298980907221878733
 MonoBehaviour:
   m_ObjectHideFlags: 0

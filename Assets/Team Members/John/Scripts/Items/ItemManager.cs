@@ -79,16 +79,24 @@ public class ItemManager : NetworkBehaviour
    {
       Debug.Log(item.name);
       collectedItems.Add(item.gameObject);
-      if (collectedItems.Count == requiredItems.Count)
-      {
-         gm.AllowEscape();
-      }
+      ItemRemove(item.gameObject);
       //check if the list of collected items matches the required items
       //if true, enable escape
+      if (collectedItems.Count == requiredItems.Count)
+      {
+         CmdAllowEscape();
+      }
       
    }
-   [ClientRpc]
-   public void RpcItemRemove(GameObject item)
+   
+   [Command(requiresAuthority = false)]
+   void CmdAllowEscape()
+   {
+      gm.RpcAllowEscape();
+   }
+   
+   [ServerCallback]
+   public void ItemRemove(GameObject item)
    {
       alertLocation = item.transform;
       GameObject alertInstance = Instantiate(alertPrefab, alertLocation.position, alertLocation.rotation);

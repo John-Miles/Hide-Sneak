@@ -7,10 +7,12 @@ public class ThiefUI : NetworkBehaviour
 {
     public GameObject UI;
     
+    //VARIABLES
+    public float escapeValue;
     //MANAGERS
-    public GameManager gm;
-    public Timer timer;
-    public ItemManager im;
+    GameManager gm;
+    Timer timer;
+    ItemManager im;
     
     //UI ELEMENTS
     public Text timerText;

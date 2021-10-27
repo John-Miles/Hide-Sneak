@@ -14,6 +14,7 @@ public class PlayerCameraController : NetworkBehaviour
     public float sensitivity;
     
     public Camera cam;
+    public AudioListener audio;
     [SyncVar]
     float rotY = 0f;
     [SyncVar]
@@ -25,6 +26,7 @@ public class PlayerCameraController : NetworkBehaviour
         Cursor.visible = false;
         enabled = true;
         cam.enabled = true;
+        audio.enabled = true;
     }
 
     void Update()

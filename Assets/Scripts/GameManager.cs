@@ -11,8 +11,8 @@ public class GameManager : NetworkBehaviour
 
     public List<GameObject> thievesInScene = new List<GameObject>();
     public List<GameObject> guardsInScene = new List<GameObject>();
-    private List<GameObject> escaped = new List<GameObject>();
-    private List<GameObject> caught = new List<GameObject>();
+    public List<GameObject> escaped = new List<GameObject>();
+    public List<GameObject> caught = new List<GameObject>();
 
 
     public void Awake()
@@ -75,22 +75,31 @@ public class GameManager : NetworkBehaviour
     /// WHEN PLAYERS GET CAUGHT TELEPORT THEM TO A POLICE CAR (???)
     ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
-    
-    public void AllowEscape()
+    [ClientRpc]
+    public void RpcAllowEscape()
     {
         escapePoints.SetActive(true);
     }
-
-    public void Escape(GameObject thief)
+    
+    [ClientRpc]
+    public void RpcEscaped(GameObject thief)
     {
         //add the escaping thief to the list of escaped thieves
         escaped.Add(thief);
-        
+        thief.transform.Find("UI").Find("Canvas").Find("EscapingHUD").gameObject.SetActive(false);
+        thief.GetComponent<PickUp>().enabled = false;
+        thief.GetComponent<FPSPlayerController>().enabled = false;
             if(escaped.Count == thievesInScene.Count)
             { 
                 //if all the theives in the scene have escaped, end the game
-                RpcAllEscaped();
+                CmdAllEscape();
             }
+    }
+
+    [Command(requiresAuthority = false)]
+    void CmdAllEscape()
+    {
+        RpcAllEscaped();
     }
     
     [ClientRpc]

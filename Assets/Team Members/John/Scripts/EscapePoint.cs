@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EscapePoint : MonoBehaviour
-{ 
+{
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
