@@ -70,8 +70,9 @@ public class ItemManager : NetworkBehaviour
          availableSpawns.RemoveAt(nextLocation);
       }
    }
-
-   public void ItemUpdate(GameObject item)
+   
+   [ClientRpc]
+   public void RpcItemUpdate(GameObject item)
    {
       Debug.Log(item.name);
       collectedItems.Add(item.gameObject);
@@ -83,8 +84,8 @@ public class ItemManager : NetworkBehaviour
       //if true, enable escape
       
    }
-
-   public void ItemRemove(GameObject item)
+   [ClientRpc]
+   public void RpcItemRemove(GameObject item)
    {
       item.transform.position = collectionPoint.transform.position;
    }
