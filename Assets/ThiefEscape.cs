@@ -16,12 +16,14 @@ public class ThiefEscape : NetworkBehaviour
     //REFERENCES
     public GameObject escapeHUD;
     public bool inEscape;
+    public Transform escapePos;
 
     public override void OnStartAuthority()
     {
         base.OnStartAuthority();
         enabled = true;
         inEscape = false;
+        
     }
 
     private void Awake()
@@ -55,7 +57,7 @@ public class ThiefEscape : NetworkBehaviour
         inEscape = false;
     }
 
-    IEnumerator Escaping()
+    public IEnumerator Escaping()
     {
         escapeValue = 1;
         escapeHUD.SetActive(true);
@@ -65,9 +67,13 @@ public class ThiefEscape : NetworkBehaviour
             escapeValue++;
             if (escapeValue >= maxEscape)
             {
-                CmdEscaped();
+                transform.position = gm.escapePos.position;
+                gm.CmdEscaped(gameObject);
                 Debug.Log("Player has escaped!");
-                yield break;
+                StopAllCoroutines();
+                enabled = false;
+                
+                yield return null;
             } 
             Debug.Log("More Escape Needed!");
             yield return new WaitForSeconds(.5f);
@@ -76,9 +82,4 @@ public class ThiefEscape : NetworkBehaviour
         yield return null;
     }
 
-    [Command(requiresAuthority = false)]
-    void CmdEscaped()
-    {
-        gm.RpcEscaped(gameObject);
-    }
 }

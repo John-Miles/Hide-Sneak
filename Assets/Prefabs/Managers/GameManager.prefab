@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2342429878133953320}
   - component: {fileID: 4154159535866435927}
+  - component: {fileID: 4623496250144604205}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -43,3 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da676b56cd3604895a9265397e1dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  escapePoints: {fileID: 0}
+  thievesInScene: []
+  guardsInScene: []
+  afterEscape: {fileID: 0}
+--- !u!114 &4623496250144604205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221211126134427171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0

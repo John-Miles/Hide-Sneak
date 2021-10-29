@@ -9,12 +9,14 @@ public class GameManager : NetworkBehaviour
 {
    [SerializeField] private GameObject escapePoints;
 
-    public List<GameObject> thievesInScene = new List<GameObject>();
-    public List<GameObject> guardsInScene = new List<GameObject>();
-    public List<GameObject> escaped = new List<GameObject>();
-    public List<GameObject> caught = new List<GameObject>();
+    [SyncVar] public List<GameObject> thievesInScene = new List<GameObject>();
+    [SyncVar] public List<GameObject> guardsInScene = new List<GameObject>();
+    [SyncVar] public List<GameObject> escaped = new List<GameObject>();
+    [SyncVar] public List<GameObject> caught = new List<GameObject>();
 
-
+    public Transform escapePos;
+    public Transform caughtPos;
+    
     public void Awake()
     {
         NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
@@ -81,15 +83,17 @@ public class GameManager : NetworkBehaviour
         escapePoints.SetActive(true);
     }
     
-    [ClientRpc]
-    public void RpcEscaped(GameObject thief)
+    [Command(requiresAuthority = false)]
+    public void CmdEscaped(GameObject thief)
     {
         //add the escaping thief to the list of escaped thieves
         escaped.Add(thief);
+        Debug.Log("adding thief to escape list");
         thief.transform.Find("UI").Find("Canvas").Find("EscapingHUD").gameObject.SetActive(false);
+        thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
         thief.GetComponent<PickUp>().enabled = false;
         thief.GetComponent<FPSPlayerController>().enabled = false;
-            if(escaped.Count == thievesInScene.Count)
+        if(escaped.Count == thievesInScene.Count)
             { 
                 //if all the theives in the scene have escaped, end the game
                 CmdAllEscape();

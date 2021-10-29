@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: -5946055795507345542}
   - component: {fileID: 4061945641704114734}
   - component: {fileID: 63821015652853478}
+  - component: {fileID: 5429613322129952178}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Thief
@@ -688,7 +689,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2523887137025795736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a95926bcf429654190b77c13c151455, type: 3}
   m_Name: 
@@ -697,6 +698,30 @@ MonoBehaviour:
   syncInterval: 0.1
   torch: {fileID: 8353283192528408241}
   TorchOn: 1
+--- !u!114 &5429613322129952178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523887137025795736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  interpolateRotation: 1
+  interpolatePosition: 1
+  syncScale: 1
+  target: {fileID: 2405805914132451214}
 --- !u!1 &3082704222016000911
 GameObject:
   m_ObjectHideFlags: 0
