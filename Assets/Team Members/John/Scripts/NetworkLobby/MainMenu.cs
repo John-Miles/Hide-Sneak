@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace John
 {
@@ -10,6 +11,9 @@ namespace John
 
         [Header("UI")] 
         [SerializeField] private GameObject landingPagePanel = null;
+        
+        [Header("Settings")]
+        public AudioMixer audioMixer;
 
         public void HostLobby()
         {
@@ -18,7 +22,10 @@ namespace John
             landingPagePanel.SetActive(false);
         
         }
-
+       public void SetVolume(float volume)
+       {
+           audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+       }
         public void QuitGame()
         {
             Application.Quit();
