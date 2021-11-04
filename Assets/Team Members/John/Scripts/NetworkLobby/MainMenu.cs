@@ -17,7 +17,7 @@ namespace John
         
         [Header("Settings")]
         public AudioMixer audioMixer;
-
+        
         public TMP_Text masterValueText;
         public TMP_Text musicValueText;
         public TMP_Text effectsValueText;
@@ -25,8 +25,37 @@ namespace John
         public Slider mouseSensX;
         public TMP_Text xValue;
         public Slider mouseSensY;
-        public TMP_Text yValue;
+        public TMP_Text yValue; 
+        
+        private Resolution[] resolutions;
 
+        public TMP_Dropdown resolutionDropdown;
+
+        void Start()
+        {
+            resolutions = Screen.resolutions;
+            
+            resolutionDropdown.ClearOptions();
+
+            List<string> options = new List<string>();
+            int currentResolutionIndex = 0;
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].width + "x" + resolutions[i].height;
+                options.Add(option);
+
+                if (resolutions[i].width == Screen.width &&
+                    resolutions[i].height == Screen.height) ;
+                {
+                    currentResolutionIndex = 1;
+                }
+            }
+            
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
+
+        }
         public void HostLobby()
         {
             networkManager.StartHost();
@@ -41,17 +70,22 @@ namespace John
        {
            audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
 
-          // masterValueText.text = audioMixer.GetFloat("MasterVolume");
+          
+           masterValueText.text = (volume).ToString("P");
        }
 
        public void SetMusicVolume(float volume)
        {
            audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+           
+           musicValueText.text = (volume).ToString("P");
        }
 
        public void SetEffectsVolume(float volume)
        {
            audioMixer.SetFloat("EffectsVolume", Mathf.Log10(volume) * 20);
+           
+           effectsValueText.text = (volume).ToString("P");
        }
        
        #endregion
@@ -72,6 +106,16 @@ namespace John
            yValue.text = mouseSensY.value.ToString("F");
        }
        
+
+       #endregion
+
+       #region Visual
+
+       public void SetResolution(int resolutionIndex)
+       {
+           Resolution resolution = resolutions[resolutionIndex];
+           Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+       }
 
        #endregion
         public void QuitGame()
