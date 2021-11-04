@@ -598,7 +598,8 @@ MonoBehaviour:
   syncInterval: 0.1
   minX: -70
   maxX: 70
-  sensitivity: 5
+  sensitivityX: 5
+  sensitivityY: 5
   cam: {fileID: 3958192628943884818}
   audio: {fileID: 4072247244111738283}
 --- !u!54 &8855576450285708081
@@ -682,6 +683,7 @@ MonoBehaviour:
   maxEscape: 10
   escapeHUD: {fileID: 1142213832030572105}
   inEscape: 0
+  escapePos: {fileID: 0}
 --- !u!114 &63821015652853478
 MonoBehaviour:
   m_ObjectHideFlags: 0
