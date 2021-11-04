@@ -838,7 +838,6 @@ MonoBehaviour:
   syncInterval: 0.1
   minX: -70
   maxX: 70
-  sensitivity: 5
   cam: {fileID: 724995239923927499}
   audio: {fileID: 2587305127751035229}
 --- !u!114 &-3441648915286256593
