@@ -11,7 +11,8 @@ public class PlayerCameraController : NetworkBehaviour
     public float minX = -70f;
     public float maxX = 70f;
 
-    public float sensitivity;
+     float sensitivityX;
+     float sensitivityY;
     
     public Camera cam;
     public AudioListener audio;
@@ -27,12 +28,14 @@ public class PlayerCameraController : NetworkBehaviour
         enabled = true;
         cam.enabled = true;
         audio.enabled = true;
+        sensitivityX = PlayerPrefs.GetFloat("MouseSensX", 5);
+        sensitivityY = PlayerPrefs.GetFloat("MouseSensY", 5);
     }
 
     void Update()
     {
-        rotY += Input.GetAxis("Mouse X") * sensitivity;
-        rotX += Input.GetAxis("Mouse Y") * sensitivity;
+        rotY += Input.GetAxis("Mouse X") * sensitivityX;
+        rotX += Input.GetAxis("Mouse Y") * sensitivityY;
 
         rotX = Mathf.Clamp(rotX, minX, maxX);
 
