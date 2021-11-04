@@ -24,8 +24,7 @@ public class ThiefStatistics : NetworkBehaviour
     //REFERENCES
     public GameObject exposeHUD;
     public GameObject escapeHUD;
-    public Transform escapePos;
-    public Transform caughtPos;
+    
 
     public override void OnStartAuthority()
     {
@@ -37,9 +36,16 @@ public class ThiefStatistics : NetworkBehaviour
     {
         gm = FindObjectOfType<GameManager>();
     }
+
     private void Update()
-    {}
+    {
+        while (inExpose)
+        {
+            Debug.Log("I am being exposed right now");
+        }
+    }
     //CAPTURE FUNCTION
+
     
     //receive notification of player entering the flashlight of guards
     //set loop for increasing exposure value while constantly checking still in flashlight
@@ -61,7 +67,6 @@ public class ThiefStatistics : NetworkBehaviour
         {
             Debug.Log("Player entered escape zone");
             inEscape = true;
-            StopCoroutine(EscapeCooldown());
             StartCoroutine(Escaping());
         }
     }
@@ -70,17 +75,15 @@ public class ThiefStatistics : NetworkBehaviour
     {
         Debug.Log("Player exited escape zone");
         StopCoroutine(Escaping());
-        StartCoroutine(EscapeCooldown());
-        escapeHUD.SetActive(false);
+        
         inEscape = false;
+        Debug.Log("Time to cool down");
+        StartCoroutine(EscapeCooldown());
     }
-    //
-    // TO DO: ALLOW FOR ESCAPE COOLDOWN RATHER THAN HARD RESET UPON ESCAPE POINT EXIT
-    //
-    
+  
     public IEnumerator Escaping()
     {
-        escapeValue = 1;
+        //escapeValue = 1;
         //show the HUD notification
         escapeHUD.SetActive(true);
         Debug.Log("Player escaping");
@@ -108,15 +111,26 @@ public class ThiefStatistics : NetworkBehaviour
         Debug.Log("unexpected exit");
         yield return null;
     }
-
+    //when the player already has an escape value and steps out of an escape zone
+    //they will begin a cooldown until their escape value is 0
     public IEnumerator EscapeCooldown()
     {
-        if (escapeValue >= _minValue)
-        {
-            escapeValue = escapeValue - escapeReduce;
+        while (!inEscape && escapeValue > _minValue)
+        {   
+            Debug.Log("Cooling down from escape!");
+            escapeValue = escapeValue - escapeReduce; 
+            if (escapeValue < _minValue)
+            {
+                Debug.Log("Escape at 0");
+                escapeHUD.SetActive(false);
+                yield return null;
+                
+            }
+            yield return new WaitForSeconds(.5f);
         }
-        
+
         yield return null;
+
     }
 
 }

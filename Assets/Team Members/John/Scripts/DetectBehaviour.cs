@@ -1,27 +1,52 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
-public class DetectBehaviour : MonoBehaviour
+public class DetectBehaviour : NetworkBehaviour
 {
-    public List<GameObject> inLight;
+    public float radius;
+    [Range(0, 360)] public float angle;
     
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Thief"))
-        {
-            inLight.Add(other.gameObject);  
-        }
-             
-    }
+    public LayerMask thiefLayer;
+    public LayerMask obstructionMask;
 
-    private void OnTriggerExit(Collider other)
+    public void Detect()
     {
-        if (other.gameObject.CompareTag("Thief"))
+        Collider[] inDetection = Physics.OverlapSphere(transform.position, radius, thiefLayer);
+
+        if (inDetection.Length != 0)
         {
-            inLight.Remove(other.gameObject);
+            for (int i = 0; i < inDetection.Length; i++)
+            {
+                Collider thief = inDetection[i];
+                Vector3 directionToThief = (transform.position - thief.transform.position).normalized;
+                float distanceToThief = Vector3.Distance(transform.position, thief.transform.position);
+
+                if (Vector3.Angle(transform.forward, directionToThief) < angle / 2)
+                {
+                    RaycastHit hit;
+
+                    Physics.Raycast(transform.position, directionToThief, out hit, obstructionMask);
+
+                    if (hit.collider == thief)
+                    {
+                        thief.GetComponentInParent<ThiefStatistics>().inExpose = true;
+                    }
+
+                    if (distanceToThief > radius)
+                    {
+                        thief.GetComponentInParent<ThiefStatistics>().inExpose = false;
+                    }
+
+                }
+            }
         }
-        
+    }
+    private void Update()
+    {
+        Detect();
     }
 }

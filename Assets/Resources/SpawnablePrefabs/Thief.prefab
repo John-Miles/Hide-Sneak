@@ -743,8 +743,8 @@ MonoBehaviour:
   exposeReduce: 0
   inExpose: 0
   escapeValue: 0
-  maxEscape: 10
-  escapeReduce: 0
+  maxEscape: 100
+  escapeReduce: 1
   inEscape: 0
   exposeHUD: {fileID: 0}
   escapeHUD: {fileID: 1142213832030572105}
