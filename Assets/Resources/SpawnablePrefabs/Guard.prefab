@@ -663,8 +663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6784d8dca3644a545b147273f25b50cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 9.44
-  maxDistance: 4.81
+  radius: 9
+  angle: 60
+  maxDistance: 4.5
   thiefRef: []
   targetMask:
     serializedVersion: 2

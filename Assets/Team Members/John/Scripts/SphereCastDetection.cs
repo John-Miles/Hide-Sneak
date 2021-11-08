@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEditor;
 using UnityEngine;
 
-public class SphereCastDetection : MonoBehaviour
+public class SphereCastDetection : NetworkBehaviour
 {
     public float radius;
     [Range(0, 360)] public float angle;
@@ -16,6 +17,13 @@ public class SphereCastDetection : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        foreach (var thief in thiefRef)
+        {
+            thief.GetComponent<ThiefStatistics>().inExpose = false;
+           
+        }
+        
+        
         thiefRef.Clear();
         RaycastHit hit;
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
@@ -32,6 +40,10 @@ public class SphereCastDetection : MonoBehaviour
                     obstructionMask))
                 {
                     thiefRef.Add(target.gameObject);
+                    foreach (var thief in thiefRef)
+                    {
+                        thief.GetComponent<ThiefStatistics>().inExpose = true;
+                    }
                     Debug.Log("Found a thief!");
                 }
             }
@@ -41,6 +53,7 @@ public class SphereCastDetection : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.magenta;
         Gizmos.DrawSphere(transform.position,radius);
     }
 }

@@ -20,6 +20,9 @@ public class ThiefStatistics : NetworkBehaviour
     public float maxEscape;
     public float escapeReduce;
     public bool inEscape;
+
+    public bool running1;
+    public bool running2;
     
     //REFERENCES
     public GameObject exposeHUD;
@@ -37,15 +40,71 @@ public class ThiefStatistics : NetworkBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
-    private void Update()
+    
+
+    //CAPTURE FUNCTION
+    public void FixedUpdate()
     {
-        while (inExpose)
+        if (inExpose && !running1)
         {
-            Debug.Log("I am being exposed right now");
+            StopCoroutine(DecreaseExposure());
+            StartCoroutine(IncreaseExposure());
+        }
+        if (!inExpose && !running2)
+        {
+            StopCoroutine(IncreaseExposure());
+            StartCoroutine(DecreaseExposure());
         }
     }
-    //CAPTURE FUNCTION
 
+    public IEnumerator IncreaseExposure()
+    {
+        running1 = true;
+        exposeHUD.SetActive(true);
+        Debug.Log("Player exposed");
+        while (inExpose)
+        {
+            //increase escape value
+            exposeValue++;
+            //if fully escaped
+            if (exposeValue >= maxExpose)
+            {
+                //move the player to spectator spot
+                transform.position = gm.caughtPos.position;
+                //semd player reference to GM for escaped call
+                //gm.CmdEscaped(gameObject);
+                Debug.Log("Player has been caught!");
+                //disable this script and stop escape loop
+                enabled = false;
+                
+                yield return null;
+            } 
+            Debug.Log("More Exposure Needed!");
+            yield return new WaitForSeconds(.5f);
+        }
+        yield return new WaitForSeconds(.5f);
+        running1 = false;
+    }
+
+    public IEnumerator DecreaseExposure()
+    {
+        running2 = true;
+        while (!inExpose && exposeValue > _minValue)
+        {
+            Debug.Log("Cooling down from exposure!");
+            exposeValue = exposeValue - exposeReduce;
+            if (exposeValue < _minValue)
+            {
+                Debug.Log("Expose at 0");
+                exposeHUD.SetActive(false);
+                yield return null;
+
+            }
+
+            yield return new WaitForSeconds(.5f);
+        }
+        running2 = false;
+    }
     
     //receive notification of player entering the flashlight of guards
     //set loop for increasing exposure value while constantly checking still in flashlight
