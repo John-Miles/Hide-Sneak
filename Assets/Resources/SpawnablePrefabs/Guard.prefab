@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 92684939574500369}
   - component: {fileID: 4626960435111278881}
   - component: {fileID: 7175113054696896140}
-  - component: {fileID: 1094295901776916625}
+  - component: {fileID: 4220281428078615973}
   m_Layer: 0
   m_Name: Torch Light
   m_TagString: Untagged
@@ -651,7 +651,7 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &1094295901776916625
+--- !u!114 &4220281428078615973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -660,20 +660,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2031093670711992312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18cb4ee31c51aa419c49caac5d64eb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6784d8dca3644a545b147273f25b50cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  radius: 8.67
-  angle: 59
+  radius: 9.44
+  maxDistance: 4.81
   thiefRef: []
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &2218956675262226222
 GameObject:
   m_ObjectHideFlags: 0

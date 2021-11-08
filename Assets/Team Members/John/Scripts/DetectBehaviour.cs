@@ -40,8 +40,20 @@ public class DetectBehaviour : NetworkBehaviour
                     {
                         thief.GetComponentInParent<ThiefStatistics>().inExpose = false;
                     }
+                    
+                    else if (hit.collider != inDetection[i])
+                    {
+                        thief.GetComponentInParent<ThiefStatistics>().inExpose = false;
+                    }
 
                 }
+                else
+                {
+                    thief.GetComponentInParent<ThiefStatistics>().inExpose = false;
+                }
+
+
+
             }
         }
     }

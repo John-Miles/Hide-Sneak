@@ -63,21 +63,21 @@ public class FieldOfDetection : NetworkBehaviour
                     if (hit.collider == rangeChecks[t])
                     {
                         thiefRef.Add(target.gameObject);
-                        if (!target.GetComponentInParent<ThiefStats>().seen)
+                        if (!target.GetComponentInParent<ThiefStatistics>().inExpose)
                         {
-                            target.GetComponentInParent<ThiefStats>().seen = true;
+                            target.GetComponentInParent<ThiefStatistics>().inExpose = true;
                         }
 
                         else if (distanceToTarget > radius)
                         {
-                            target.GetComponentInParent<ThiefStats>().seen = false;
+                            target.GetComponentInParent<ThiefStatistics>().inExpose = false;
                         }
                         
                     }
 
                     else if (hit.collider != rangeChecks[t])
                     {
-                        target.GetComponentInParent<ThiefStats>().seen = false;
+                        target.GetComponentInParent<ThiefStatistics>().inExpose = false;
                     }
                     
                     
@@ -85,7 +85,7 @@ public class FieldOfDetection : NetworkBehaviour
                 }
                 else
                 {
-                    target.GetComponentInParent<ThiefStats>().seen = false;
+                    target.GetComponentInParent<ThiefStatistics>().inExpose = false;
                 }
             }
         }
