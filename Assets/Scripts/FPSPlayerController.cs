@@ -28,7 +28,8 @@ public class FPSPlayerController : NetworkBehaviour
    public override void OnStartAuthority()
    {
       base.OnStartAuthority();
-      enabled = true;
+      //disabled in order to allow for input blocking in game start
+      //enabled = true;
 
       Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
       Controls.Player.Move.canceled += ctx => ResetMovement();

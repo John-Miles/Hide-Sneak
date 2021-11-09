@@ -65,6 +65,6 @@ MonoBehaviour:
   syncInterval: 0.1
   gameManager: {fileID: 0}
   roundTimer: 0
+  gameLength: 180
   roundText: 
-  UIText: {fileID: 0}
   startCount: 0

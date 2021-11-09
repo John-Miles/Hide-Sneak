@@ -11,14 +11,15 @@ public class Timer : NetworkBehaviour
     public GameManager gameManager;
     [SyncVar] 
     public float roundTimer;
+
+    public float gameLength;
     public string roundText;
     [SyncVar]
     public bool startCount;
     
     public override void OnStartServer()
     {
-        NetworkManagerHnS.OnItemReady += StartRound;
-       
+        base.OnStartServer();
     }
 
     private void Awake()
@@ -28,7 +29,6 @@ public class Timer : NetworkBehaviour
 
     public override void OnStopServer()
     {
-        NetworkManagerHnS.OnItemReady -= StartRound;
         base.OnStopServer();
     }
 
@@ -63,11 +63,11 @@ public class Timer : NetworkBehaviour
     
     
     //start the countdown
-    [Server]
+    [ServerCallback]
     public void StartRound()
     {
         startCount = true;
-        roundTimer = 300.0f;
+        roundTimer = gameLength;
     }
 
    
