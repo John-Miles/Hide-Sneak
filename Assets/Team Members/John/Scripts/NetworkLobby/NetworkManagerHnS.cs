@@ -29,6 +29,9 @@ namespace John
 
         public static event Action OnItemReady;
         
+        [SerializeField] public List<NetworkRoomPlayerHnS> thief = new List<NetworkRoomPlayerHnS>();
+        [SerializeField] public List<NetworkRoomPlayerHnS> guard = new List<NetworkRoomPlayerHnS>();
+        
 
         public List<NetworkRoomPlayerHnS> RoomPlayers { get; } = new List<NetworkRoomPlayerHnS>();
         public List<NetworkGamePlayerHnS> GamePlayers { get; } = new List<NetworkGamePlayerHnS>();
@@ -115,9 +118,27 @@ namespace John
 
         public void NotifyPlayersOfReadyState()
         {
+            for (int i = 0; i < RoomPlayers.Count; i++)
+            {
+                if (RoomPlayers[i].IsThief)
+                {
+                    thief.Add(RoomPlayers[i]);
+                }
+                
+                if(!RoomPlayers[i].IsThief)
+                {
+                    guard.Add(RoomPlayers[i]);
+                }
+            }
+
+           
+            
             foreach (var players in RoomPlayers)
             {
-                players.HandleReadyToStart(IsReadyToStart());
+                
+                
+                    players.HandleReadyToStart(IsReadyToStart());
+                
             }
         }
 
@@ -128,6 +149,8 @@ namespace John
                 return false;
             }
 
+            
+            
             foreach (var player in RoomPlayers)
             {
                 if (!player.IsReady)
@@ -136,7 +159,7 @@ namespace John
                 }
             }
 
-            return true;
+            return (guard.Count >= 1 && thief.Count >= 1);
         }
 
         public void StartGame()

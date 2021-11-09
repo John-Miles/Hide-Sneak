@@ -12,8 +12,13 @@ namespace John
         [Header("Game Options")] [SerializeField]
         private PlayerBase[] characters = default;
 
-        [SerializeField] private TMP_Text[] characterNameText = new TMP_Text[0];
+        [SerializeField] private Image[] playerRoleImage = new Image[0];
         private int currentCharacterIndex = 0;
+
+        public Image myRoleImage;
+        public Sprite thiefIcon;
+        public Sprite guardIcon;
+        public TMP_Text roleTitle;
 
         [Header("UI")] [SerializeField] private GameObject lobbyUI = null;
         [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[0];
@@ -29,6 +34,9 @@ namespace John
         public bool IsThief = false;
 
         public bool isLeader;
+
+        
+            
 
         public bool IsLeader
         {
@@ -80,6 +88,17 @@ namespace John
 
         private void UpdateDisplay()
         {
+            if (IsThief)
+            {
+                myRoleImage.sprite = thiefIcon;
+                roleTitle.text = "Thief";
+            }
+            else
+            {
+                myRoleImage.sprite = guardIcon;
+                roleTitle.text = "Guard";
+            }
+            
             if (!hasAuthority)
             {
                 foreach (var player in Room.RoomPlayers)
@@ -98,8 +117,7 @@ namespace John
             {
                 playerNameTexts[i].text = "Waiting For Player...";
                 playerReadyTexts[i].text = string.Empty;
-                characterNameText[i].text = string.Empty;
-                
+
             }
 
             for (int i = 0; i < Room.RoomPlayers.Count; i++)
@@ -108,11 +126,13 @@ namespace John
                 playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady
                     ? "<color=green>Ready</color>"
                     : "<color=red>Not Ready</color>";
-                characterNameText[i].text = Room.RoomPlayers[i].IsThief
-                    ? "Thief"
-                    : "Guard";
+                playerRoleImage[i].sprite = Room.RoomPlayers[i].IsThief
+                    ? thiefIcon
+                    : guardIcon;
+                
 
             }
+            Room.NotifyPlayersOfReadyState();
         }
 
         public void HandleReadyToStart(bool readyToStart)
@@ -123,20 +143,27 @@ namespace John
             }
 
             startGameButton.interactable = readyToStart;
+               
+            
         }
 
         [Command]
         private void CmdSetDisplayName(string displayName)
         {
             DisplayName = displayName;
+            
         }
 
-        [Command]
+        [Command(requiresAuthority = false)]
         public void CmdReadyUp()
         {
             IsReady = !IsReady;
-
-            Room.NotifyPlayersOfReadyState();
+            foreach (var player in Room.RoomPlayers)
+            {
+                Room.guard.Clear();
+                Room.thief.Clear();
+                UpdateDisplay();
+            }
         }
 
         [Command(requiresAuthority = false)]
@@ -150,22 +177,27 @@ namespace John
             Room.StartGame();
         }
 
-        [Command]
+        [Command(requiresAuthority = false)]
         public void CmdChangeRole()
         {
             RPCDisplay();
+            
         }
 
         [ClientRpc]
         public void RPCDisplay()
         {
             IsThief = !IsThief;
-            UpdateDisplay();
+            foreach (var player in Room.RoomPlayers)
+            {
+                Room.guard.Clear();
+                Room.thief.Clear();
+                UpdateDisplay();
+            }
         }
 
         public void ReturnToMenu()
         {
-            
           NetworkClient.Shutdown();
           FindObjectOfType<MainMenu>().landingPagePanel.SetActive(true);
         }

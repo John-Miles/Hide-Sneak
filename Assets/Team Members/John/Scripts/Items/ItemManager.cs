@@ -13,8 +13,8 @@ public class ItemManager : NetworkBehaviour
    //LISTS
    public static List<Transform> availableSpawns = new List<Transform>();
    public List<John.ItemBase> items;
-   public List<GameObject> collectedItems;
-   public List<GameObject> requiredItems;
+   [SyncVar]public List<GameObject> collectedItems;
+   [SyncVar]public List<GameObject> requiredItems;
    
    //LOCATION FOR STORING COLLECTED ITEMS
    [SerializeField] private Transform collectionPoint;
