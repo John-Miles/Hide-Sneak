@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652094052083596024}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: EscapingHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5037133096319877712}
   - component: {fileID: 3484556030642039586}
   - component: {fileID: 624506835081245423}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2045517458456570518}
   - component: {fileID: 4225590305811188287}
   - component: {fileID: 4416297306879354725}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 4072247244111738283}
   - component: {fileID: 2235668528388749630}
   - component: {fileID: 8697304426615251259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 279219517298775954}
   - component: {fileID: 6096614715219984451}
   - component: {fileID: 4421926182642260433}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7802761405496903224}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: WinEscapeHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 4061945641704114734}
   - component: {fileID: 63821015652853478}
   - component: {fileID: 5429613322129952178}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Thief
   m_TagString: Thief
   m_Icon: {fileID: 0}
@@ -739,11 +739,11 @@ MonoBehaviour:
   syncInterval: 0.1
   gm: {fileID: 0}
   exposeValue: 0
-  maxExpose: 100
+  maxExpose: 15
   exposeReduce: 1
   inExpose: 0
   escapeValue: 0
-  maxEscape: 100
+  maxEscape: 25
   escapeReduce: 1
   inEscape: 0
   running1: 0
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 7854872876095924254}
   - component: {fileID: 1902683366108551320}
   - component: {fileID: 3595047059658669818}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 498686992554531666}
   - component: {fileID: 1899221994936825835}
   - component: {fileID: 6802929841508570289}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,13 +957,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4396412913774223975}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ExposeHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4396412913774223975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 5423717113313817221}
   - component: {fileID: 1708870169968755851}
   - component: {fileID: 8419731631878759307}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1116,7 @@ GameObject:
   - component: {fileID: 5141469700470519918}
   - component: {fileID: 3233794944995584050}
   - component: {fileID: 7673524015247276422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5678141930359457335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2353468691072304107}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoseCaptureHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 2998316223693339808}
   - component: {fileID: 2336288117914908066}
   - component: {fileID: 709753290489388156}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1371,7 @@ GameObject:
   - component: {fileID: 1110796919515441507}
   - component: {fileID: 3115377035364031784}
   - component: {fileID: 270387601211487997}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3058214296790153040}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoseTimeHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3543132684356835026}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: GameplayHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,7 +1579,7 @@ GameObject:
   - component: {fileID: 1952257676363722327}
   - component: {fileID: 7209334812860366782}
   - component: {fileID: 7950112393454444626}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1699,7 +1699,7 @@ GameObject:
   - component: {fileID: 778378000308044035}
   - component: {fileID: 7718427426436841185}
   - component: {fileID: 5845243978033145428}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: 2523475902686352650}
   - component: {fileID: 2040904548850731025}
   - component: {fileID: 3804128465199702457}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 1142809106841119125}
   - component: {fileID: 53696578348109775}
   - component: {fileID: 698642144357255158}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2092,7 +2092,7 @@ GameObject:
   - component: {fileID: 4114770395877735490}
   - component: {fileID: 3361809191820365441}
   - component: {fileID: 1486509058876484902}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2269,6 +2269,10 @@ PrefabInstance:
     - target: {fileID: 3471261839988787647, guid: 3e1765012a4a03047a0f524b964d6bec, type: 3}
       propertyPath: m_Name
       value: Night Vision
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471261839988787647, guid: 3e1765012a4a03047a0f524b964d6bec, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3471261839988787647, guid: 3e1765012a4a03047a0f524b964d6bec, type: 3}
       propertyPath: m_IsActive

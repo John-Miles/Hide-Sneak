@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5085894520930454342}
   - component: {fileID: 3743753327219600629}
   - component: {fileID: 4051966235683091944}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 1953404721054765179}
   - component: {fileID: 533720858687633622}
   - component: {fileID: 5443981214074728592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7992313016263586515}
   - component: {fileID: 8587134157313134757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 2763019562338613769}
   - component: {fileID: 3042597981557013504}
   - component: {fileID: 721801932443651571}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 6541008121699866808}
   - component: {fileID: 6620045096415941968}
   - component: {fileID: 4071153980918850326}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3749335163885494855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,9 +549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92684939574500369}
   - component: {fileID: 4626960435111278881}
-  - component: {fileID: 7175113054696896140}
-  - component: {fileID: 4220281428078615973}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,45 +632,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7175113054696896140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031093670711992312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 
-  hasSpawned: 0
---- !u!114 &4220281428078615973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031093670711992312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6784d8dca3644a545b147273f25b50cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 9
-  angle: 60
-  maxDistance: 4.5
-  thiefRef: []
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &2218956675262226222
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +644,7 @@ GameObject:
   - component: {fileID: 6602832289106757966}
   - component: {fileID: 433702220836418348}
   - component: {fileID: 8066776649976736854}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +782,8 @@ GameObject:
   - component: {fileID: 648716220115771350}
   - component: {fileID: 6329773594890303512}
   - component: {fileID: 5964648647912931687}
-  m_Layer: 0
+  - component: {fileID: 8166968469640284013}
+  m_Layer: 8
   m_Name: Guard
   m_TagString: Guard
   m_Icon: {fileID: 0}
@@ -996,6 +956,32 @@ MonoBehaviour:
   im: {fileID: 0}
   timer: {fileID: 0}
   timerText: {fileID: 6047034619726671841}
+--- !u!114 &8166968469640284013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772658644173662837}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6784d8dca3644a545b147273f25b50cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gm: {fileID: 0}
+  radius: 9
+  angle: 60
+  maxDistance: 4.5
+  thiefRef: []
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 64
+  colliders: []
 --- !u!1 &3627119193862862965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7240707637441061763}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: GameplayHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1043,7 +1029,7 @@ GameObject:
   - component: {fileID: 457785111737185511}
   - component: {fileID: 8053548253433878791}
   - component: {fileID: 6801255915988604063}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1165,7 @@ GameObject:
   - component: {fileID: 2743472393759439521}
   - component: {fileID: 6912546003029705452}
   - component: {fileID: 2940521624785634795}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1294,7 +1280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7465979624110920643}
   - component: {fileID: 2766437486230872788}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1388,7 +1374,7 @@ GameObject:
   - component: {fileID: 7004253057176974836}
   - component: {fileID: 6083635121826982498}
   - component: {fileID: 7690952275650551150}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1523,7 +1509,7 @@ GameObject:
   - component: {fileID: 724995239923927499}
   - component: {fileID: 2587305127751035229}
   - component: {fileID: 3381884132758988449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -1637,7 +1623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6095308476758262085}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: WinTimeHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,7 +1663,7 @@ GameObject:
   - component: {fileID: 4019395642349378742}
   - component: {fileID: 3360267729124752066}
   - component: {fileID: 3595615562884469419}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1797,7 +1783,7 @@ GameObject:
   - component: {fileID: 5996763408658187594}
   - component: {fileID: 6934778557245839433}
   - component: {fileID: 93325420745261071}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1877,7 +1863,7 @@ GameObject:
   - component: {fileID: 4616054051931461918}
   - component: {fileID: 7827569428058802266}
   - component: {fileID: 1310832325668421695}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1995,7 +1981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6334831824050163923}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LoseEscapeHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2034,7 +2020,7 @@ GameObject:
   - component: {fileID: 5518560849816083819}
   - component: {fileID: 5465146287121891595}
   - component: {fileID: 6047034619726671841}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2111,7 +2097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8265821941694703521}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: WinCaptureHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2150,7 +2136,7 @@ GameObject:
   - component: {fileID: 8318743263498382213}
   - component: {fileID: 498434489007293681}
   - component: {fileID: 496435835510063129}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

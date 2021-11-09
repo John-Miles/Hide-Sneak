@@ -7,28 +7,42 @@ using UnityEngine;
 
 public class SphereCastDetection : NetworkBehaviour
 {
+    public GameManager gm;
     public float radius;
     [Range(0, 360)] public float angle;
     public float maxDistance;
     public List<GameObject> thiefRef = new List<GameObject>();
     public LayerMask targetMask;
     public LayerMask obstructionMask;
-    
-    // Update is called once per frame
-    void FixedUpdate()
+
+    public Collider[] colliders;
+
+    public override void OnStartAuthority()
     {
-        foreach (var thief in thiefRef)
-        {
-            thief.GetComponent<ThiefStatistics>().inExpose = false;
-           
-        }
-        
-        
+        base.OnStartAuthority();
+        enabled = true;
+    }
+    
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Detect();
+    }
+    
+    public void Detect()
+    {
+        Debug.Log("Does this work?");
+        gm.CmdExposeRemove();
         thiefRef.Clear();
         RaycastHit hit;
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        colliders = Physics.OverlapSphere(transform.position, radius, targetMask);
 
-        foreach (var target in rangeChecks)
+        foreach (var target in colliders)
         {
             Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
                 
@@ -42,7 +56,7 @@ public class SphereCastDetection : NetworkBehaviour
                     thiefRef.Add(target.gameObject);
                     foreach (var thief in thiefRef)
                     {
-                        thief.GetComponent<ThiefStatistics>().inExpose = true;
+                        gm.CmdExposeUpdate(thief);
                     }
                     Debug.Log("Found a thief!");
                 }

@@ -40,10 +40,22 @@ public class ThiefStatistics : NetworkBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
+    [ClientRpc]
+    public void RpcSetState()
+    {
+        inExpose = true;
+    }
+    
+    [ClientRpc]
+    public void RpcUnSetState()
+    {
+        inExpose = false;
+    }
+    
     
 
     //CAPTURE FUNCTION
-    public void FixedUpdate()
+    public void Update()
     {
         if (inExpose && !running1)
         {
@@ -72,7 +84,7 @@ public class ThiefStatistics : NetworkBehaviour
                 //move the player to spectator spot
                 transform.position = gm.caughtPos.position;
                 //semd player reference to GM for escaped call
-                //gm.CmdEscaped(gameObject);
+                gm.CmdCaught(gameObject);
                 Debug.Log("Player has been caught!");
                 //disable this script and stop escape loop
                 enabled = false;

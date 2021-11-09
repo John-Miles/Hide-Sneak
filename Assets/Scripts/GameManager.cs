@@ -13,6 +13,7 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public List<GameObject> guardsInScene = new List<GameObject>();
     [SyncVar] public List<GameObject> escaped = new List<GameObject>();
     [SyncVar] public List<GameObject> caught = new List<GameObject>();
+    [SyncVar] public List<GameObject> exposed = new List<GameObject>();
 
     public Transform escapePos;
     public Transform caughtPos;
@@ -133,11 +134,18 @@ public class GameManager : NetworkBehaviour
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
     }
-
-    public void CaughtCheck(GameObject thief)
+    
+    [Command(requiresAuthority = false)]
+    public void CmdCaught(GameObject thief)
     {
         //add the thief to caught list
         caught.Add(thief);
+        Debug.Log("adding thief to caught list");
+        thief.transform.Find("UI").Find("Canvas").Find("ExposeHUD").gameObject.SetActive(false);
+        thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+        thief.GetComponent<PickUp>().enabled = false;
+        thief.GetComponent<FPSPlayerController>().enabled = false;
+        
         if (caught.Count == thievesInScene.Count)
         {
             RpcAllCaught();
@@ -157,6 +165,7 @@ public class GameManager : NetworkBehaviour
         {
             var ui = GetComponentInChildren<ThiefUI>();
             thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
+            thief.transform.Find("UI").Find("Canvas").Find("ExposeHUD").gameObject.SetActive(false);
             thief.transform.Find("UI").Find("Canvas").Find("LoseCaptureHUD").gameObject.SetActive(true);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
@@ -170,6 +179,28 @@ public class GameManager : NetworkBehaviour
             guard.transform.Find("UI").Find("Canvas").Find("WinCaptureHUD").gameObject.SetActive(true);
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdExposeUpdate(GameObject thief)
+    {
+        Debug.Log("Requesting the addition");
+        exposed.Add(thief);
+        foreach (GameObject player in exposed)
+        {
+            player.GetComponent<ThiefStatistics>().RpcSetState();
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdExposeRemove()
+    {
+        Debug.Log("Requesting removal of thieves");
+        foreach (var player in exposed)
+        {
+            player.GetComponent<ThiefStatistics>().RpcUnSetState();
+        }
+        exposed.Clear();
     }
 }
 
