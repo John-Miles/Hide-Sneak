@@ -25,7 +25,7 @@ namespace John
 
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsReady = false;
-
+        [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsThief = false;
 
         public bool isLeader;
@@ -99,6 +99,7 @@ namespace John
                 playerNameTexts[i].text = "Waiting For Player...";
                 playerReadyTexts[i].text = string.Empty;
                 characterNameText[i].text = string.Empty;
+                
             }
 
             for (int i = 0; i < Room.RoomPlayers.Count; i++)

@@ -71,28 +71,28 @@ namespace John
             landingPagePanel.SetActive(false);
         }
 
-        #region AUDIO
+        #region Audio
 
         public void SetMasterVolume(float volume)
         {
             audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
 
 
-            masterValueText.text = (volume).ToString("P");
+            masterValueText.text = (volume).ToString("P0");
         }
 
         public void SetMusicVolume(float volume)
         {
             audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
 
-            musicValueText.text = (volume).ToString("P");
+            musicValueText.text = (volume).ToString("P0");
         }
 
         public void SetEffectsVolume(float volume)
         {
             audioMixer.SetFloat("EffectsVolume", Mathf.Log10(volume) * 20);
 
-            effectsValueText.text = (volume).ToString("P");
+            effectsValueText.text = (volume).ToString("P0");
         }
 
         #endregion
