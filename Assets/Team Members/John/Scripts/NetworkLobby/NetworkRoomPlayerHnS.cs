@@ -9,24 +9,27 @@ namespace John
 {
     public class NetworkRoomPlayerHnS : NetworkBehaviour
     {
-        [Header("Game Options")]
-        [SerializeField] private PlayerBase[] characters = default;
+        [Header("Game Options")] [SerializeField]
+        private PlayerBase[] characters = default;
+
         [SerializeField] private TMP_Text[] characterNameText = new TMP_Text[0];
         private int currentCharacterIndex = 0;
-        
-        [Header("UI")] 
-        [SerializeField] private GameObject lobbyUI = null;
+
+        [Header("UI")] [SerializeField] private GameObject lobbyUI = null;
         [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[0];
         [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[0];
         [SerializeField] private Button startGameButton = null;
+
         [SyncVar(hook = nameof(HandleDisplayNameChanged))]
         public string DisplayName = "Loading...";
+
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsReady = false;
 
-        public bool IsThief = false; 
+        public bool IsThief = false;
 
         public bool isLeader;
+
         public bool IsLeader
         {
             set
@@ -38,11 +41,16 @@ namespace John
         }
 
         private NetworkManagerHnS room;
+
         private NetworkManagerHnS Room
         {
             get
             {
-                if (room != null) { return room; }
+                if (room != null)
+                {
+                    return room;
+                }
+
                 return room = NetworkManager.singleton as NetworkManagerHnS;
             }
         }
@@ -50,7 +58,7 @@ namespace John
         public override void OnStartAuthority()
         {
             CmdSetDisplayName(PlayerNameInput.DisplayName);
-            
+
             lobbyUI.SetActive(true);
         }
 
@@ -82,6 +90,7 @@ namespace John
                         break;
                     }
                 }
+
                 return;
             }
 
@@ -95,19 +104,22 @@ namespace John
             for (int i = 0; i < Room.RoomPlayers.Count; i++)
             {
                 playerNameTexts[i].text = Room.RoomPlayers[i].DisplayName;
-                playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady ?
-                    "<color=green>Ready</color>" :
-                    "<color=red>Not Ready</color>";
+                playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady
+                    ? "<color=green>Ready</color>"
+                    : "<color=red>Not Ready</color>";
                 characterNameText[i].text = Room.RoomPlayers[i].IsThief
                     ? "Thief"
                     : "Guard";
-                
+
             }
         }
 
         public void HandleReadyToStart(bool readyToStart)
         {
-            if (!isLeader) { return; }
+            if (!isLeader)
+            {
+                return;
+            }
 
             startGameButton.interactable = readyToStart;
         }
@@ -129,7 +141,10 @@ namespace John
         [Command(requiresAuthority = false)]
         public void CmdStartGame()
         {
-            if (Room.RoomPlayers[0].connectionToClient != connectionToClient) { return; }
+            if (Room.RoomPlayers[0].connectionToClient != connectionToClient)
+            {
+                return;
+            }
 
             Room.StartGame();
         }
@@ -139,11 +154,19 @@ namespace John
         {
             RPCDisplay();
         }
+
         [ClientRpc]
         public void RPCDisplay()
         {
             IsThief = !IsThief;
             UpdateDisplay();
+        }
+
+        public void ReturnToMenu()
+        {
+            
+          NetworkClient.Shutdown();
+          FindObjectOfType<MainMenu>().landingPagePanel.SetActive(true);
         }
     }
 }

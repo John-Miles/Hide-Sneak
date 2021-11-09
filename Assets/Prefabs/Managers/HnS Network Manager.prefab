@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1333187422389400739}
   m_Layer: 0
   m_Name: HnS Network Manager
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,6 @@ MonoBehaviour:
   roomPlayerPrefab: {fileID: 8979763979232467941, guid: c8e57c0088ee445419fbedd115649fda, type: 3}
   gamePlayerPrefab: {fileID: 4685928162683032396, guid: 68806222b84b9c34980f0efcd9541125, type: 3}
   playerSpawnSystem: {fileID: 829482571143350967, guid: 7a64bd71e4077b942a37e5d90b5a33ca, type: 3}
-  itemSpawnSystem: {fileID: 0}
 --- !u!114 &1333187422389400739
 MonoBehaviour:
   m_ObjectHideFlags: 0
