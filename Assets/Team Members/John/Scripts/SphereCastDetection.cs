@@ -39,30 +39,36 @@ public class SphereCastDetection : NetworkBehaviour
         Debug.Log("Does this work?");
         gm.CmdExposeRemove();
         thiefRef.Clear();
-        RaycastHit hit;
-        colliders = Physics.OverlapSphere(transform.position, radius, targetMask);
-
-        foreach (var target in colliders)
+        
+        if (gameObject.GetComponent<FlashLight>().isOn)
         {
-            Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
-                
-            float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+            RaycastHit hit;
+            colliders = Physics.OverlapSphere(transform.position, radius, targetMask);
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            foreach (var target in colliders)
             {
-                if (Physics.SphereCast(transform.position, radius, directionToTarget, out hit, maxDistance,
-                    obstructionMask))
+                Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+                
+                float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+
+                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                 {
-                    thiefRef.Add(target.gameObject);
-                    foreach (var thief in thiefRef)
+                    if (Physics.SphereCast(transform.position, radius, directionToTarget, out hit, maxDistance,
+                        obstructionMask))
                     {
-                        gm.CmdExposeUpdate(thief);
+                        thiefRef.Add(target.gameObject);
+                        foreach (var thief in thiefRef)
+                        {
+                            gm.CmdExposeUpdate(thief);
+                        }
+                        Debug.Log("Found a thief!");
                     }
-                    Debug.Log("Found a thief!");
                 }
-            }
             
+            }
         }
+        
+        
     }
 
     private void OnDrawGizmos()

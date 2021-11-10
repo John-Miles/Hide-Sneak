@@ -169,7 +169,17 @@ namespace John
                 if(!IsReadyToStart()) {return;}
                 
                 ServerChangeScene("Gameplay_Level_1");
+                for (int i = RoomPlayers.Count - 1; i >= 0; i--)
+                {
+                    Loading();
+                }
+                
             }
+        }
+
+        public void Loading()
+        {
+            
         }
 
         public override void ServerChangeScene(string newSceneName)

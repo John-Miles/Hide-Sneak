@@ -25,6 +25,8 @@ namespace John
         [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[0];
         [SerializeField] private Button startGameButton = null;
 
+        [SerializeField] private GameObject loadingScreen;
+
         [SyncVar(hook = nameof(HandleDisplayNameChanged))]
         public string DisplayName = "Loading...";
 
@@ -173,8 +175,15 @@ namespace John
             {
                 return;
             }
-
+            RpcLoad();
             Room.StartGame();
+            
+        }
+
+        [ClientRpc]
+        public void RpcLoad()
+        {
+            loadingScreen.SetActive(true);
         }
 
         [Command(requiresAuthority = false)]
