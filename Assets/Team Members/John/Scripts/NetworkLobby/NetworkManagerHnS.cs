@@ -158,8 +158,8 @@ namespace John
                     return false;
                 }
             }
-
-            return (guard.Count >= 1 && thief.Count >= 1);
+            return true;
+            //return (guard.Count >= 1 && thief.Count >= 1);
         }
 
         public void StartGame()
