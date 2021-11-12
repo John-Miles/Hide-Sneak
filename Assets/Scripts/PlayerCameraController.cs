@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Mirror;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCameraController : NetworkBehaviour
@@ -21,6 +22,8 @@ public class PlayerCameraController : NetworkBehaviour
     [SyncVar]
     float rotX = 0f;
 
+    private bool inGame;
+
     public override void OnStartAuthority()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -30,29 +33,38 @@ public class PlayerCameraController : NetworkBehaviour
         audio.enabled = true;
         sensitivityX = PlayerPrefs.GetFloat("MouseSensX", 5);
         sensitivityY = PlayerPrefs.GetFloat("MouseSensY", 5);
+        inGame = true;
+
+
     }
 
     void Update()
     {
-        rotY += Input.GetAxis("Mouse X") * sensitivityX;
-        rotX += Input.GetAxis("Mouse Y") * sensitivityY;
+        if (inGame)
+        {
+            rotY += Input.GetAxis("Mouse X") * sensitivityX;
+            rotX += Input.GetAxis("Mouse Y") * sensitivityY;
 
-        rotX = Mathf.Clamp(rotX, minX, maxX);
+            rotX = Mathf.Clamp(rotX, minX, maxX);
 
-        transform.localEulerAngles = new Vector3(0, rotY, 0);
-        cam.transform.localEulerAngles = new Vector3(-rotX, 0, 0);
+            transform.localEulerAngles = new Vector3(0, rotY, 0);
+            cam.transform.localEulerAngles = new Vector3(-rotX, 0, 0);
 
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //Mistake happened here 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            inGame = false;
         }
 
-        if (Cursor.visible && Input.GetMouseButtonDown(1))
+        if (Cursor.visible && Input.GetMouseButtonDown(0))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            inGame = true;
         }
     }
 }
