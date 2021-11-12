@@ -11770,6 +11770,10 @@ PrefabInstance:
       propertyPath: menuScene
       value: Assets/Scenes/MainMenu.unity
       objectReference: {fileID: 0}
+    - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
+      propertyPath: minPlayers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1333187422389400741, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
       propertyPath: m_Name
       value: HnS Network Manager

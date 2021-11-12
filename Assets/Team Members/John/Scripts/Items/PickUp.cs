@@ -31,7 +31,7 @@ public class PickUp : NetworkBehaviour
 
     void Client()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             CmdPickUp();
         }

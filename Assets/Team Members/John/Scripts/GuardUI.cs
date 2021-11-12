@@ -45,8 +45,9 @@ public class GuardUI : NetworkBehaviour
     public IEnumerator MissionSet()
     { 
         GetComponent<FPSPlayerController>().enabled = false;
-        yield return new WaitForSeconds(1f);
-        objText.text = "Stop The Thieves From Collecting All " + im.requiredItems.Count + " Items and Escaping! ";
+        objText.text = "";
+        yield return new WaitForSeconds(.5f);
+        objText.text = "Use Your Flashlight To Catch \nThe Thieves Before They Escape! ";
         while (inputDelay > 0)
         {
             countdownText.text = inputDelay.ToString();

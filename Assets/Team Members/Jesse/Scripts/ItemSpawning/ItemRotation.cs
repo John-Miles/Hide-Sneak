@@ -5,8 +5,7 @@ using UnityEngine;
 
 namespace Jesse
 {
-    
-    public class ItemBase : MonoBehaviour
+    public class ItemRotation : MonoBehaviour
     {
         [Tooltip("The speed of the cube rotation.")]
         public float spinSpeed;
@@ -19,6 +18,11 @@ namespace Jesse
 
         Vector3 posOffset = new Vector3();
         Vector3 tempPos = new Vector3();
+        
+        public float spinX;
+        public float spinY;
+        public float spinZ;
+        
 
         // Start is called before the first frame update
         void Start()
@@ -29,12 +33,12 @@ namespace Jesse
         // Update is called once per frame
         void Update()
         {
-            transform.Rotate(spinSpeed, spinSpeed, spinSpeed);
+            transform.Rotate(spinX, spinY, spinZ);
 
             tempPos = posOffset;
             tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * bounceSpeed) * bounceHeight;
                 
-            transform.position = tempPos;
+            //transform.position = tempPos;
         }
     }
 

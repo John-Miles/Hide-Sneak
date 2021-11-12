@@ -339,7 +339,10 @@ GameObject:
   - component: {fileID: 8456759682514616294}
   - component: {fileID: 5193188708689724780}
   - component: {fileID: -1808688500891077851}
-  - component: {fileID: 1910665125393280484}
+  - component: {fileID: 7355434097451415528}
+  - component: {fileID: 3094419587621578009}
+  - component: {fileID: 5350931604336471851}
+  - component: {fileID: 3604913731262990317}
   m_Layer: 0
   m_Name: Trunk
   m_TagString: Item
@@ -405,8 +408,44 @@ MonoBehaviour:
   interpolateRotation: 1
   interpolatePosition: 1
   syncScale: 1
---- !u!65 &1910665125393280484
-BoxCollider:
+--- !u!114 &7355434097451415528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085909497596126556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.2371599, g: 0.9622642, b: 0.05900679, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &3094419587621578009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085909497596126556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49613e10b793a5c42b721c70849356b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 0
+  bounceHeight: 0.3
+  bounceSpeed: 1
+  spinX: 0
+  spinY: 1
+  spinZ: 0
+--- !u!135 &5350931604336471851
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -416,5 +455,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.47, y: 4.98, z: 2.17}
+  m_Radius: 1.89
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &3604913731262990317
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085909497596126556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.02
   m_Center: {x: 0, y: 0, z: 0}

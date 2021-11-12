@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 732568146825156415}
   - component: {fileID: 7651513421989895731}
   - component: {fileID: -7164713077640815840}
-  - component: {fileID: 6553911463549028526}
+  - component: {fileID: 5515916012951947897}
+  - component: {fileID: 8683316016855902260}
+  - component: {fileID: 4445261087978817526}
+  - component: {fileID: 5171592596835797352}
   m_Layer: 0
   m_Name: Silver Case
   m_TagString: Item
@@ -84,8 +87,44 @@ MonoBehaviour:
   interpolateRotation: 1
   interpolatePosition: 1
   syncScale: 1
---- !u!65 &6553911463549028526
-BoxCollider:
+--- !u!114 &5515916012951947897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99442536371178885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.2371599, g: 0.9622642, b: 0.05900679, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &8683316016855902260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99442536371178885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49613e10b793a5c42b721c70849356b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 0
+  bounceHeight: 0.3
+  bounceSpeed: 1
+  spinX: 0
+  spinY: 1
+  spinZ: 0
+--- !u!135 &4445261087978817526
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,8 +134,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.8398438, y: 15.011597, z: 5}
-  m_Center: {x: 0.053098798, y: -1.3892076, z: 0}
+  m_Radius: 3.46
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &5171592596835797352
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99442536371178885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &861873922987933928
 GameObject:
   m_ObjectHideFlags: 0

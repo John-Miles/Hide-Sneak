@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 1469759218276569777}
   - component: {fileID: -7560238479162378420}
   - component: {fileID: -5512040929055894799}
-  - component: {fileID: 5796357978517053899}
+  - component: {fileID: 7860774486668202307}
+  - component: {fileID: 6274929506085190624}
+  - component: {fileID: 7856907257605100192}
+  - component: {fileID: 881398247405656396}
   m_Layer: 0
   m_Name: Small Case
   m_TagString: Item
@@ -26,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246859245495207947}
-  m_LocalRotation: {x: -0.70710707, y: -0, z: -0, w: 0.7071066}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3145, y: 0.3145, z: 0.3145}
   m_Children:
   - {fileID: 2023688579283559401}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!114 &-7560238479162378420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +77,44 @@ MonoBehaviour:
   interpolateRotation: 1
   interpolatePosition: 1
   syncScale: 1
---- !u!65 &5796357978517053899
-BoxCollider:
+--- !u!114 &7860774486668202307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246859245495207947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.2371599, g: 0.9622642, b: 0.05900679, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &6274929506085190624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246859245495207947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49613e10b793a5c42b721c70849356b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 0
+  bounceHeight: 0.3
+  bounceSpeed: 1
+  spinX: 0
+  spinY: 0
+  spinZ: 1
+--- !u!135 &7856907257605100192
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -85,7 +124,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.8, y: 2.86, z: 8.62}
+  m_Radius: 1.77
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &881398247405656396
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246859245495207947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7107728545289875666
 GameObject:

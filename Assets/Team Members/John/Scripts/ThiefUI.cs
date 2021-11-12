@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Mirror;
 using TMPro;
@@ -12,6 +13,7 @@ public class ThiefUI : NetworkBehaviour
     public Text objText;
     public Text timerText;
     public Text countdownText;
+    public Text collectText;
     
     //MISSION MARKERS
    
@@ -36,8 +38,10 @@ public class ThiefUI : NetworkBehaviour
     public IEnumerator MissionSet()
     { 
         GetComponent<FPSPlayerController>().enabled = false;
-        yield return new WaitForSeconds(1f);
-        objText.text = "Collect all " + im.requiredItems.Count + " Items and Escape Before \n the guard catches you! ";
+        objText.text = "";
+        collectText.text = "";
+        yield return new WaitForSeconds(.5f);
+        objText.text = "Sneak Around and Collect All " + im.requiredItems.Count + "\n Items Before The Guards Catch You!";
         while (inputDelay > 0)
         {
             countdownText.text = inputDelay.ToString();
@@ -54,7 +58,7 @@ public class ThiefUI : NetworkBehaviour
 
     public IEnumerator EscapeSet()
     {
-        objText.text = "Get To The Escape Points \n Before The Guard Catches You!";
+        objText.text = "Find A Way Out Before The Guards Find You!";
         yield return new WaitForSeconds(10f);
         objText.text = "";
     }
@@ -74,5 +78,21 @@ public class ThiefUI : NetworkBehaviour
     {
         //updating timer text with the remaining time
         timerText.text = (timer.roundText);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            collectText.text = " Press E to Collect Item";
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            collectText.text = "";
+        }
     }
 }

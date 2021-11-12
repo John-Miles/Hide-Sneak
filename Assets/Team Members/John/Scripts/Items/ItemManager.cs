@@ -66,7 +66,7 @@ public class ItemManager : NetworkBehaviour
          }
 
          GameObject itemInstance = Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,
-            availableSpawns[nextLocation].rotation);
+            items[nextItem].ItemPrefab.transform.rotation);
          NetworkServer.Spawn(itemInstance);
          requiredItems.Add(items[nextItem].ItemPrefab);
          items.RemoveAt(nextItem);
