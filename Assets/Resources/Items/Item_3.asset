@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f46fef211a092344955dc56b62c12d2, type: 3}
-  m_Name: Laptop
+  m_Name: Item_3
   m_EditorClassIdentifier: 
-  name: Laptop
-  ItemPrefab: {fileID: 6848416321495734695, guid: 1a16c8b2d14cba64fab33fbe271c42e5, type: 3}
+  name: Item_3
+  ItemPrefab: {fileID: 2246859245495207947, guid: e8a69dc20dc0395439f787b5be5d29c9, type: 3}

@@ -34,6 +34,8 @@ namespace John
         public void Awake()
         {
             networkManager = FindObjectOfType<NetworkManagerHnS>();
+            mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX");
+            mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY");
         }
 
         void Start()
@@ -53,7 +55,7 @@ namespace John
                 if (resolutions[i].width == Screen.width &&
                     resolutions[i].height == Screen.height) ;
                 {
-                    currentResolutionIndex = 1;
+                    currentResolutionIndex = resolutions.Length;
                 }
             }
 
