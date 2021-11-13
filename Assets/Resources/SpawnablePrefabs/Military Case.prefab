@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 800263920632320838}
   - component: {fileID: 6757138869911604285}
   - component: {fileID: 7233107155132988705}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4548056176543750552}
   - component: {fileID: 5625213937582936196}
   - component: {fileID: 3962074337663929560}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 1593999454524136478}
   - component: {fileID: 7247097878356514390}
   - component: {fileID: 644273382029134959}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 5994172204993876615}
   - component: {fileID: 6000046106278667295}
   - component: {fileID: 2467895637825262947}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 4579489906064494216}
   - component: {fileID: 1738896558101503572}
   - component: {fileID: 83069141016763538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,6 +410,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &371200724853467282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5937479232237343627}
+  m_Layer: 10
+  m_Name: Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5937479232237343627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371200724853467282}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.41933325, y: 0.4193333, z: 0.4193333}
+  m_Children:
+  - {fileID: 2492171134389186531}
+  - {fileID: 5943554741026011870}
+  - {fileID: 6861975701139836923}
+  - {fileID: 99009032185408685}
+  m_Father: {fileID: 1181980272630936713}
+  m_RootOrder: 132
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &597389654382245595
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +455,7 @@ GameObject:
   - component: {fileID: 6535225845817761728}
   - component: {fileID: 3824694163653474322}
   - component: {fileID: 3245620205837529339}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: E4FP0F_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +537,7 @@ GameObject:
   - component: {fileID: 6582244966570294566}
   - component: {fileID: 5006083972729524106}
   - component: {fileID: 5959346631856442125}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +619,7 @@ GameObject:
   - component: {fileID: 4975166698007460297}
   - component: {fileID: 1405858208738551339}
   - component: {fileID: 8148279387500981278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WHBEI0_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +701,7 @@ GameObject:
   - component: {fileID: 7257639445796817760}
   - component: {fileID: 8115220894170483704}
   - component: {fileID: 3059519098596363224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +783,7 @@ GameObject:
   - component: {fileID: 2854369839730040419}
   - component: {fileID: 7025443169023544229}
   - component: {fileID: 7942016369775965886}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +865,7 @@ GameObject:
   - component: {fileID: 5942201820146890670}
   - component: {fileID: 5002069898301188439}
   - component: {fileID: 3299641683323942345}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +947,7 @@ GameObject:
   - component: {fileID: 8883981703727721246}
   - component: {fileID: 1121564222352793935}
   - component: {fileID: 7710944684315639385}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +1029,7 @@ GameObject:
   - component: {fileID: 5759104762857825561}
   - component: {fileID: 923591009115698469}
   - component: {fileID: 7375653677523752382}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1111,7 @@ GameObject:
   - component: {fileID: 6179303212503465444}
   - component: {fileID: 7172114491615674878}
   - component: {fileID: 668449146962072015}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1193,7 @@ GameObject:
   - component: {fileID: 8041936861369877370}
   - component: {fileID: 8450554653611258174}
   - component: {fileID: 4017646711140209988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1275,7 @@ GameObject:
   - component: {fileID: 8740319447613746936}
   - component: {fileID: 5524029351796603113}
   - component: {fileID: 3005895978898288299}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TIUL6A_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1357,7 @@ GameObject:
   - component: {fileID: 6806331906940366809}
   - component: {fileID: 6698457218939598351}
   - component: {fileID: 475219060237273316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,6 +1428,99 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1608201149573385674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99009032185408685}
+  - component: {fileID: 3272114469196609215}
+  m_Layer: 10
+  m_Name: Spot Light (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99009032185408685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608201149573385674}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5937479232237343627}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+--- !u!108 &3272114469196609215
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608201149573385674}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 0
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1680461168878139767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1532,7 @@ GameObject:
   - component: {fileID: 864139041406345790}
   - component: {fileID: 6496289441748812528}
   - component: {fileID: 7883034740243782936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,7 +1614,7 @@ GameObject:
   - component: {fileID: 2659014016038077028}
   - component: {fileID: 6216631599244836190}
   - component: {fileID: 7571529319231647636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PTR37D_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1569,7 +1696,7 @@ GameObject:
   - component: {fileID: 4048989330832758657}
   - component: {fileID: 6453950357139728608}
   - component: {fileID: 6601372720214835495}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: K4IRAC_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1651,7 +1778,7 @@ GameObject:
   - component: {fileID: 713204816334744537}
   - component: {fileID: 8713709313951012805}
   - component: {fileID: 5445186102675843575}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1733,7 +1860,7 @@ GameObject:
   - component: {fileID: 396420717498985047}
   - component: {fileID: 4321681662614406787}
   - component: {fileID: 3321878307132814166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TIUL6A_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1815,7 +1942,7 @@ GameObject:
   - component: {fileID: 6103089937979686902}
   - component: {fileID: 7889320105573190435}
   - component: {fileID: 4115196413314661845}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WHBEI0_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1897,7 +2024,7 @@ GameObject:
   - component: {fileID: 8880785667703077376}
   - component: {fileID: 5727354647305457293}
   - component: {fileID: 8145628987418315545}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1979,7 +2106,7 @@ GameObject:
   - component: {fileID: 5718518592961973034}
   - component: {fileID: 4505199532893546025}
   - component: {fileID: 3811349120921192432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2061,7 +2188,7 @@ GameObject:
   - component: {fileID: 4137655435991996345}
   - component: {fileID: 1828661987369015226}
   - component: {fileID: 162691859440624547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2143,7 +2270,7 @@ GameObject:
   - component: {fileID: 512754815007994554}
   - component: {fileID: 4770537527084110470}
   - component: {fileID: 1785890077445927252}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2225,7 +2352,7 @@ GameObject:
   - component: {fileID: 4711586209891729598}
   - component: {fileID: 7182476501875107990}
   - component: {fileID: 3660966486084487164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2434,7 @@ GameObject:
   - component: {fileID: 1091964779388533493}
   - component: {fileID: 4663616580848198284}
   - component: {fileID: 7053829461569824286}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2389,7 +2516,7 @@ GameObject:
   - component: {fileID: 5397553421255038235}
   - component: {fileID: 4259212690390196668}
   - component: {fileID: 1745436521171384755}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2471,7 +2598,7 @@ GameObject:
   - component: {fileID: 418900733531189414}
   - component: {fileID: 5087317180177030983}
   - component: {fileID: 277922607250734134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2553,7 +2680,7 @@ GameObject:
   - component: {fileID: 6340021320411498530}
   - component: {fileID: 2400330280014315757}
   - component: {fileID: 8352586075540856669}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,7 +2762,7 @@ GameObject:
   - component: {fileID: 4312320984891531034}
   - component: {fileID: 8599057462477829149}
   - component: {fileID: 7026881868398427404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2717,7 +2844,7 @@ GameObject:
   - component: {fileID: 7704523928242694828}
   - component: {fileID: 4114782068964611806}
   - component: {fileID: 1718977920807719725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2799,7 +2926,7 @@ GameObject:
   - component: {fileID: 3588160447517325905}
   - component: {fileID: 7059238373109917147}
   - component: {fileID: 8324358550296597931}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2881,7 +3008,7 @@ GameObject:
   - component: {fileID: 5433310809202989771}
   - component: {fileID: 4227886899605065997}
   - component: {fileID: 6401428472250322983}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2963,7 +3090,7 @@ GameObject:
   - component: {fileID: 9182592423584146918}
   - component: {fileID: 6381163926456232185}
   - component: {fileID: 5761350591645345628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: E4FP0F_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3034,6 +3161,99 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2895834254240610683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6861975701139836923}
+  - component: {fileID: 1430647364040113555}
+  m_Layer: 10
+  m_Name: Spot Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6861975701139836923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895834254240610683}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5937479232237343627}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!108 &1430647364040113555
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895834254240610683}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 0
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &2982775279837770271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,7 +3265,7 @@ GameObject:
   - component: {fileID: 7682562608838022480}
   - component: {fileID: 8290368797784505487}
   - component: {fileID: 173658492766122098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3127,7 +3347,7 @@ GameObject:
   - component: {fileID: 7551840440808952505}
   - component: {fileID: 570689976202199067}
   - component: {fileID: 6696364003471265867}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 7V9EK4_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3209,7 +3429,7 @@ GameObject:
   - component: {fileID: 2872217562469425120}
   - component: {fileID: 2496909017349499176}
   - component: {fileID: 7354767107939556549}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3291,7 +3511,7 @@ GameObject:
   - component: {fileID: 3260723394143600410}
   - component: {fileID: 1818311591113899481}
   - component: {fileID: 3782169712150286399}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3373,7 +3593,7 @@ GameObject:
   - component: {fileID: 3855215958348158972}
   - component: {fileID: 4764134221976314463}
   - component: {fileID: 3257485732535167268}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3455,7 +3675,7 @@ GameObject:
   - component: {fileID: 8146197235897698949}
   - component: {fileID: 8302096341152243127}
   - component: {fileID: 7066928393553675688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3537,7 +3757,7 @@ GameObject:
   - component: {fileID: 2549811872064294337}
   - component: {fileID: 4377829899259248454}
   - component: {fileID: 5361528763541880974}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3619,7 +3839,7 @@ GameObject:
   - component: {fileID: 1125793237757947322}
   - component: {fileID: 6622611342823674467}
   - component: {fileID: 3776116448288541233}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WHBEI0_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3701,7 +3921,7 @@ GameObject:
   - component: {fileID: 7002412758575877569}
   - component: {fileID: 3016467622729570646}
   - component: {fileID: 3802101999227356429}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3783,7 +4003,7 @@ GameObject:
   - component: {fileID: 8928954731637023511}
   - component: {fileID: 6524066102609516060}
   - component: {fileID: 11046592581272310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3865,7 +4085,7 @@ GameObject:
   - component: {fileID: 4909535337919811295}
   - component: {fileID: 527646378348990113}
   - component: {fileID: 3080714664381622668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3947,7 +4167,7 @@ GameObject:
   - component: {fileID: 3181139069888290540}
   - component: {fileID: 2505879761058873664}
   - component: {fileID: 8782517464810795785}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4029,7 +4249,7 @@ GameObject:
   - component: {fileID: 7861629318158110384}
   - component: {fileID: 1962548063446742932}
   - component: {fileID: 8852205703777723081}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4111,7 +4331,7 @@ GameObject:
   - component: {fileID: 8987318444734728767}
   - component: {fileID: 7330284981497763606}
   - component: {fileID: 592313681628068728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 7V9EK4_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4193,7 +4413,7 @@ GameObject:
   - component: {fileID: 8187059483415407611}
   - component: {fileID: 1189395503788700077}
   - component: {fileID: 714486398053851086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ORINOE_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4275,7 +4495,7 @@ GameObject:
   - component: {fileID: 977210138525022699}
   - component: {fileID: 69055178379428759}
   - component: {fileID: 6360511845363909117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4357,7 +4577,7 @@ GameObject:
   - component: {fileID: 4595504184420083526}
   - component: {fileID: 7354606664863860879}
   - component: {fileID: 2897098522701799939}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4439,7 +4659,7 @@ GameObject:
   - component: {fileID: 5281428123767003888}
   - component: {fileID: 1495859723619337235}
   - component: {fileID: 2683482505921921514}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4521,7 +4741,7 @@ GameObject:
   - component: {fileID: 6730470966613634045}
   - component: {fileID: 6262488705905117978}
   - component: {fileID: 2671486286993193448}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4603,7 +4823,7 @@ GameObject:
   - component: {fileID: 2411952445030570458}
   - component: {fileID: 1360242278402740809}
   - component: {fileID: 2903715243170857255}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4685,7 +4905,7 @@ GameObject:
   - component: {fileID: 5694641338382670721}
   - component: {fileID: 43569326729890570}
   - component: {fileID: 2482413798014649252}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4767,7 +4987,7 @@ GameObject:
   - component: {fileID: 5926695825357813433}
   - component: {fileID: 613272546720470535}
   - component: {fileID: 3996891282474082073}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4849,7 +5069,7 @@ GameObject:
   - component: {fileID: 3603000200542758524}
   - component: {fileID: 4743650761183390578}
   - component: {fileID: 7942561426070376407}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 4837IB_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4931,7 +5151,7 @@ GameObject:
   - component: {fileID: 873203098269660892}
   - component: {fileID: 7341709778837613854}
   - component: {fileID: 8517678671292785292}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5013,7 +5233,7 @@ GameObject:
   - component: {fileID: 3373510312258999399}
   - component: {fileID: 5851047010695116364}
   - component: {fileID: 8974630453190392776}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5095,7 +5315,7 @@ GameObject:
   - component: {fileID: 6523916702905552798}
   - component: {fileID: 3687205270834997968}
   - component: {fileID: 716771128898482082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5177,7 +5397,7 @@ GameObject:
   - component: {fileID: 7959492614289856999}
   - component: {fileID: 591553115392761033}
   - component: {fileID: 3721363289199983993}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5259,7 +5479,7 @@ GameObject:
   - component: {fileID: 6394547992720192698}
   - component: {fileID: 8642160889136904824}
   - component: {fileID: 4605994247901192248}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5341,7 +5561,7 @@ GameObject:
   - component: {fileID: 6214544899679737921}
   - component: {fileID: 7373610300968751611}
   - component: {fileID: 5877882154503347995}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PTR37D_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5427,7 +5647,7 @@ GameObject:
   - component: {fileID: 3637780806505178340}
   - component: {fileID: 5075233353173479544}
   - component: {fileID: 5429881009565349100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Military Case
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -5577,6 +5797,7 @@ Transform:
   - {fileID: 6618523519005108794}
   - {fileID: 1703816437220144561}
   - {fileID: 1864130719608129607}
+  - {fileID: 5937479232237343627}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -5693,7 +5914,7 @@ GameObject:
   - component: {fileID: 1047242806102874561}
   - component: {fileID: 1064682152122456849}
   - component: {fileID: 4929860229842560197}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5775,7 +5996,7 @@ GameObject:
   - component: {fileID: 3287790588179097230}
   - component: {fileID: 2776879781281921392}
   - component: {fileID: 981884326484925040}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5857,7 +6078,7 @@ GameObject:
   - component: {fileID: 3422448962355866699}
   - component: {fileID: 3569880261233019236}
   - component: {fileID: 4020147718341696371}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WK9HWZ_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5939,7 +6160,7 @@ GameObject:
   - component: {fileID: 6092672839579828692}
   - component: {fileID: 120983951956900249}
   - component: {fileID: 5454742576398239328}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6021,7 +6242,7 @@ GameObject:
   - component: {fileID: 7431470220311183846}
   - component: {fileID: 3899620905411391177}
   - component: {fileID: 8187361643964924504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6103,7 +6324,7 @@ GameObject:
   - component: {fileID: 946374079747355507}
   - component: {fileID: 53955002643531546}
   - component: {fileID: 385572983556246143}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ORINOE_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6185,7 +6406,7 @@ GameObject:
   - component: {fileID: 1253748494940555141}
   - component: {fileID: 6124414603137817795}
   - component: {fileID: 2064443036679100606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 4837IB_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6267,7 +6488,7 @@ GameObject:
   - component: {fileID: 2879178980328599719}
   - component: {fileID: 2392391840561004312}
   - component: {fileID: 583468874353810119}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6338,6 +6559,99 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5244415441810019842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5943554741026011870}
+  - component: {fileID: 432833155351213426}
+  m_Layer: 10
+  m_Name: Spot Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5943554741026011870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244415441810019842}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5937479232237343627}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+--- !u!108 &432833155351213426
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244415441810019842}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 0
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &5307266032214590472
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,7 +6663,7 @@ GameObject:
   - component: {fileID: 7845699503693064686}
   - component: {fileID: 4547985848118336359}
   - component: {fileID: 8384480392999061014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ORINOE_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6431,7 +6745,7 @@ GameObject:
   - component: {fileID: 3746443511834773590}
   - component: {fileID: 4924612578493330599}
   - component: {fileID: 9099932285499926206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6513,7 +6827,7 @@ GameObject:
   - component: {fileID: 5038697957291394932}
   - component: {fileID: 7476708809461997515}
   - component: {fileID: 3967346832870794383}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 7V9EK4_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6595,7 +6909,7 @@ GameObject:
   - component: {fileID: 3664202064667073399}
   - component: {fileID: 3837475703257805897}
   - component: {fileID: 8978612721581339824}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 7V9EK4_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6677,7 +6991,7 @@ GameObject:
   - component: {fileID: 3513474967890788806}
   - component: {fileID: 1197057808939573270}
   - component: {fileID: 8055819217229738782}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: E4FP0F_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6759,7 +7073,7 @@ GameObject:
   - component: {fileID: 6228829540466674936}
   - component: {fileID: 8212511481310161710}
   - component: {fileID: 8693083885787047267}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6841,7 +7155,7 @@ GameObject:
   - component: {fileID: 6721911451196264483}
   - component: {fileID: 7916608852823633305}
   - component: {fileID: 2818754583267720110}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6923,7 +7237,7 @@ GameObject:
   - component: {fileID: 4877654609678336141}
   - component: {fileID: 2732841409392212124}
   - component: {fileID: 8164887690541640928}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 6FXAX0_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7005,7 +7319,7 @@ GameObject:
   - component: {fileID: 5709635251169775248}
   - component: {fileID: 4066022642806671799}
   - component: {fileID: 8221754256807829920}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7087,7 +7401,7 @@ GameObject:
   - component: {fileID: 8870525808365771464}
   - component: {fileID: 7851119010390800142}
   - component: {fileID: 7014560699270016762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7169,7 +7483,7 @@ GameObject:
   - component: {fileID: 7703992853353696575}
   - component: {fileID: 9103599985333259051}
   - component: {fileID: 885447623974655961}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ORINOE_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7251,7 +7565,7 @@ GameObject:
   - component: {fileID: 1000499959595611167}
   - component: {fileID: 6902805896326909881}
   - component: {fileID: 7905916592401355072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7333,7 +7647,7 @@ GameObject:
   - component: {fileID: 7458349748747788519}
   - component: {fileID: 8212291085710821277}
   - component: {fileID: 2869720689820489989}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7415,7 +7729,7 @@ GameObject:
   - component: {fileID: 7215553757086834385}
   - component: {fileID: 3149582069668775329}
   - component: {fileID: 9203263091158048965}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7497,7 +7811,7 @@ GameObject:
   - component: {fileID: 7898113890286923442}
   - component: {fileID: 6214721732024182814}
   - component: {fileID: 6582332154709898604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7579,7 +7893,7 @@ GameObject:
   - component: {fileID: 6965971201871261271}
   - component: {fileID: 6274154169744076100}
   - component: {fileID: 6593597335801296944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7661,7 +7975,7 @@ GameObject:
   - component: {fileID: 7318543677227014385}
   - component: {fileID: 9171071963281923608}
   - component: {fileID: 5032996115251447156}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7743,7 +8057,7 @@ GameObject:
   - component: {fileID: 8383227069724155284}
   - component: {fileID: 23991693212900412}
   - component: {fileID: 9006968464344913362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 6FXAX0_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7825,7 +8139,7 @@ GameObject:
   - component: {fileID: 6372067353759474041}
   - component: {fileID: 5526518295148236391}
   - component: {fileID: 5442506904746576096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7907,7 +8221,7 @@ GameObject:
   - component: {fileID: 8303811856237874150}
   - component: {fileID: 7551182842511681929}
   - component: {fileID: 3082454933278667471}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7989,7 +8303,7 @@ GameObject:
   - component: {fileID: 1873809176488305271}
   - component: {fileID: 8455593300192499365}
   - component: {fileID: 6551506936028211290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8071,7 +8385,7 @@ GameObject:
   - component: {fileID: 3161579137529746378}
   - component: {fileID: 3558460448872525068}
   - component: {fileID: 8549617135094394548}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8153,7 +8467,7 @@ GameObject:
   - component: {fileID: 1641664159053394099}
   - component: {fileID: 1784907235762321263}
   - component: {fileID: 6049154786005201829}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8235,7 +8549,7 @@ GameObject:
   - component: {fileID: 8045705101296286460}
   - component: {fileID: 1024693665995932277}
   - component: {fileID: 3257777765954047220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WK9HWZ_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8317,7 +8631,7 @@ GameObject:
   - component: {fileID: 3509813182860134247}
   - component: {fileID: 8658146301634053830}
   - component: {fileID: 8677013904932394434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8399,7 +8713,7 @@ GameObject:
   - component: {fileID: 2968679358529396453}
   - component: {fileID: 4338689090914629633}
   - component: {fileID: 3983057995834747335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8481,7 +8795,7 @@ GameObject:
   - component: {fileID: 8291914275755397203}
   - component: {fileID: 161262375225808168}
   - component: {fileID: 960491401671157284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: K4IRAC_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8563,7 +8877,7 @@ GameObject:
   - component: {fileID: 5718252953546964678}
   - component: {fileID: 1026492013356599340}
   - component: {fileID: 4815789764884004203}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8645,7 +8959,7 @@ GameObject:
   - component: {fileID: 8247822745693358623}
   - component: {fileID: 4949697221320562945}
   - component: {fileID: 7969265462268643469}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8727,7 +9041,7 @@ GameObject:
   - component: {fileID: 3032364086538276237}
   - component: {fileID: 5869138139322246907}
   - component: {fileID: 390968753494980194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8798,6 +9112,99 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7059791236925741228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2492171134389186531}
+  - component: {fileID: 8843358758355392172}
+  m_Layer: 10
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2492171134389186531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059791236925741228}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5937479232237343627}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &8843358758355392172
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059791236925741228}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 0
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &7062185852440010953
 GameObject:
   m_ObjectHideFlags: 0
@@ -8809,7 +9216,7 @@ GameObject:
   - component: {fileID: 7265048115787410244}
   - component: {fileID: 7473046889371751836}
   - component: {fileID: 6984946667467867230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8891,7 +9298,7 @@ GameObject:
   - component: {fileID: 1864130719608129607}
   - component: {fileID: 1690934078237838222}
   - component: {fileID: 2480445272242790066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8973,7 +9380,7 @@ GameObject:
   - component: {fileID: 1703816437220144561}
   - component: {fileID: 2177546341432081071}
   - component: {fileID: 1268687669517708826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9055,7 +9462,7 @@ GameObject:
   - component: {fileID: 7798666808131831737}
   - component: {fileID: 2032189556610116011}
   - component: {fileID: 8488444651279841435}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9137,7 +9544,7 @@ GameObject:
   - component: {fileID: 687535588149712419}
   - component: {fileID: 7253950251390994590}
   - component: {fileID: 2976254567898115395}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9219,7 +9626,7 @@ GameObject:
   - component: {fileID: 2154464560399195035}
   - component: {fileID: 3397390926266222845}
   - component: {fileID: 755657337634064003}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9301,7 +9708,7 @@ GameObject:
   - component: {fileID: 742842985279271781}
   - component: {fileID: 5867520681883756247}
   - component: {fileID: 4777933497148252998}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DTBXRV_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9383,7 +9790,7 @@ GameObject:
   - component: {fileID: 7515611310058529145}
   - component: {fileID: 3224850852122817904}
   - component: {fileID: 6763829524142484464}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9465,7 +9872,7 @@ GameObject:
   - component: {fileID: 3083774240211026579}
   - component: {fileID: 4183934745912092216}
   - component: {fileID: 8965889702366413654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9547,7 +9954,7 @@ GameObject:
   - component: {fileID: 4748447962957168964}
   - component: {fileID: 4700123180864515603}
   - component: {fileID: 580413217303986105}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9629,7 +10036,7 @@ GameObject:
   - component: {fileID: 894893586878252701}
   - component: {fileID: 1142972527324398950}
   - component: {fileID: 1004857124325954593}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9711,7 +10118,7 @@ GameObject:
   - component: {fileID: 2205259829788507747}
   - component: {fileID: 1328348803626383132}
   - component: {fileID: 768924406471544303}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9793,7 +10200,7 @@ GameObject:
   - component: {fileID: 7234994531375560906}
   - component: {fileID: 8386470876034129034}
   - component: {fileID: 1754501013933478087}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9875,7 +10282,7 @@ GameObject:
   - component: {fileID: 342363550338822152}
   - component: {fileID: 8680884784705254186}
   - component: {fileID: 4781394444450960505}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9957,7 +10364,7 @@ GameObject:
   - component: {fileID: 3902112094426548989}
   - component: {fileID: 4657785422305699181}
   - component: {fileID: 4979364097156215662}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10039,7 +10446,7 @@ GameObject:
   - component: {fileID: 6618523519005108794}
   - component: {fileID: 8982669968402978918}
   - component: {fileID: 7426818547928226559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10121,7 +10528,7 @@ GameObject:
   - component: {fileID: 1065578400939126718}
   - component: {fileID: 9085165483311438886}
   - component: {fileID: 6895795323068316291}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: H9T7JC_low.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10203,7 +10610,7 @@ GameObject:
   - component: {fileID: 2189322322188657048}
   - component: {fileID: 6156804380090330535}
   - component: {fileID: 8607918613141364646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10285,7 +10692,7 @@ GameObject:
   - component: {fileID: 8503528195423340295}
   - component: {fileID: 4589304676864841366}
   - component: {fileID: 1420348069574898220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: E4FP0F_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10367,7 +10774,7 @@ GameObject:
   - component: {fileID: 4485707182152827191}
   - component: {fileID: 2873479360547931750}
   - component: {fileID: 5681271911534093406}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 04KE7Y_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10449,7 +10856,7 @@ GameObject:
   - component: {fileID: 2357757138329526864}
   - component: {fileID: 4895119864698589051}
   - component: {fileID: 1577186869352309115}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10531,7 +10938,7 @@ GameObject:
   - component: {fileID: 1067322569620114514}
   - component: {fileID: 8711122263023905260}
   - component: {fileID: 6145622632236027184}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10613,7 +11020,7 @@ GameObject:
   - component: {fileID: 170640580300997306}
   - component: {fileID: 5774702863129478028}
   - component: {fileID: 1259373613647760840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10695,7 +11102,7 @@ GameObject:
   - component: {fileID: 851597473073541163}
   - component: {fileID: 4514344025055629359}
   - component: {fileID: 6920231228843056537}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XUDRHY_low.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10777,7 +11184,7 @@ GameObject:
   - component: {fileID: 6240411686019791037}
   - component: {fileID: 6865104928530913618}
   - component: {fileID: 7776358835902612733}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WHBEI0_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10859,7 +11266,7 @@ GameObject:
   - component: {fileID: 3355517022052703604}
   - component: {fileID: 2042727730608885311}
   - component: {fileID: 1354077306507310604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HJP1PN_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10941,7 +11348,7 @@ GameObject:
   - component: {fileID: 9144309488343912990}
   - component: {fileID: 6114992219175658164}
   - component: {fileID: 862206289439284952}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OFL5W2_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11023,7 +11430,7 @@ GameObject:
   - component: {fileID: 6486437054348408290}
   - component: {fileID: 7623690233494126051}
   - component: {fileID: 3095716581802494002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZXOWVD_low.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

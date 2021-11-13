@@ -542,7 +542,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!1 &2413265800000037455
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +870,7 @@ MonoBehaviour:
   minX: -70
   maxX: 70
   cam: {fileID: 6502820942084470504}
+  active: 0
 --- !u!114 &-3441648915286256593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +992,7 @@ MonoBehaviour:
   itemText: {fileID: 3036215672874378489}
   winResultText: {fileID: 1472172409427858633}
   defeatResultText: {fileID: 8549678398370489779}
+  countdownRunning: 0
 --- !u!114 &8166968469640284013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,7 +1232,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -14}
-  m_SizeDelta: {x: 300, y: 600}
+  m_SizeDelta: {x: 325, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8047628148618106873
 CanvasRenderer:
@@ -1260,7 +1262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0b32862bd35db4418596533460ed427, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05184e86eabc8474c9b3477a95392f71, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1282,7 +1284,7 @@ GameObject:
   - component: {fileID: 6919205455605628826}
   - component: {fileID: 7430212229723086676}
   m_Layer: 7
-  m_Name: VictoryTitle
+  m_Name: DefeatTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1767,7 +1769,7 @@ GameObject:
   - component: {fileID: 6968403492515524389}
   - component: {fileID: 1201205332385993802}
   m_Layer: 7
-  m_Name: Thief Icon
+  m_Name: Guard Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1820,7 +1822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0b32862bd35db4418596533460ed427, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05184e86eabc8474c9b3477a95392f71, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2465,7 +2467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Waiting For Other Players...
 --- !u!1 &9042118890172749089
 GameObject:
   m_ObjectHideFlags: 0
