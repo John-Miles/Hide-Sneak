@@ -864,6 +864,7 @@ GameObject:
   - component: {fileID: -5946055795507345542}
   - component: {fileID: 4061945641704114734}
   - component: {fileID: 63821015652853478}
+  - component: {fileID: 2598720816379252708}
   m_Layer: 7
   m_Name: Thief
   m_TagString: Thief
@@ -903,7 +904,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   movementSpeed: 5
-  rb: {fileID: 0}
+  rb: {fileID: 2598720816379252708}
   canMove: 0
 --- !u!114 &3869281023958277503
 MonoBehaviour:
@@ -1085,6 +1086,22 @@ MonoBehaviour:
   syncInterval: 0.1
   torch: {fileID: 8353283192528408241}
   TorchOn: 1
+--- !u!54 &2598720816379252708
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523887137025795736}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &2527673017420975017
 GameObject:
   m_ObjectHideFlags: 0

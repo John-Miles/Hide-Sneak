@@ -14,7 +14,7 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public List<GameObject> escaped = new List<GameObject>();
     [SyncVar] public List<GameObject> caught = new List<GameObject>();
     [SyncVar] public List<GameObject> exposed = new List<GameObject>();
-    [SyncVar] public List<GameObject> players = new List<GameObject>();
+    [SyncVar] public List<GameObject> activePlayers = new List<GameObject>();
 
     [Header("Game Over Description Texts")]
     [Tooltip("Description text for when a thief loses by a time out")]
@@ -44,12 +44,27 @@ public class GameManager : NetworkBehaviour
     public void Awake()
     {
         NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
-        John.NetworkGamePlayerHnS[] player = FindObjectsOfType<NetworkGamePlayerHnS>();
-        foreach (var players in player)
-        {
-            this.players.Add(players.gameObject);
-        }
     }
+
+    [Command(requiresAuthority = false)]
+    public void CmdRefreshList()
+    {
+        RpcPlayerListUpdate();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdAddToActive(GameObject player)
+    {
+        RpcAddToActive(player);
+    }
+
+    [ClientRpc]
+    public void RpcAddToActive(GameObject player)
+    {
+        activePlayers.Remove(player);
+        activePlayers.Add(player);
+    }
+    
     
     [ClientRpc]
     public void RpcPlayerListUpdate()
@@ -59,24 +74,46 @@ public class GameManager : NetworkBehaviour
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
         {
             thievesInScene.Add(o);
-            StartCoroutine(o.GetComponent<ThiefUI>().MissionSet());
+            
+            
+            
         }
 
         foreach (GameObject a in GameObject.FindGameObjectsWithTag("Guard"))
         {
             guardsInScene.Add(a);
-            StartCoroutine(a.GetComponent<GuardUI>().MissionSet());
+            
+            
         }
-        if (thievesInScene.Count + guardsInScene.Count == players.Count)
+
+        CmdUpdatePlayerListAndCheck();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdUpdatePlayerListAndCheck()
+    {
+        RpcCheckPlayersReady();
+    }
+
+    [ClientRpc]
+    public void RpcCheckPlayersReady()
+    {
+        Debug.Log("Checking if players are active");
+        if (thievesInScene.Count + guardsInScene.Count == activePlayers.Count)
         {
-            foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
+            foreach (GameObject o in thievesInScene)
             {
-                StartCoroutine(o.GetComponent<ThiefUI>().MissionSet());
+                o.GetComponent<ThiefUI>().CheckStart();
             }
-            foreach (GameObject a in GameObject.FindGameObjectsWithTag("Guard"))
+            foreach (GameObject a in guardsInScene)
             {
                 StartCoroutine(a.GetComponent<GuardUI>().MissionSet());
             } 
+        }
+        else
+        {
+            Debug.Log("Still waiting on players to be ready");
+            return;
         }
     }
     

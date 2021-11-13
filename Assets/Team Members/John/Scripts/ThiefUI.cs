@@ -35,6 +35,8 @@ public class ThiefUI : NetworkBehaviour
     ItemManager im;
     ThiefStatistics _stats;
     [SerializeField] private FPSPlayerController controls;
+
+    public bool countdownRunning = false;
    
     public override void OnStartAuthority()
     {
@@ -61,8 +63,17 @@ public class ThiefUI : NetworkBehaviour
         detectSlider.value = _stats.detectValue;
         escapeSlider.value = _stats.escapeValue;
     }
+
+    public void CheckStart()
+    {
+        if (!countdownRunning)
+        {
+            StartCoroutine(MissionSet());
+        }
+    }
     public IEnumerator MissionSet()
-    { 
+    {
+        countdownRunning = true;
         objText.text = "";
         collectText.text = "";
         yield return new WaitForSeconds(.5f);

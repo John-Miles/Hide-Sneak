@@ -21,8 +21,9 @@ public class PlayerCameraController : NetworkBehaviour
     float rotY = 0f;
     [SyncVar]
     float rotX = 0f;
-
+    GameManager gm;
     private bool inGame;
+    public bool active = false;
 
     public override void OnStartAuthority()
     {
@@ -35,6 +36,30 @@ public class PlayerCameraController : NetworkBehaviour
         inGame = true;
     }
 
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+        
+    }
+
+    private void Start()
+    {
+        CmdRepeatActiveCheck();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdRepeatActiveCheck()
+    {
+        RpcRequestActiveCheck();
+    }
+    [ClientRpc]
+    public void RpcRequestActiveCheck()
+    {
+        gm.CmdRefreshList();
+        gm.CmdAddToActive(gameObject);
+        gm.CmdUpdatePlayerListAndCheck();
+        
+    }
     void Update()
     {
         if (inGame)

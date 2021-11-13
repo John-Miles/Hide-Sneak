@@ -3967,7 +3967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: localhost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
   m_sharedMaterial: {fileID: 922034840434456484, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
@@ -6626,7 +6626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Enter IP Address...'
+  m_text: Enter IP Address...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
   m_sharedMaterial: {fileID: 922034840434456484, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
