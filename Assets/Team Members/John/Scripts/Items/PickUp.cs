@@ -58,17 +58,7 @@ public class PickUp : NetworkBehaviour
             }
         }
     }
-   // 
-   // [ClientRpc]
-   // void RpcItemHit(RaycastHit hit)
-   // {
-   //     Debug.Log( hit.collider.gameObject.name + " has been collected!");
-   //     var item = hit.collider.gameObject;
-   //     im.ItemUpdate(item);
-   //     im.ItemRemove(item);
-   // }
-   //
-    private void OnDrawGizmos()
+      private void OnDrawGizmos()
     {
         Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward)  * range);
     }

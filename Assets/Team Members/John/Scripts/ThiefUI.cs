@@ -8,25 +8,33 @@ using UnityEngine.UI;
 
 public class ThiefUI : NetworkBehaviour
 {
-    //TEXT VAARIABLES
+    [Header("In Game HUD")]
+    public GameObject GameplayHUD;
+    public GameObject VictoryHUD;
+    public GameObject DefeatHUD;
+    //public GameObject WaitingHUD;
+    [Header("Sliders")]
+    public Slider detectSlider;
+    public Slider escapeSlider;
+    [Header("Texts")]
     public GameObject UI;
     public Text objText;
     public Text timerText;
     public Text countdownText;
     public Text collectText;
+    public Text itemText;
+    public TMP_Text winResultText;
+    public TMP_Text defeatResultText;
+    //public TMP_Text waitingText;
     
-    //MISSION MARKERS
-   
-    
-    //SLIDER VARIABLES
-    public int inputDelay;
-    public float escapeValue;
-    public float exposeValue;
+    int inputDelay;
     
     //MANAGERS
     GameManager gm;
     Timer timer;
     ItemManager im;
+    ThiefStatistics _stats;
+    [SerializeField] private FPSPlayerController controls;
    
     public override void OnStartAuthority()
     {
@@ -34,10 +42,27 @@ public class ThiefUI : NetworkBehaviour
         enabled = true;
         UI.SetActive(true);
     }
-
+    private void Awake()
+    {
+        //collecting reference to managers in the scene
+        gm = FindObjectOfType<GameManager>();
+        timer = FindObjectOfType<Timer>();
+        im = FindObjectOfType<ItemManager>();
+        _stats = GetComponent<ThiefStatistics>();
+        inputDelay = gm.preMatchCountdown;
+        escapeSlider.maxValue = _stats.maxEscape;
+        detectSlider.maxValue = _stats.maxDetect;
+        
+    }
+    void Update()
+    {
+        //updating timer text with the remaining time
+        timerText.text = (timer.roundText);
+        detectSlider.value = _stats.detectValue;
+        escapeSlider.value = _stats.escapeValue;
+    }
     public IEnumerator MissionSet()
     { 
-        GetComponent<FPSPlayerController>().enabled = false;
         objText.text = "";
         collectText.text = "";
         yield return new WaitForSeconds(.5f);
@@ -48,9 +73,9 @@ public class ThiefUI : NetworkBehaviour
             yield return new WaitForSeconds(1f);
             inputDelay--;
         }
-        GetComponent<FPSPlayerController>().enabled = true;
+        GetComponent<FPSPlayerController>().canMove = true;
         countdownText.text = "GO!";
-        timer.StartRound();
+        timer.CmdStartRound();
         objText.text = "";
         yield return new WaitForSeconds(2f);
         countdownText.text = "";
@@ -62,24 +87,6 @@ public class ThiefUI : NetworkBehaviour
         yield return new WaitForSeconds(10f);
         objText.text = "";
     }
-    
-
-    private void Awake()
-    {
-        //collecting reference to managers in the scene
-        gm = FindObjectOfType<GameManager>();
-        timer = FindObjectOfType<Timer>();
-        im = FindObjectOfType<ItemManager>();
-        StartCoroutine(MissionSet());
-    }
-
-  
-    void Update()
-    {
-        //updating timer text with the remaining time
-        timerText.text = (timer.roundText);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))
@@ -95,4 +102,73 @@ public class ThiefUI : NetworkBehaviour
             collectText.text = "";
         }
     }
+
+    public void ItemUpdate(int collected, int required)
+    {
+        itemText.text = "Items: " + collected + " / " + required;
+    }
+
+    public void HideGameHUD()
+    {
+        GameplayHUD.SetActive(false);
+    }
+
+    public void ShowEscape()
+    {
+        escapeSlider.gameObject.SetActive(true);
+    }
+
+    public void ShowDetect()
+    {
+        detectSlider.gameObject.SetActive(true);
+    }
+
+    public void HideDetect()
+    {
+        detectSlider.gameObject.SetActive(false);
+    }
+
+    public void HideEscape()
+    {
+        escapeSlider.gameObject.SetActive(false);
+    }
+
+    public void WaitingEscaped(string description)
+    {
+        objText.text = description;
+
+    }
+
+    public void WaitingCaught(string description)
+    {
+        objText.text = description;
+        
+    }
+
+    public IEnumerator OtherCaught()
+    {
+        objText.text = "The Guards Found A Thief! Escape While You Still Can!";
+        yield return new WaitForSeconds(5f);
+        objText.text = "";
+    }
+    
+    public IEnumerator OtherEscaped()
+    {
+        objText.text = "Your Team Has Started Escaping! Get Out Before You Get Caught!";
+        yield return new WaitForSeconds(5f);
+        objText.text = "";
+    }
+
+    public void Loss(string description)
+    {
+        DefeatHUD.SetActive(true);
+        defeatResultText.text = description;
+    }
+
+    public void Win(string description)
+    {
+        VictoryHUD.SetActive(true);
+        winResultText.text = description;
+    }
+    
 }

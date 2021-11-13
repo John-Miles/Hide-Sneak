@@ -11724,6 +11724,10 @@ PrefabInstance:
       propertyPath: escapePoints
       value: 
       objectReference: {fileID: 1110234384}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: preMatchCountdown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4623496250144604205, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
       propertyPath: sceneId
       value: 1174310243
@@ -16369,7 +16373,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673677649}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a1bebc23afce00b4db6f9d545cb5dc52, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

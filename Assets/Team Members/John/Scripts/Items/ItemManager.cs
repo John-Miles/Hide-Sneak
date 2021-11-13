@@ -72,6 +72,16 @@ public class ItemManager : NetworkBehaviour
          items.RemoveAt(nextItem);
          availableSpawns.RemoveAt(nextLocation);
       }
+      RpcSetItemTracker();
+   }
+
+   [ClientRpc] public void RpcSetItemTracker()
+   {
+      foreach (var thief in gm.thievesInScene)
+      {
+         thief.GetComponent<ThiefUI>().ItemUpdate(collectedItems.Count,requiredItems.Count);
+      }
+
    }
    
    [ClientRpc]
@@ -80,12 +90,26 @@ public class ItemManager : NetworkBehaviour
       Debug.Log(item.name);
       collectedItems.Add(item.gameObject);
       ItemRemove(item.gameObject);
-      //check if the list of collected items matches the required items
-      //if true, enable escape
+      foreach (var thief in gm.thievesInScene)
+      {
+         thief.GetComponent<ThiefUI>().ItemUpdate(collectedItems.Count,requiredItems.Count);
+      }
       if (collectedItems.Count == requiredItems.Count)
       {
          CmdAllowEscape();
       }
+      else
+      {
+         foreach (var guard in gm.guardsInScene)
+         {
+            StartCoroutine(guard.GetComponent<GuardUI>().ItemUpdate(collectedItems.Count));
+         }
+      }
+      
+      
+      //check if the list of collected items matches the required items
+      //if true, enable escape
+      
       
    }
    

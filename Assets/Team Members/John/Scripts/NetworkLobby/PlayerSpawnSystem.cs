@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,7 @@ using John;
 using Mirror;
 using Mirror.Examples.MultipleMatch;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerSpawnSystem : NetworkBehaviour
 {
@@ -13,9 +15,11 @@ public class PlayerSpawnSystem : NetworkBehaviour
     private GameObject playerPrefab;
     public bool player;
 
-    private static List<Transform> spawnPoints = new List<Transform>();
+    [SerializeField] private static List<Transform> spawnPoints = new List<Transform>();
+    
+    public static event Action PlayerSpawned;
 
-    private int nextIndex = 0;
+    private int nextIndex;
     
     private NetworkManagerHnS room;
     private NetworkManagerHnS Room
@@ -55,6 +59,8 @@ public class PlayerSpawnSystem : NetworkBehaviour
             {
                 playerPrefab = guardPlayerPrefab;
             }
+
+            nextIndex = Random.Range(0, spawnPoints.Count);
             
             Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
 
@@ -68,7 +74,9 @@ public class PlayerSpawnSystem : NetworkBehaviour
                 spawnPoints[nextIndex].rotation);
             NetworkServer.AddPlayerForConnection(conn, playerInstance);
             NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject,true);
-            nextIndex++;
-        
+            spawnPoints.Remove(spawnPoint);
+            
+
+
     }
 }

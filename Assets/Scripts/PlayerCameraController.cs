@@ -5,6 +5,7 @@ using Cinemachine;
 using Mirror;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class PlayerCameraController : NetworkBehaviour
 {
@@ -15,8 +16,7 @@ public class PlayerCameraController : NetworkBehaviour
      float sensitivityX;
      float sensitivityY;
     
-    public Camera cam;
-    public AudioListener audio;
+    public GameObject cam;
     [SyncVar]
     float rotY = 0f;
     [SyncVar]
@@ -29,13 +29,10 @@ public class PlayerCameraController : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         enabled = true;
-        cam.enabled = true;
-        audio.enabled = true;
+        cam.SetActive(true);
         sensitivityX = PlayerPrefs.GetFloat("MouseSensX", 5);
         sensitivityY = PlayerPrefs.GetFloat("MouseSensY", 5);
         inGame = true;
-
-
     }
 
     void Update()
@@ -58,10 +55,13 @@ public class PlayerCameraController : NetworkBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             inGame = false;
+            //bring up menu call here
         }
 
         if (Cursor.visible && Input.GetMouseButtonDown(0))
         {
+            //rename this function to be called on resume button click event
+            //hide pause menu UI
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             inGame = true;

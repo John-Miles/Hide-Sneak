@@ -211,9 +211,6 @@ namespace John
             {
                 GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
                 NetworkServer.Spawn(playerSpawnSystemInstance);
-
-                //GameObject itemSpawnInstance = Instantiate(itemSpawnSystem);
-                //NetworkServer.Spawn(itemSpawnInstance);
             }
         }
 

@@ -49,7 +49,20 @@ MonoBehaviour:
   escapePoints: {fileID: 0}
   thievesInScene: []
   guardsInScene: []
-  afterEscape: {fileID: 0}
+  escaped: []
+  caught: []
+  exposed: []
+  timeOutThief: Time Up!
+  timeOutGuard: Time Out!
+  escapeThief: You Escaped!
+  escapeGuard: Thieves Escaped!
+  caughtThief: You Were Caught!
+  caughtGuard: All Thieves Caught!
+  waitingCaught: You Escaped!
+  waitingEscaped: You Were Caught
+  escapePos: {fileID: 0}
+  caughtPos: {fileID: 0}
+  preMatchCountdown: 0
 --- !u!114 &4623496250144604205
 MonoBehaviour:
   m_ObjectHideFlags: 0

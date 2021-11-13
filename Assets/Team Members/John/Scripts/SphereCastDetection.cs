@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using Team_Members.NidgyWidgy.Scripts;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class SphereCastDetection : NetworkBehaviour
     public LayerMask obstructionMask;
 
     public Collider[] colliders;
+    public GameObject torch;
 
     public override void OnStartAuthority()
     {
@@ -40,7 +42,7 @@ public class SphereCastDetection : NetworkBehaviour
         gm.CmdExposeRemove();
         thiefRef.Clear();
         
-        if (gameObject.GetComponent<FlashLight>().isOn)
+        if (torch.activeInHierarchy)
         {
             RaycastHit hit;
             colliders = Physics.OverlapSphere(transform.position, radius, targetMask);
@@ -73,7 +75,11 @@ public class SphereCastDetection : NetworkBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(transform.position,radius);
+        if (torch.activeInHierarchy)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawSphere(transform.position,radius);
+        }
+        
     }
 }

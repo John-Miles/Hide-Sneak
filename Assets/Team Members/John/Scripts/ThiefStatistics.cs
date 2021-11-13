@@ -8,27 +8,24 @@ public class ThiefStatistics : NetworkBehaviour
 {
     //MANAGERS
     public GameManager gm;
+    public ThiefUI ui;
     
     //VARIABLES
-    public float exposeValue;
-    public float maxExpose;
+    public float detectValue;
+    public float maxDetect;
     public float exposeReduce;
-    public bool inExpose;
-
     private float _minValue = 0;
     public float escapeValue;
     public float maxEscape;
     public float escapeReduce;
+    
+    public bool inExpose;
     public bool inEscape;
-
     public bool running1;
     public bool running2;
     
     //REFERENCES
-    public GameObject exposeHUD;
-    public GameObject escapeHUD;
     
-
     public override void OnStartAuthority()
     {
         base.OnStartAuthority();
@@ -38,6 +35,7 @@ public class ThiefStatistics : NetworkBehaviour
     private void Awake()
     {
         gm = FindObjectOfType<GameManager>();
+        
     }
 
     [ClientRpc]
@@ -72,14 +70,14 @@ public class ThiefStatistics : NetworkBehaviour
     public IEnumerator IncreaseExposure()
     {
         running1 = true;
-        exposeHUD.SetActive(true);
+        ui.ShowDetect();
         Debug.Log("Player exposed");
         while (inExpose)
         {
             //increase escape value
-            exposeValue++;
+            detectValue++;
             //if fully escaped
-            if (exposeValue >= maxExpose)
+            if (detectValue >= maxDetect)
             {
                 //move the player to spectator spot
                 transform.position = gm.caughtPos.position;
@@ -101,34 +99,24 @@ public class ThiefStatistics : NetworkBehaviour
     public IEnumerator DecreaseExposure()
     {
         running2 = true;
-        while (!inExpose && exposeValue > _minValue)
+        while (!inExpose && detectValue > _minValue)
         {
             Debug.Log("Cooling down from exposure!");
-            exposeValue = exposeValue - exposeReduce;
-            if (exposeValue < _minValue)
+            detectValue = detectValue - exposeReduce;
+            if (detectValue < _minValue)
             {
                 Debug.Log("Expose at 0");
-                exposeHUD.SetActive(false);
+                
                 yield return null;
 
             }
 
             yield return new WaitForSeconds(.5f);
         }
+        ui.HideDetect();
         running2 = false;
     }
     
-    //receive notification of player entering the flashlight of guards
-    //set loop for increasing exposure value while constantly checking still in flashlight
-    //upon exit of flashlight stop detection
-    
-    //when exposure is full, call caught function on game manager
-    
-
-
-
-
-
     //ESCAPING FUNCTION
     
     //When a player enters an escape point, begin the escape sequence
@@ -141,12 +129,11 @@ public class ThiefStatistics : NetworkBehaviour
             StartCoroutine(Escaping());
         }
     }
-    //when a player exits and escape point, reset the escape
+    //when a player exits and escape point, set the cooldown for the escape
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Player exited escape zone");
         StopCoroutine(Escaping());
-        
         inEscape = false;
         Debug.Log("Time to cool down");
         StartCoroutine(EscapeCooldown());
@@ -154,18 +141,15 @@ public class ThiefStatistics : NetworkBehaviour
   
     public IEnumerator Escaping()
     {
-        //escapeValue = 1;
-        //show the HUD notification
-        escapeHUD.SetActive(true);
-        Debug.Log("Player escaping");
         while (inEscape)
         {
             //increase escape value
             escapeValue++;
+            ui.ShowEscape();
             //if fully escaped
             if (escapeValue >= maxEscape)
             {
-                //move the player to spectator spot
+                //move the player to spectator spot (needed due to client authority for movement)
                 transform.position = gm.escapePos.position;
                 //semd player reference to GM for escaped call
                 gm.CmdEscaped(gameObject);
@@ -179,7 +163,6 @@ public class ThiefStatistics : NetworkBehaviour
             Debug.Log("More Escape Needed!");
             yield return new WaitForSeconds(.5f);
         }
-        Debug.Log("unexpected exit");
         yield return null;
     }
     //when the player already has an escape value and steps out of an escape zone
@@ -190,18 +173,16 @@ public class ThiefStatistics : NetworkBehaviour
         {   
             Debug.Log("Cooling down from escape!");
             escapeValue = escapeValue - escapeReduce; 
-            if (escapeValue < _minValue)
+            if (escapeValue <= _minValue)
             {
                 Debug.Log("Escape at 0");
-                escapeHUD.SetActive(false);
+                
                 yield return null;
                 
             }
             yield return new WaitForSeconds(.5f);
         }
-
+        ui.HideEscape();
         yield return null;
-
     }
-
 }

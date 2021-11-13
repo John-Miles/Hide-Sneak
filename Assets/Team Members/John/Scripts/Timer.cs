@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Timer : NetworkBehaviour
 {
-    public GameManager gameManager;
+    public GameManager gm;
     [SyncVar] 
     public float roundTimer;
 
@@ -20,11 +20,13 @@ public class Timer : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
+        
     }
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gm = FindObjectOfType<GameManager>();
+        
     }
 
     public override void OnStopServer()
@@ -58,16 +60,22 @@ public class Timer : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdTimeExpired()
     {
-        gameManager.RPCTimeExpired();
+        gm.RPCTimeExpired();
     }
     
     
     //start the countdown
-    [ServerCallback]
-    public void StartRound()
+    [Command(requiresAuthority = false)]
+    public void CmdStartRound()
+    {
+        RpcStartRound();
+    }
+
+    [ClientRpc]
+    public void RpcStartRound()
     {
         startCount = true;
-        roundTimer = gameLength;
+        roundTimer = gameLength;  
     }
 
    

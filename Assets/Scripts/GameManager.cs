@@ -14,14 +14,41 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public List<GameObject> escaped = new List<GameObject>();
     [SyncVar] public List<GameObject> caught = new List<GameObject>();
     [SyncVar] public List<GameObject> exposed = new List<GameObject>();
+    [SyncVar] public List<GameObject> players = new List<GameObject>();
+
+    [Header("Game Over Description Texts")]
+    [Tooltip("Description text for when a thief loses by a time out")]
+    public string timeOutThief;
+    [Tooltip("Description text for when a guard wins by a time out")]
+    public string timeOutGuard;
+    [Tooltip("Description text for when a thief wins by escaping")]
+    public string escapeThief;
+    [Tooltip("Description text for when a guard loses by allowing all thieves to escape")]
+    public string escapeGuard;
+    [Tooltip("Description text for when all thieves lose by being caught")]
+    public string caughtThief;
+    [Tooltip("Description text for when a guard captures all thieves")]
+    public string caughtGuard;
+    [Tooltip("Description text for when a thief has been caught but there are still other thieves active in the level")]
+    public string waitingCaught;
+    [Tooltip("Description text for when a thief has escaped but there are still other thieves active in the level")]
+    public string waitingEscaped;
+    
+    
 
     public Transform escapePos;
     public Transform caughtPos;
+    [Tooltip("The amount in seconds to wait before the game starts after loading the level")]
+    public int preMatchCountdown;
     
     public void Awake()
     {
         NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
-        
+        John.NetworkGamePlayerHnS[] player = FindObjectsOfType<NetworkGamePlayerHnS>();
+        foreach (var players in player)
+        {
+            this.players.Add(players.gameObject);
+        }
     }
     
     [ClientRpc]
@@ -32,14 +59,25 @@ public class GameManager : NetworkBehaviour
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
         {
             thievesInScene.Add(o);
+            StartCoroutine(o.GetComponent<ThiefUI>().MissionSet());
         }
 
         foreach (GameObject a in GameObject.FindGameObjectsWithTag("Guard"))
         {
             guardsInScene.Add(a);
+            StartCoroutine(a.GetComponent<GuardUI>().MissionSet());
         }
-
-        Debug.Log("The round has started");
+        if (thievesInScene.Count + guardsInScene.Count == players.Count)
+        {
+            foreach (GameObject o in GameObject.FindGameObjectsWithTag("Thief"))
+            {
+                StartCoroutine(o.GetComponent<ThiefUI>().MissionSet());
+            }
+            foreach (GameObject a in GameObject.FindGameObjectsWithTag("Guard"))
+            {
+                StartCoroutine(a.GetComponent<GuardUI>().MissionSet());
+            } 
+        }
     }
     
     [ClientRpc]
@@ -48,9 +86,9 @@ public class GameManager : NetworkBehaviour
         Debug.Log("The time has expired!");
         foreach (GameObject thief in thievesInScene)
         {
-            var ui = GetComponentInChildren<ThiefUI>();
-            thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-            thief.transform.Find("UI").Find("Canvas").Find("LoseTimeHUD").gameObject.SetActive(true);
+            var ui = thief.GetComponent<ThiefUI>();
+            ui.HideGameHUD();
+            ui.Loss(timeOutThief);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
 
@@ -58,9 +96,9 @@ public class GameManager : NetworkBehaviour
 
         foreach (GameObject guard in guardsInScene)
         {
-            var ui = GetComponentInChildren<GuardUI>();
-            guard.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-            guard.transform.Find("UI").Find("Canvas").Find("WinTimeHUD").gameObject.SetActive(true);
+            var ui = guard.GetComponent<GuardUI>();
+            ui.HideGameHUD();
+            ui.Win(timeOutGuard);
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
     }
@@ -77,11 +115,13 @@ public class GameManager : NetworkBehaviour
         escapePoints.SetActive(true);
         foreach (var thief in thievesInScene)
         {
+            //update the thief UI to notify them to move to escape point
             StartCoroutine(thief.GetComponent<ThiefUI>().EscapeSet());
         }
 
         foreach (var guard in guardsInScene)
         {
+            //updates guard UI to notify them the thieves can escape
             StartCoroutine(guard.GetComponent<GuardUI>().EscapeSet());
         }
     }
@@ -91,16 +131,29 @@ public class GameManager : NetworkBehaviour
     {
         //add the escaping thief to the list of escaped thieves
         escaped.Add(thief);
-        Debug.Log("adding thief to escape list");
-        thief.transform.Find("UI").Find("Canvas").Find("EscapingHUD").gameObject.SetActive(false);
-        thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-        thief.GetComponent<PickUp>().enabled = false;
-        thief.GetComponent<FPSPlayerController>().enabled = false;
         if(escaped.Count == thievesInScene.Count)
-            { 
-                //if all the theives in the scene have escaped, end the game
-                CmdAllEscape();
+        { 
+            //if all the theives in the scene have escaped, end the game
+            CmdAllEscape(); 
+        }
+        else
+        {
+            var ui = thief.GetComponent<ThiefUI>();
+            ui.WaitingEscaped(waitingEscaped);
+            thief.GetComponent<PickUp>().enabled = false;
+            thief.GetComponent<FPSPlayerController>().enabled = false;
+            foreach (GameObject player in thievesInScene)
+            {
+                StartCoroutine(player.GetComponent<ThiefUI>().OtherEscaped());
             }
+            foreach (GameObject guard in guardsInScene)
+            {
+                StartCoroutine(guard.GetComponent<GuardUI>().SingleEscape());
+            } 
+        }
+        
+        
+        
     }
 
     [Command(requiresAuthority = false)]
@@ -115,9 +168,9 @@ public class GameManager : NetworkBehaviour
        Debug.Log("All theives escaped");
         foreach (GameObject thief in thievesInScene)
         {
-            var ui = GetComponentInChildren<ThiefUI>();
-            thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-            thief.transform.Find("UI").Find("Canvas").Find("WinEscapeHUD").gameObject.SetActive(true);
+            var ui = thief.GetComponent<ThiefUI>();
+            ui.HideGameHUD();
+            ui.Win(escapeThief);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
 
@@ -125,9 +178,9 @@ public class GameManager : NetworkBehaviour
 
         foreach (GameObject guard in guardsInScene)
         {
-            var ui = GetComponentInChildren<GuardUI>();
-            guard.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-            guard.transform.Find("UI").Find("Canvas").Find("LoseEscapeHUD").gameObject.SetActive(true);
+            var ui = guard.GetComponent<GuardUI>();
+            ui.HideGameHUD();
+            ui.Loss(escapeGuard);
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
     }
@@ -137,16 +190,32 @@ public class GameManager : NetworkBehaviour
     {
         //add the thief to caught list
         caught.Add(thief);
-        Debug.Log("adding thief to caught list");
-        thief.transform.Find("UI").Find("Canvas").Find("ExposeHUD").gameObject.SetActive(false);
-        thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-        thief.GetComponent<PickUp>().enabled = false;
-        thief.GetComponent<FPSPlayerController>().enabled = false;
-        
         if (caught.Count == thievesInScene.Count)
         {
             RpcAllCaught();
         }
+        else
+        {
+            var ui = thief.GetComponent<ThiefUI>();
+            ui.HideGameHUD();
+            ui.WaitingCaught(waitingCaught);
+            thief.GetComponent<PickUp>().enabled = false;
+            thief.GetComponent<FPSPlayerController>().enabled = false;
+            foreach (GameObject player in thievesInScene)
+            {
+                StartCoroutine(player.GetComponent<ThiefUI>().OtherCaught());
+            }
+
+            foreach (var guard in guardsInScene)
+            {
+                StartCoroutine(guard.GetComponent<GuardUI>().Caught());
+            }
+            
+        }
+        
+        
+        
+        
     }
 
     [ClientRpc]
@@ -154,10 +223,9 @@ public class GameManager : NetworkBehaviour
     {
         foreach (GameObject thief in thievesInScene)
         {
-            var ui = GetComponentInChildren<ThiefUI>();
-            thief.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-            thief.transform.Find("UI").Find("Canvas").Find("ExposeHUD").gameObject.SetActive(false);
-            thief.transform.Find("UI").Find("Canvas").Find("LoseCaptureHUD").gameObject.SetActive(true);
+            var ui = thief.GetComponent<ThiefUI>();
+            ui.HideGameHUD();
+            ui.Loss(caughtThief);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
 
@@ -165,9 +233,9 @@ public class GameManager : NetworkBehaviour
 
         foreach (GameObject guard in guardsInScene)
         {
-            var ui = GetComponentInChildren<GuardUI>();
-            guard.transform.Find("UI").Find("Canvas").Find("GameplayHUD").gameObject.SetActive(false);
-            guard.transform.Find("UI").Find("Canvas").Find("WinCaptureHUD").gameObject.SetActive(true);
+            var ui = GetComponent<GuardUI>();
+            ui.HideGameHUD();
+            ui.Win(caughtGuard);
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
     }
