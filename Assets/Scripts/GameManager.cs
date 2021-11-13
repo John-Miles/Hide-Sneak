@@ -18,21 +18,32 @@ public class GameManager : NetworkBehaviour
 
     [Header("Game Over Description Texts")]
     [Tooltip("Description text for when a thief loses by a time out")]
+    [Multiline]
     public string timeOutThief;
     [Tooltip("Description text for when a guard wins by a time out")]
+    [Multiline]
     public string timeOutGuard;
     [Tooltip("Description text for when a thief wins by escaping")]
+    [Multiline]
     public string escapeThief;
     [Tooltip("Description text for when a guard loses by allowing all thieves to escape")]
+    [Multiline]
     public string escapeGuard;
     [Tooltip("Description text for when all thieves lose by being caught")]
+    [Multiline]
     public string caughtThief;
     [Tooltip("Description text for when a guard captures all thieves")]
+    [Multiline]
     public string caughtGuard;
     [Tooltip("Description text for when a thief has been caught but there are still other thieves active in the level")]
+    [Multiline]
     public string waitingCaught;
     [Tooltip("Description text for when a thief has escaped but there are still other thieves active in the level")]
+    [Multiline]
     public string waitingEscaped;
+    [Tooltip("Description text for both players when a draw occurs")]
+    [Multiline]
+    public string draw;
     
     
 
@@ -43,6 +54,7 @@ public class GameManager : NetworkBehaviour
     
     public void Awake()
     {
+        timeOutGuard = "Back Up Arrived and \n Found  The Thieves";
         NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
     }
 
@@ -173,6 +185,10 @@ public class GameManager : NetworkBehaviour
             //if all the theives in the scene have escaped, end the game
             CmdAllEscape(); 
         }
+        if (thievesInScene.Count == (escaped.Count + caught.Count))
+        {
+            RpcDraw();
+        }
         else
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -227,9 +243,14 @@ public class GameManager : NetworkBehaviour
     {
         //add the thief to caught list
         caught.Add(thief);
+        
         if (caught.Count == thievesInScene.Count)
         {
             RpcAllCaught();
+        }
+        if (thievesInScene.Count == (escaped.Count + caught.Count))
+        {
+            RpcDraw();
         }
         else
         {
@@ -270,9 +291,30 @@ public class GameManager : NetworkBehaviour
 
         foreach (GameObject guard in guardsInScene)
         {
-            var ui = GetComponent<GuardUI>();
+            var ui = guard.GetComponent<GuardUI>();
             ui.HideGameHUD();
             ui.Win(caughtGuard);
+            guard.GetComponent<FPSPlayerController>().enabled = false;
+        }
+    }
+
+    [ClientRpc]
+    public void RpcDraw()
+    {
+        foreach (var thief in thievesInScene)
+        {
+            var ui = thief.GetComponent<ThiefUI>();
+            ui.HideGameHUD();
+            ui.Draw(draw);
+            thief.GetComponent<PickUp>().enabled = false;
+            thief.GetComponent<FPSPlayerController>().enabled = false;
+        }
+
+        foreach (var guard in guardsInScene)
+        {
+            var ui = guard.GetComponent<GuardUI>();
+            ui.HideGameHUD();
+            ui.Draw(draw);
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
     }

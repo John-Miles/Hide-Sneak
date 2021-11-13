@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace Team_Members.NidgyWidgy.Scripts
 {
-  public class Flashlight : NetworkBehaviour
+  public class NVG : NetworkBehaviour
   {
-    public GameObject torch;
-    public bool TorchOn = true;
-    public GuardUI ui;
+    public GameObject nvg;
+    public bool nvgOn = true;
+    public ThiefUI ui;
 
     public override void OnStartAuthority()
     {
       base.OnStartAuthority();
       enabled = true;
-      TorchOn = true;
+      nvgOn = nvg.activeSelf;
     }
     
     //Client code
@@ -33,9 +33,9 @@ namespace Team_Members.NidgyWidgy.Scripts
     [ClientRpc]
     void RpcToggle()
     {
-        torch.SetActive(TorchOn);
-        TorchOn = !TorchOn;
-        ui.ToggleUI(TorchOn);
+        nvg.SetActive(nvgOn);
+        nvgOn = !nvgOn;
+        ui.ToggleUI(nvgOn);
     }
     
     //Server Code

@@ -15,7 +15,10 @@ public class ThiefUI : NetworkBehaviour
     public Material defeatMat;
     public Material victoryMat;
     public GameObject countdownBacker;
-    //public GameObject WaitingHUD;
+    public GameObject DrawHUD;
+    public Image NVGImage;
+    public Sprite NVGOn;
+    public Sprite NVGOff;
     [Header("Sliders")]
     public Slider detectSlider;
     public Slider escapeSlider;
@@ -28,6 +31,7 @@ public class ThiefUI : NetworkBehaviour
     public Text itemText;
     public TMP_Text winResultText;
     public TMP_Text defeatResultText;
+    public TMP_Text drawResultText;
     //public TMP_Text waitingText;
     
     int inputDelay;
@@ -96,6 +100,18 @@ public class ThiefUI : NetworkBehaviour
         countdownText.text = "";
         countdownBacker.SetActive(false);
     }
+    
+    public void ToggleUI(bool TorchOn)
+    {
+        if (TorchOn)
+        {
+            NVGImage.sprite = NVGOn;
+        }
+        else
+        {
+            NVGImage.sprite = NVGOff;
+        }
+    }
 
     public IEnumerator EscapeSet()
     {
@@ -163,14 +179,14 @@ public class ThiefUI : NetworkBehaviour
 
     public IEnumerator OtherCaught()
     {
-        objText.text = "The Guards Found A Thief! Escape While You Still Can!";
+        objText.text = "The Guards Found A Thief! \n Escape While You Still Can!";
         yield return new WaitForSeconds(5f);
         objText.text = "";
     }
     
     public IEnumerator OtherEscaped()
     {
-        objText.text = "Your Team Has Started Escaping! Get Out Before You Get Caught!";
+        objText.text = "Your Team Has Started Escaping! \n Get Out Before You Get Caught!";
         yield return new WaitForSeconds(5f);
         objText.text = "";
     }
@@ -178,15 +194,19 @@ public class ThiefUI : NetworkBehaviour
     public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
-        defeatResultText.material = defeatMat;
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
         VictoryHUD.SetActive(true);
-        winResultText.material = victoryMat;
         winResultText.text = description;
+    }
+
+    public void Draw(string description)
+    {
+        DrawHUD.SetActive(true);
+        drawResultText.text = description;
     }
     
 }

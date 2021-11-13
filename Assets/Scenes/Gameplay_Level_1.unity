@@ -11553,6 +11553,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: draw
+      value: BETTER LUCK NEXT TIME
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
       propertyPath: caughtPos
       value: 
       objectReference: {fileID: 2098892182}
@@ -11564,6 +11568,26 @@ PrefabInstance:
       propertyPath: escapePoints
       value: 
       objectReference: {fileID: 1110234384}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: timeOutGuard
+      value: 'Back Up Arrived and
+
+        Found  The Thieves'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: timeOutThief
+      value: Guards Called For Back-Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: waitingCaught
+      value: "You Escaped! \nWait For Your Team Join You"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: waitingEscaped
+      value: 'You Were Caught!
+
+        Your Team Can Still Escape!'
+      objectReference: {fileID: 0}
     - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
       propertyPath: preMatchCountdown
       value: 10
