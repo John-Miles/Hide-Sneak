@@ -12,6 +12,9 @@ public class ThiefUI : NetworkBehaviour
     public GameObject GameplayHUD;
     public GameObject VictoryHUD;
     public GameObject DefeatHUD;
+    public Material defeatMat;
+    public Material victoryMat;
+    public GameObject countdownBacker;
     //public GameObject WaitingHUD;
     [Header("Sliders")]
     public Slider detectSlider;
@@ -77,6 +80,7 @@ public class ThiefUI : NetworkBehaviour
         objText.text = "";
         collectText.text = "";
         yield return new WaitForSeconds(.5f);
+        countdownBacker.SetActive(true);
         objText.text = "Sneak Around and Collect All " + im.requiredItems.Count + "\n Items Before The Guards Catch You!";
         while (inputDelay > 0)
         {
@@ -90,6 +94,7 @@ public class ThiefUI : NetworkBehaviour
         objText.text = "";
         yield return new WaitForSeconds(2f);
         countdownText.text = "";
+        countdownBacker.SetActive(false);
     }
 
     public IEnumerator EscapeSet()
@@ -173,12 +178,14 @@ public class ThiefUI : NetworkBehaviour
     public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
+        defeatResultText.material = defeatMat;
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
         VictoryHUD.SetActive(true);
+        winResultText.material = victoryMat;
         winResultText.text = description;
     }
     

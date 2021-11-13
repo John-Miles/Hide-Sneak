@@ -52,14 +52,15 @@ MonoBehaviour:
   escaped: []
   caught: []
   exposed: []
-  timeOutThief: Time Up!
-  timeOutGuard: Time Out!
+  activePlayers: []
+  timeOutThief: Guards Called For Back-Up!
+  timeOutGuard: Back Up Arrived and \n Found  The Thieves
   escapeThief: You Escaped!
   escapeGuard: Thieves Escaped!
   caughtThief: You Were Caught!
-  caughtGuard: All Thieves Caught!
-  waitingCaught: You Escaped!
-  waitingEscaped: You Were Caught
+  caughtGuard: You Found All Thieves!
+  waitingCaught: You Escaped! You Must Wait \n For Your Team To Escape!
+  waitingEscaped: You Were Caught! Your Team \n Can Still Escape!
   escapePos: {fileID: 0}
   caughtPos: {fileID: 0}
   preMatchCountdown: 0

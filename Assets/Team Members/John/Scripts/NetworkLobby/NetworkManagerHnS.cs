@@ -162,25 +162,28 @@ namespace John
             //return (guard.Count >= 1 && thief.Count >= 1);
         }
 
-        public void StartGame()
+        public IEnumerator StartGame()
         {
             if (SceneManager.GetActiveScene().path == menuScene)
             {
-                if(!IsReadyToStart()) {return;}
+                if(!IsReadyToStart()) {yield return null;}
+
+                foreach (var player in guard)
+                {
+                    player.RpcLoad();
+                }
+
+                foreach (var player in thief)
+                {
+                    player.RpcLoad();
+                }
+
+                yield return new WaitForSeconds(2f);
                 
                 ServerChangeScene("Gameplay_Level_1");
-                for (int i = RoomPlayers.Count - 1; i >= 0; i--)
-                {
-                    Loading();
-                }
-                
             }
         }
 
-        public void Loading()
-        {
-            
-        }
 
         public override void ServerChangeScene(string newSceneName)
         {

@@ -175,8 +175,8 @@ namespace John
             {
                 return;
             }
-            RpcLoad();
-            Room.StartGame();
+            
+            StartCoroutine(Room.StartGame());
             
         }
 

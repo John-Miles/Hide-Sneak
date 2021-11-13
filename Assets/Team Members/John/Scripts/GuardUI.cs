@@ -11,6 +11,7 @@ public class GuardUI : NetworkBehaviour
     public GameObject GameplayHUD;
     public GameObject VictoryHUD;
     public GameObject DefeatHUD;
+    public GameObject countdownBacker;
    
     [Header("Texts")]
     public GameObject UI;
@@ -56,6 +57,7 @@ public class GuardUI : NetworkBehaviour
         countdownRunning = true;
         GetComponent<FPSPlayerController>().canMove = false;
         objText.text = "";
+        countdownBacker.SetActive(true);
         yield return new WaitForSeconds(.5f);
         objText.text = "Use Your Flashlight To Catch The Thieves \n Before They Steal All " + im.requiredItems.Count + " Items";
         while (inputDelay > 0)
@@ -70,6 +72,7 @@ public class GuardUI : NetworkBehaviour
         objText.text = "";
         yield return new WaitForSeconds(2f);
         countdownText.text = "";
+        countdownBacker.SetActive(false);
     }
     
     public IEnumerator EscapeSet()
@@ -136,12 +139,14 @@ public class GuardUI : NetworkBehaviour
     public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
+        
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
         VictoryHUD.SetActive(true);
+        
         winResultText.text = description;
     }
 }
