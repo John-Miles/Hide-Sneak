@@ -19,7 +19,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
     
     public static event Action PlayerSpawned;
 
-    private int nextIndex;
+    private int nextIndex = 0;
     
     private NetworkManagerHnS room;
     private NetworkManagerHnS Room
@@ -60,9 +60,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
                 playerPrefab = guardPlayerPrefab;
             }
 
-            nextIndex = Random.Range(0, spawnPoints.Count);
-            
-            Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
+        Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
 
             if (spawnPoint == null)
             {
@@ -75,7 +73,8 @@ public class PlayerSpawnSystem : NetworkBehaviour
             NetworkServer.AddPlayerForConnection(conn, playerInstance);
             NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject,true);
             spawnPoints.Remove(spawnPoint);
-            
+            nextIndex++;
+
 
 
     }
