@@ -21,6 +21,7 @@ public class GuardUI : NetworkBehaviour
     public TMP_Text winResultText;
     public TMP_Text defeatResultText;
     int inputDelay;
+    public bool countdownRunning = false;
     
     
     //MANAGERS
@@ -42,8 +43,17 @@ public class GuardUI : NetworkBehaviour
         timer = FindObjectOfType<Timer>();
         inputDelay = gm.preMatchCountdown;
     }
+    
+    public void CheckStart()
+    {
+        if (!countdownRunning)
+        {
+            StartCoroutine(MissionSet());
+        }
+    }
     public IEnumerator MissionSet()
     { 
+        countdownRunning = true;
         GetComponent<FPSPlayerController>().canMove = false;
         objText.text = "";
         yield return new WaitForSeconds(.5f);

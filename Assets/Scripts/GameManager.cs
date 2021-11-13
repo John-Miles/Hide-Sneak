@@ -107,7 +107,7 @@ public class GameManager : NetworkBehaviour
             }
             foreach (GameObject a in guardsInScene)
             {
-                StartCoroutine(a.GetComponent<GuardUI>().MissionSet());
+                a.GetComponent<GuardUI>().CheckStart();
             } 
         }
         else
