@@ -248,7 +248,7 @@ public class GameManager : NetworkBehaviour
         {
             RpcAllCaught();
         }
-        if (thievesInScene.Count == (escaped.Count + caught.Count))
+        else if (thievesInScene.Count == (escaped.Count + caught.Count))
         {
             RpcDraw();
         }
@@ -259,6 +259,7 @@ public class GameManager : NetworkBehaviour
             ui.WaitingCaught(waitingCaught);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            
             foreach (GameObject player in thievesInScene)
             {
                 StartCoroutine(player.GetComponent<ThiefUI>().OtherCaught());

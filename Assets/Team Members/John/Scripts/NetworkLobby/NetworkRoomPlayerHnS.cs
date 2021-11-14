@@ -24,8 +24,16 @@ namespace John
         [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[0];
         [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[0];
         [SerializeField] private Button startGameButton = null;
-
         [SerializeField] private GameObject loadingScreen;
+        
+        [Header("Item Controls")]
+        [SerializeField] private Text itemText;
+        [SerializeField] private Button increaseItem;
+        [SerializeField] private Button decreaseItem;
+        [SerializeField] private Text requireText;
+        [SerializeField] private Button increaseRequired;
+        [SerializeField] private Button decreaseRequired;
+        
 
         [SyncVar(hook = nameof(HandleDisplayNameChanged))]
         public string DisplayName = "Loading...";
@@ -34,6 +42,9 @@ namespace John
         public bool IsReady = false;
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsThief = false;
+
+        [SyncVar] public int itemCount;
+        [SyncVar] public int requiredCount;
 
         public bool isLeader;
 
@@ -46,6 +57,7 @@ namespace John
             {
                 isLeader = value;
                 startGameButton.gameObject.SetActive(value);
+                
             }
 
         }
@@ -70,6 +82,13 @@ namespace John
             CmdSetDisplayName(PlayerNameInput.DisplayName);
 
             lobbyUI.SetActive(true);
+            if (isLeader)
+            {
+                increaseItem.interactable = true;
+                decreaseItem.interactable = true;
+                increaseRequired.interactable = true;
+                decreaseRequired.interactable = true;
+            }
         }
 
         public override void OnStartClient()
@@ -81,6 +100,82 @@ namespace John
         public override void OnStopClient()
         {
             Room.RoomPlayers.Remove(this);
+            UpdateDisplay();
+        }
+
+        [Command(requiresAuthority = false)]
+        public void CmdIncreaseItem()
+        {
+            RpcIncreaseItem();
+        }
+
+        [Command(requiresAuthority = false)]
+        public void CmdDecreaseItem()
+        {
+            RpcDecreaseItem();
+        }
+        
+        
+        [Command(requiresAuthority = false)]
+        public void CmdIncreaseRequired()
+        {
+            RpcIncreaseRequired();
+        }
+
+        [Command(requiresAuthority = false)]
+        public void CmdDecreaseRequired()
+        {
+            RpcDecreaseRequired();
+        }
+        
+        [ClientRpc]
+        public void RpcDecreaseItem()
+        {
+            foreach (var player in Room.RoomPlayers)
+            {
+                if (itemCount > 0)
+                {
+                    player.itemCount--;
+                }
+            }
+            UpdateDisplay();
+        }
+
+        [ClientRpc]
+        public void RpcIncreaseItem()
+        {
+            foreach (var player in Room.RoomPlayers)
+            {
+                if (itemCount < 10)
+                {
+                    player.itemCount++;
+                }
+            }
+            UpdateDisplay();
+        }
+        [ClientRpc]
+        public void RpcDecreaseRequired()
+        {
+            foreach (var player in Room.RoomPlayers)
+            {
+                if (requiredCount > 0)
+                {
+                    player.requiredCount--;
+                }
+            }
+            UpdateDisplay();
+        }
+
+        [ClientRpc]
+        public void RpcIncreaseRequired()
+        {
+            foreach (var player in Room.RoomPlayers)
+            {
+                if (requiredCount < 10)
+                {
+                    player.requiredCount++;
+                }
+            }
             UpdateDisplay();
         }
 
@@ -131,7 +226,11 @@ namespace John
                 playerRoleImage[i].sprite = Room.RoomPlayers[i].IsThief
                     ? thiefIcon
                     : guardIcon;
-                
+                Room.RoomPlayers[i].itemCount = Room.RoomPlayers[0].itemCount;
+                Room.RoomPlayers[i].itemText.text = Room.RoomPlayers[0].itemCount.ToString();
+                Room.RoomPlayers[i].requiredCount = Room.RoomPlayers[0].requiredCount;
+                Room.RoomPlayers[i].requireText.text = Room.RoomPlayers[0].requiredCount.ToString();
+
 
             }
             Room.NotifyPlayersOfReadyState();

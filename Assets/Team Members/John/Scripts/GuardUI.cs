@@ -64,7 +64,7 @@ public class GuardUI : NetworkBehaviour
         objText.text = "";
         countdownBacker.SetActive(true);
         yield return new WaitForSeconds(.5f);
-        objText.text = "Use Your Flashlight To Catch The Thieves \n Before They Steal All " + im.requiredItems.Count + " Items";
+        objText.text = "Use Your Flashlight To Catch The Thieves \n Before They Steal All " + im.requiredCount + " Items";
         while (inputDelay > 0)
         {
             countdownText.text = inputDelay.ToString();

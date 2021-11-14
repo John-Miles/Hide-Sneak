@@ -12,6 +12,8 @@ namespace John
         private string displayName = "Loading...";
 
         public bool isThief;
+        public int count;
+        public int itemRequired;
         private NetworkManagerHnS room;
         private NetworkManagerHnS Room
         {
@@ -42,6 +44,13 @@ namespace John
         public void SetRole(bool isTheif)
         {
             isThief = isTheif;
+        }
+
+        [Server]
+        public void SetCount(int items, int required)
+        {
+            count = items;
+            itemRequired = required;
         }
        
     }

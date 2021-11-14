@@ -33,8 +33,8 @@ namespace John
         [SerializeField] public List<NetworkRoomPlayerHnS> guard = new List<NetworkRoomPlayerHnS>();
         
 
-        public List<NetworkRoomPlayerHnS> RoomPlayers { get; } = new List<NetworkRoomPlayerHnS>();
-        public List<NetworkGamePlayerHnS> GamePlayers { get; } = new List<NetworkGamePlayerHnS>();
+        [SerializeField]public List<NetworkRoomPlayerHnS> RoomPlayers { get; } = new List<NetworkRoomPlayerHnS>();
+        [SerializeField]public List<NetworkGamePlayerHnS> GamePlayers { get; } = new List<NetworkGamePlayerHnS>();
         
         public override void OnStartServer()
         {
@@ -194,9 +194,10 @@ namespace John
                 {
                     var conn = RoomPlayers[i].connectionToClient;
                     var gameplayerInstance = Instantiate(gamePlayerPrefab);
-                    
+                    gameplayerInstance.SetCount(RoomPlayers[i].itemCount,RoomPlayers[i].requiredCount);
                     gameplayerInstance.SetDisplayName(RoomPlayers[i].DisplayName);
                     gameplayerInstance.SetRole(RoomPlayers[i].IsThief);
+                    
                     
                     Debug.Log("Now spawning " + RoomPlayers[i].DisplayName);
                     
