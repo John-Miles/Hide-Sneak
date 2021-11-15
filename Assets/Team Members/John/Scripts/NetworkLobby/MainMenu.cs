@@ -125,6 +125,12 @@ namespace John
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
 
+        public void SetFullScreen(bool isFullScreen)
+        {
+            Screen.fullScreen = isFullScreen;
+            
+        }
+        
         #endregion
 
         public void QuitGame()
