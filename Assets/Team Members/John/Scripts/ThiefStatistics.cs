@@ -70,10 +70,11 @@ public class ThiefStatistics : NetworkBehaviour
     public IEnumerator IncreaseExposure()
     {
         running1 = true;
-        ui.ShowDetect();
+        //ui.ShowDetect();
         Debug.Log("Player exposed");
         while (inExpose)
         {
+            ui.ShowDetect();
             //increase escape value
             detectValue++;
             //if fully escaped

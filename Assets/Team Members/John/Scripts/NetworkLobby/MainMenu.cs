@@ -34,8 +34,8 @@ namespace John
         public void Awake()
         {
             networkManager = FindObjectOfType<NetworkManagerHnS>();
-            mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX");
-            mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY");
+            mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX",5);
+            mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY",5);
         }
 
         void Start()

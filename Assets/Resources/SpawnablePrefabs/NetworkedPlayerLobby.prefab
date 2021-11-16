@@ -391,8 +391,8 @@ MonoBehaviour:
   DisplayName: Loading...
   IsReady: 0
   IsThief: 0
-  itemCount: 0
-  requiredCount: 0
+  itemCount: 3
+  requiredCount: 1
   isLeader: 0
 --- !u!114 &8799716775026885101
 MonoBehaviour:

@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using UnityEngine;
 using John;
+using Unity.VisualScripting;
 using Random = UnityEngine.Random;
 
 
@@ -38,6 +40,33 @@ public class ItemManager : NetworkBehaviour
       }
    }
 
+   [Command(requiresAuthority = false)]
+   public void CmdCountdownOutline()
+   {
+      RpcCoutndownOutline();
+   }
+
+
+   [ClientRpc]
+   public void RpcCoutndownOutline()
+   {
+      StartCoroutine(DisplayItems());
+   }
+   
+   public IEnumerator DisplayItems()
+   {
+      for (int i = 0; i < requiredItems.Count; i++)
+      {
+         requiredItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineAll;
+      }
+      yield return new WaitForSeconds(gm.preMatchCountdown);
+      for (int i = 0; i < requiredItems.Count; i++)
+      {
+         requiredItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
+      }
+      
+   }
+
    public static void AddSpawnPoint(Transform transform)
    {
       availableSpawns.Add(transform);
@@ -47,7 +76,7 @@ public class ItemManager : NetworkBehaviour
    public override void OnStartServer()
    {
       NetworkManagerHnS.OnItemReady += SetCount;
-      NetworkManagerHnS.OnItemReady += SpawnItems;
+      //NetworkManagerHnS.OnItemReady += SpawnItems;
       
    }
 
@@ -60,7 +89,7 @@ public class ItemManager : NetworkBehaviour
    [ServerCallback]
    private void OnDestroy() => NetworkManagerHnS.OnItemReady -= SpawnItems;
 
-   [Server]
+   [ServerCallback]
    public void SpawnItems()
    {
       itemCount = FindObjectOfType<NetworkGamePlayerHnS>().count;
@@ -80,11 +109,24 @@ public class ItemManager : NetworkBehaviour
          GameObject itemInstance = Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,
             items[nextItem].ItemPrefab.transform.rotation);
          NetworkServer.Spawn(itemInstance);
-         //requiredItems.Add(items[nextItem].ItemPrefab);
+         //requiredItems.Add(itemInstance);
+         CmdFillRequired(itemInstance);
          //items.RemoveAt(nextItem);
          availableSpawns.RemoveAt(nextLocation);
       }
       RpcSetItemTracker();
+   }
+
+   [Command(requiresAuthority = false)]
+   public void CmdFillRequired(GameObject itemInstance)
+   {
+      RpcFillRequired(itemInstance);
+   }
+
+   [ClientRpc]
+   public void RpcFillRequired(GameObject itemInstance)
+   {
+      requiredItems.Add(itemInstance);
    }
 
    [ClientRpc] public void RpcSetItemTracker()

@@ -3,11 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using John;
 using Mirror;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : NetworkBehaviour
 {
-   [SerializeField] private GameObject escapePoints;
+    //ADD TO ACTIVE PLAYERS IN THE LOBBY, SIMILARLY TO HOW YOU ARE HANDLING THE ITEMS COUNTS
+    //SYNC ACROSS CLIENTS
+
+    public ItemManager im;
+    
+    [SerializeField] private GameObject escapePoints;
 
     [SyncVar] public List<GameObject> thievesInScene = new List<GameObject>();
     [SyncVar] public List<GameObject> guardsInScene = new List<GameObject>();
@@ -52,10 +58,12 @@ public class GameManager : NetworkBehaviour
     [Tooltip("The amount in seconds to wait before the game starts after loading the level")]
     public int preMatchCountdown;
     
+    
     public void Awake()
     {
         timeOutGuard = "Back Up Arrived and \n Found  The Thieves";
         NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
+        im = FindObjectOfType<ItemManager>();
     }
 
     [Command(requiresAuthority = false)]
@@ -120,7 +128,11 @@ public class GameManager : NetworkBehaviour
             foreach (GameObject a in guardsInScene)
             {
                 a.GetComponent<GuardUI>().CheckStart();
-            } 
+            }
+            im.SpawnItems();
+
+            im.CmdCountdownOutline();
+
         }
         else
         {

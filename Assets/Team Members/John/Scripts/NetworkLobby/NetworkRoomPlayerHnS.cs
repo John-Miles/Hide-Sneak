@@ -43,8 +43,8 @@ namespace John
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsThief = false;
 
-        [SyncVar] public int itemCount;
-        [SyncVar] public int requiredCount;
+        [SyncVar] public int itemCount = 3;
+        [SyncVar] public int requiredCount = 1;
 
         public bool isLeader;
 
@@ -135,7 +135,13 @@ namespace John
             {
                 if (itemCount > 0)
                 {
+                    if (itemCount <= requiredCount)
+                    {
+                        Debug.Log("Item counts are the same");
+                        CmdDecreaseRequired();
+                    }
                     player.itemCount--;
+                    
                 }
             }
             UpdateDisplay();
@@ -158,10 +164,16 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
-                if (requiredCount > 0)
+                if (requiredCount != 0)
                 {
                     player.requiredCount--;
+                    //if (requiredCount <= itemCount)
+                    //{
+                        //player.requiredCount--;
+                    //}
                 }
+                //return;
+
             }
             UpdateDisplay();
         }
@@ -174,6 +186,10 @@ namespace John
                 if (requiredCount < 10)
                 {
                     player.requiredCount++;
+                    if (requiredCount > itemCount)
+                    {
+                        CmdIncreaseItem();
+                    }
                 }
             }
             UpdateDisplay();
