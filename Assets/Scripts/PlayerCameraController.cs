@@ -1,22 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
 using Mirror;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 public class PlayerCameraController : NetworkBehaviour
 {
-    [Header("Camera")] 
+    [Header("Camera")]
+    [Tooltip("The minimum angle the camera is able to rotate along the X axis")]
     public float minX = -70f;
+    [Tooltip("The maxiimum angle the camera is able to rotate around the X axis")]
     public float maxX = 70f;
 
      float sensitivityX;
      float sensitivityY;
-    
-    public GameObject cam;
+
+     public Camera cam;
+     public AudioListener audio;
     [SyncVar]
     float rotY = 0f;
     [SyncVar]
@@ -30,7 +27,8 @@ public class PlayerCameraController : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         enabled = true;
-        cam.SetActive(true);
+        cam.enabled = true;
+        audio.enabled = true;
         sensitivityX = PlayerPrefs.GetFloat("MouseSensX", 5);
         sensitivityY = PlayerPrefs.GetFloat("MouseSensY", 5);
         inGame = true;

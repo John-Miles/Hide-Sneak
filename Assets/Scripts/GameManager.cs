@@ -129,8 +129,10 @@ public class GameManager : NetworkBehaviour
             {
                 a.GetComponent<GuardUI>().CheckStart();
             }
-            im.SpawnItems();
-
+            //This causes a lot of lag... bad idea doing it this way
+            //im.SpawnItems();
+            
+            //this could also cause lag. shall investigate...
             im.CmdCountdownOutline();
 
         }

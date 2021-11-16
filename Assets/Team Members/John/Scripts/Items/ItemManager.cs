@@ -75,14 +75,7 @@ public class ItemManager : NetworkBehaviour
 
    public override void OnStartServer()
    {
-      NetworkManagerHnS.OnItemReady += SetCount;
-      //NetworkManagerHnS.OnItemReady += SpawnItems;
-      
-   }
-
-   [Server]
-   public void SetCount()
-   {
+      NetworkManagerHnS.OnItemReady += SpawnItems;
       
    }
 
@@ -107,12 +100,13 @@ public class ItemManager : NetworkBehaviour
          }
 
          GameObject itemInstance = Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,
-            items[nextItem].ItemPrefab.transform.rotation);
+            items[nextItem].ItemPrefab.transform.rotation,gameObject.transform);
          NetworkServer.Spawn(itemInstance);
          //requiredItems.Add(itemInstance);
          CmdFillRequired(itemInstance);
          //items.RemoveAt(nextItem);
          availableSpawns.RemoveAt(nextLocation);
+         
       }
       RpcSetItemTracker();
    }
