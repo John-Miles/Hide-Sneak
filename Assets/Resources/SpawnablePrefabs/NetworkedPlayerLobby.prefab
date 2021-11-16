@@ -368,6 +368,7 @@ MonoBehaviour:
   myRoleImage: {fileID: 5858974610293484078}
   thiefIcon: {fileID: 21300000, guid: f0b32862bd35db4418596533460ed427, type: 3}
   guardIcon: {fileID: 21300000, guid: 05184e86eabc8474c9b3477a95392f71, type: 3}
+  emptyIcon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   roleTitle: {fileID: 1433527711563034621}
   lobbyUI: {fileID: 695614544580005437}
   playerNameTexts:

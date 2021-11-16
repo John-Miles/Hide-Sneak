@@ -65,7 +65,7 @@ namespace John
         public override void OnClientDisconnect(NetworkConnection conn)
         {
             base.OnClientDisconnect(conn);
-
+            Debug.Log("Disconnected from Server");
             OnClientDisconnected?.Invoke();
         }
 

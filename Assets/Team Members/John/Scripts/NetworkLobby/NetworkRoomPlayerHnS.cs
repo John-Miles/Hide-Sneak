@@ -18,6 +18,7 @@ namespace John
         public Image myRoleImage;
         public Sprite thiefIcon;
         public Sprite guardIcon;
+        public Sprite emptyIcon;
         public TMP_Text roleTitle;
 
         [Header("UI")] [SerializeField] private GameObject lobbyUI = null;
@@ -229,6 +230,7 @@ namespace John
             for (int i = 0; i < playerNameTexts.Length; i++)
             {
                 playerNameTexts[i].text = "Waiting For Player...";
+                playerRoleImage[i].sprite = emptyIcon;
                 playerReadyTexts[i].text = string.Empty;
 
             }
@@ -242,6 +244,7 @@ namespace John
                 playerRoleImage[i].sprite = Room.RoomPlayers[i].IsThief
                     ? thiefIcon
                     : guardIcon;
+                
                 Room.RoomPlayers[i].itemCount = Room.RoomPlayers[0].itemCount;
                 Room.RoomPlayers[i].itemText.text = Room.RoomPlayers[0].itemCount.ToString();
                 Room.RoomPlayers[i].requiredCount = Room.RoomPlayers[0].requiredCount;
@@ -322,8 +325,18 @@ namespace John
 
         public void ReturnToMenu()
         {
-          NetworkClient.Shutdown();
-          FindObjectOfType<MainMenu>().landingPagePanel.SetActive(true);
+            if (isServer)
+            {
+                Debug.Log("Shutting down Server");
+                room.StopHost();
+            }
+            if(isLocalPlayer)
+            {
+                Debug.Log("Disconnecting Client");
+                room.StopClient();
+            }
+            Destroy(gameObject);
+            FindObjectOfType<MainMenu>().landingPagePanel.SetActive(true);
         }
     }
 }
