@@ -547,12 +547,12 @@ GameObject:
   - component: {fileID: 2235668528388749630}
   - component: {fileID: 8697304426615251259}
   m_Layer: 7
-  m_Name: Camera
+  m_Name: MainCamera
   m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2405805914132451214
 Transform:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358771420658182844}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -619,7 +619,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358771420658182844}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &2235668528388749630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,7 +1063,8 @@ MonoBehaviour:
   syncInterval: 0.1
   minX: -70
   maxX: 70
-  cam: {fileID: 1358771420658182844}
+  cam: {fileID: 3958192628943884818}
+  audio: {fileID: 4072247244111738283}
   active: 0
 --- !u!136 &4619366192215155902
 CapsuleCollider:
@@ -2123,7 +2124,7 @@ GameObject:
   - component: {fileID: 982139889974367181}
   - component: {fileID: 388268365441386541}
   m_Layer: 10
-  m_Name: Camera
+  m_Name: ItemLayerCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4306,7 +4307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3471261839988787647, guid: 3e1765012a4a03047a0f524b964d6bec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e1765012a4a03047a0f524b964d6bec, type: 3}

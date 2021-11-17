@@ -14,6 +14,7 @@ namespace Team_Members.NidgyWidgy.Scripts
     {
       base.OnStartAuthority();
       enabled = true;
+      nvg.SetActive(true);
       nvgOn = nvg.activeSelf;
     }
     
