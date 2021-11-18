@@ -14,7 +14,7 @@ namespace Team_Members.NidgyWidgy.Scripts
     {
       base.OnStartAuthority();
       enabled = true;
-      TorchOn = true;
+      TorchOn = torch.activeSelf;
     }
     
     //Client code

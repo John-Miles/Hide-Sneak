@@ -1199,7 +1199,7 @@ MonoBehaviour:
   GameplayHUD: {fileID: 2513915834162258855}
   VictoryHUD: {fileID: 6454852085988106936}
   DefeatHUD: {fileID: 9042118890172749089}
-  DrawHUD: {fileID: 0}
+  DrawHUD: {fileID: 8202709842967920771}
   countdownBacker: {fileID: 4351550888360795028}
   flashImage: {fileID: 8088819861536836920}
   flashlightOff: {fileID: 21300000, guid: 15d4212c1e532aa4a849e975622b1999, type: 3}
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   itemText: {fileID: 3036215672874378489}
   winResultText: {fileID: 1472172409427858633}
   defeatResultText: {fileID: 8549678398370489779}
-  drawText: {fileID: 0}
+  drawText: {fileID: 9206725577280126561}
   countdownRunning: 0
 --- !u!114 &8166968469640284013
 MonoBehaviour:

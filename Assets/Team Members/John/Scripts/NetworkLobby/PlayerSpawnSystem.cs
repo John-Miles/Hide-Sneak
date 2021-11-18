@@ -73,7 +73,7 @@ public class PlayerSpawnSystem : NetworkBehaviour
             NetworkServer.AddPlayerForConnection(conn, playerInstance);
             NetworkServer.ReplacePlayerForConnection(conn, playerInstance.gameObject,true);
             spawnPoints.Remove(spawnPoint);
-            nextIndex++;
+            //nextIndex++;
 
 
 

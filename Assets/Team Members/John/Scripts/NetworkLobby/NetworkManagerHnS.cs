@@ -223,7 +223,7 @@ namespace John
             base.OnServerReady(conn);
             
             OnServerReadied?.Invoke(conn);
-            OnItemReady?.Invoke();
+            //OnItemReady?.Invoke();
             
             
         }

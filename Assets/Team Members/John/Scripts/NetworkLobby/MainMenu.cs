@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror.Examples.Chat;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -12,24 +13,26 @@ namespace John
 {
     public class MainMenu : MonoBehaviour
     {
+        [Header("Networking")]
         [SerializeField] private NetworkManagerHnS networkManager = null;
 
         [Header("UI")] [SerializeField] public GameObject landingPagePanel = null;
 
-        [Header("Settings")] public AudioMixer audioMixer;
-
+        [Header("Settings")] 
+        [Header("Audio")]
+        public AudioMixer audioMixer;
         public TMP_Text masterValueText;
         public TMP_Text musicValueText;
         public TMP_Text effectsValueText;
-
+        [Header("Controls")]
         public Slider mouseSensX;
         public TMP_Text xValue;
         public Slider mouseSensY;
         public TMP_Text yValue;
-
-        private Resolution[] resolutions;
-
+        [Header("Graphics")]
         public TMP_Dropdown resolutionDropdown;
+        private Resolution[] resolutions;
+        
 
         public void Awake()
         {
@@ -37,7 +40,6 @@ namespace John
             mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX",5);
             mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY",5);
         }
-
         void Start()
         {
             resolutions = Screen.resolutions;
@@ -58,18 +60,14 @@ namespace John
                     currentResolutionIndex = resolutions.Length;
                 }
             }
-
             resolutionDropdown.AddOptions(options);
             resolutionDropdown.value = currentResolutionIndex;
             resolutionDropdown.RefreshShownValue();
         }
-
-       
         public void HostLobby()
         {
             networkManager.StopHost();
             networkManager.StartHost();
-
             landingPagePanel.SetActive(false);
         }
 
@@ -118,7 +116,6 @@ namespace John
         #endregion
 
         #region Visual
-
         public void SetResolution(int resolutionIndex)
         {
             Resolution resolution = resolutions[resolutionIndex];
@@ -128,9 +125,7 @@ namespace John
         public void SetFullScreen(bool isFullScreen)
         {
             Screen.fullScreen = isFullScreen;
-            
         }
-        
         #endregion
 
         public void QuitGame()

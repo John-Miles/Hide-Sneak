@@ -51,13 +51,10 @@ public class GameManager : NetworkBehaviour
     [Multiline]
     public string draw;
     
-    
-
     public Transform escapePos;
     public Transform caughtPos;
     [Tooltip("The amount in seconds to wait before the game starts after loading the level")]
     public int preMatchCountdown;
-    
     
     public void Awake()
     {

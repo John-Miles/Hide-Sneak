@@ -16,7 +16,7 @@ public class ItemManager : NetworkBehaviour
    public static List<Transform> availableSpawns = new List<Transform>();
    public List<John.ItemBase> items;
    [SyncVar]public List<GameObject> collectedItems;
-   [SyncVar]public List<GameObject> requiredItems;
+   //[SyncVar]public List<GameObject> requiredItems;
    
    //LOCATION FOR STORING COLLECTED ITEMS
    [SerializeField] private Transform collectionPoint;
@@ -29,24 +29,13 @@ public class ItemManager : NetworkBehaviour
    [SyncVar] public Transform alertLocation;
    [SerializeField] private GameObject alertPrefab;
    private int nextIndex = 0;
-    
-   private NetworkManagerHnS room;
-   private NetworkManagerHnS Room
-   {
-      get
-      {
-         if (room != null) { return room; }
-         return room = NetworkManager.singleton as NetworkManagerHnS;
-      }
-   }
-
+  
    [Command(requiresAuthority = false)]
    public void CmdCountdownOutline()
    {
       RpcCoutndownOutline();
    }
-
-
+   
    [ClientRpc]
    public void RpcCoutndownOutline()
    {
@@ -55,12 +44,14 @@ public class ItemManager : NetworkBehaviour
    
    public IEnumerator DisplayItems()
    {
-      for (int i = 0; i < requiredItems.Count; i++)
+      ItemBase[] requiredItems = FindObjectsOfType<ItemBase>();
+      
+      for (int i = 0; i < requiredItems.Length; i++)
       {
          requiredItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineAll;
       }
       yield return new WaitForSeconds(gm.preMatchCountdown);
-      for (int i = 0; i < requiredItems.Count; i++)
+      for (int i = 0; i < requiredItems.Length; i++)
       {
          requiredItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
       }
@@ -75,12 +66,12 @@ public class ItemManager : NetworkBehaviour
 
    public override void OnStartServer()
    {
-      NetworkManagerHnS.OnItemReady += SpawnItems;
+      SpawnItems();
       
    }
 
-   [ServerCallback]
-   private void OnDestroy() => NetworkManagerHnS.OnItemReady -= SpawnItems;
+   //[ServerCallback]
+   //private void OnDestroy() => NetworkManagerHnS.OnItemReady -= SpawnItems;
 
    [ServerCallback]
    public void SpawnItems()
@@ -99,11 +90,10 @@ public class ItemManager : NetworkBehaviour
             return;
          }
 
-         GameObject itemInstance = Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,
-            items[nextItem].ItemPrefab.transform.rotation,gameObject.transform);
+         var itemInstance = Instantiate(items[nextItem].ItemPrefab, availableSpawns[nextLocation].position,
+            items[nextItem].ItemPrefab.transform.rotation);
          NetworkServer.Spawn(itemInstance);
          //requiredItems.Add(itemInstance);
-         CmdFillRequired(itemInstance);
          //items.RemoveAt(nextItem);
          availableSpawns.RemoveAt(nextLocation);
          
@@ -111,17 +101,6 @@ public class ItemManager : NetworkBehaviour
       RpcSetItemTracker();
    }
 
-   [Command(requiresAuthority = false)]
-   public void CmdFillRequired(GameObject itemInstance)
-   {
-      RpcFillRequired(itemInstance);
-   }
-
-   [ClientRpc]
-   public void RpcFillRequired(GameObject itemInstance)
-   {
-      requiredItems.Add(itemInstance);
-   }
 
    [ClientRpc] public void RpcSetItemTracker()
    {

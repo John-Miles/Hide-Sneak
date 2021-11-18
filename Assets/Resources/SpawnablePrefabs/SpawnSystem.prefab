@@ -63,6 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  playerPrefab: {fileID: 2772658644173662837, guid: 396e147ae18385b4dbff909a6a727534, type: 3}
   guardPlayerPrefab: {fileID: 2772658644173662837, guid: 396e147ae18385b4dbff909a6a727534, type: 3}
   thiefPlayerPrefab: {fileID: 2523887137025795736, guid: c25daf7e3f847814299e3d4a41542df0, type: 3}
+  player: 0
+  test:
+  - {fileID: 0}
