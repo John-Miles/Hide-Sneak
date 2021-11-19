@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c305b8b7396f4e46995191f2153e7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 0}
+  networkManager: {fileID: 397761075}
   landingPagePanel: {fileID: 128832188}
   audioMixer: {fileID: 24100000, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   masterValueText: {fileID: 512387304}
@@ -10235,16 +10235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Remember to actually put the credits here, it would be really embarrasing
-    if you somehow forgot to add the credits and this made it to the final game,
-    like, wow, can you imagine if that happened? You'd look pretty stupid. Good thing
-    that you will remember to fix it before you release the game. Anyway, if this
-    does make it to the final game then no one tell me. It would be funny for this
-    to just sit here in the credits with no one really knowing about it. But yeah
-    anyway the game has a credits section, whether or not it we actually give credit
-    to anyone is yet to be seen. If you find this just come up to me and say "Have
-    you heard from the muffin lady?" I will 100% have forgotten that I wrote this
-    here so I will probably be pretty confused. Okay have a good day :)
+  m_text: Game Still In Active Development
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
   m_sharedMaterial: {fileID: 922034840434456484, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
@@ -13506,6 +13497,10 @@ PrefabInstance:
     - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
       propertyPath: minPlayers
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
+      propertyPath: offlineScene
+      value: Assets/Scenes/MainMenu.unity
       objectReference: {fileID: 0}
     - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
       propertyPath: serverTickRate

@@ -134,7 +134,7 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
-                if (itemCount > 0)
+                if (itemCount > 1)
                 {
                     if (itemCount <= requiredCount)
                     {
@@ -169,7 +169,7 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
-                if (requiredCount != 0)
+                if (requiredCount != 1)
                 {
                     player.requiredCount--;
                     //if (requiredCount <= itemCount)

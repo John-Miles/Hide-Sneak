@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour
 {
-
-
     public void ReturnToMenu()
-    {
-        
-      //  NetworkClient.Shutdown();
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    {        
+      NetworkClient.Shutdown();
+      SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
