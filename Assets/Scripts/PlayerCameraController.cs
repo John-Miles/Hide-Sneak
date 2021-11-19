@@ -81,7 +81,7 @@ public class PlayerCameraController : NetworkBehaviour
             //bring up menu call here
         }
 
-        if (Cursor.visible && Input.GetMouseButtonDown(0))
+        if (Cursor.visible && Input.GetMouseButtonDown(1))
         {
             //rename this function to be called on resume button click event
             //hide pause menu UI
