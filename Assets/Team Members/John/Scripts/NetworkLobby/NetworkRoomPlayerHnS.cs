@@ -145,6 +145,8 @@ namespace John
                     
                 }
             }
+            Room.guard.Clear();
+            Room.thief.Clear();
             UpdateDisplay();
         }
 
@@ -158,6 +160,8 @@ namespace John
                     player.itemCount++;
                 }
             }
+            Room.guard.Clear();
+            Room.thief.Clear();
             UpdateDisplay();
         }
         [ClientRpc]
@@ -176,6 +180,8 @@ namespace John
                 //return;
 
             }
+            Room.guard.Clear();
+            Room.thief.Clear();
             UpdateDisplay();
         }
 
@@ -193,6 +199,8 @@ namespace John
                     }
                 }
             }
+            Room.guard.Clear();
+            Room.thief.Clear();
             UpdateDisplay();
         }
 
