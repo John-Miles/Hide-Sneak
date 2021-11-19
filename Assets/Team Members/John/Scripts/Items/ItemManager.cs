@@ -16,7 +16,7 @@ public class ItemManager : NetworkBehaviour
    public static List<Transform> availableSpawns = new List<Transform>();
    public List<ItemBase> items;
    [SyncVar]public List<GameObject> collectedItems;
-   [SyncVar]public List<GameObject> requiredItems;
+   [SyncVar]public List<GameObject> spawnedItems;
    
    //LOCATION FOR STORING COLLECTED ITEMS
    [SerializeField] private Transform collectionPoint;
@@ -34,6 +34,7 @@ public class ItemManager : NetworkBehaviour
    public void CmdCountdownOutline()
    {
       RpcCoutndownOutline();
+      RpcSetItemTracker();
    }
    
    [ClientRpc]
@@ -44,14 +45,15 @@ public class ItemManager : NetworkBehaviour
    
    public IEnumerator DisplayItems()
    {
-      for (int i = 0; i < requiredItems.Count; i++)
+      
+      for (int i = 0; i < spawnedItems.Count; i++)
       {
-         requiredItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineAll;
+         spawnedItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineAll;
       }
       yield return new WaitForSeconds(gm.preMatchCountdown);
-      for (int i = 0; i < requiredItems.Count; i++)
+      for (int i = 0; i < spawnedItems.Count; i++)
       {
-         requiredItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
+         spawnedItems[i].GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
       }
       
    }
@@ -107,11 +109,11 @@ public class ItemManager : NetworkBehaviour
    [ClientRpc]
    public void RpcRequiredFill()
    {
-      requiredItems.Clear();
+      spawnedItems.Clear();
       Outline[] outlines = FindObjectsOfType<Outline>();
       foreach (var outliner in outlines)
       {
-         requiredItems.Add(outliner.gameObject);
+         spawnedItems.Add(outliner.gameObject);
       }
    }
 
@@ -119,7 +121,7 @@ public class ItemManager : NetworkBehaviour
    {
       foreach (var thief in gm.thievesInScene)
       {
-         thief.GetComponent<ThiefUI>().ItemUpdate(collectedItems.Count,requiredItems.Count);
+         thief.GetComponent<ThiefUI>().ItemUpdate(collectedItems.Count,requiredCount);
       }
    }
    
@@ -131,9 +133,9 @@ public class ItemManager : NetworkBehaviour
       ItemRemove(item.gameObject);
       foreach (var thief in gm.thievesInScene)
       {
-         thief.GetComponent<ThiefUI>().ItemUpdate(collectedItems.Count,requiredItems.Count);
+         thief.GetComponent<ThiefUI>().ItemUpdate(collectedItems.Count,requiredCount);
       }
-      if (collectedItems.Count == requiredItems.Count)
+      if (collectedItems.Count == requiredCount)
       {
          CmdAllowEscape();
       }
