@@ -126,6 +126,8 @@ public class GameManager : NetworkBehaviour
             {
                 a.GetComponent<GuardUI>().CheckStart();
             }
+            im.CmdRequiredFill();
+            
             //This causes a lot of lag... bad idea doing it this way
             //im.SpawnItems();
             
