@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviour
 {
-
     [Header("Settings")] public AudioMixer audioMixer;
 
     public TMP_Text masterValueText;
@@ -25,16 +24,20 @@ public class InGameMenu : MonoBehaviour
     private Resolution[] resolutions;
 
     public TMP_Dropdown resolutionDropdown;
-    
+
     public GameObject pauseMenu;
-    
+
     public void Awake()
     {
-        
-        mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX",5);
-        mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY",5);
+        SetSensitivity();
     }
-    
+
+    public void SetSensitivity()
+    {
+        mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX", 5);
+        mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY", 5);
+    }
+
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -60,8 +63,8 @@ public class InGameMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    
-    
+
+
     #region Audio
 
     public void SetMasterVolume(float volume)
@@ -87,7 +90,7 @@ public class InGameMenu : MonoBehaviour
     }
 
     #endregion
-    
+
     #region Controls
 
     public void SetMouseSensitivityX()
@@ -95,6 +98,8 @@ public class InGameMenu : MonoBehaviour
         PlayerPrefs.SetFloat("MouseSensX", mouseSensX.value);
 
         xValue.text = mouseSensX.value.ToString("F");
+        
+        SetSensitivity();
     }
 
     public void SetMouseSensitivityY()
@@ -102,10 +107,12 @@ public class InGameMenu : MonoBehaviour
         PlayerPrefs.SetFloat("MouseSensY", mouseSensY.value);
 
         yValue.text = mouseSensY.value.ToString("F");
+        
+        SetSensitivity();
     }
 
     #endregion
-    
+
     #region Visual
 
     public void SetResolution(int resolutionIndex)
@@ -117,13 +124,13 @@ public class InGameMenu : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
-            
     }
-        
+
     #endregion
+
     public void ReturnToMenu()
-    {        
-      NetworkClient.Shutdown();
-      SceneManager.LoadScene(0, LoadSceneMode.Single);
+    {
+        NetworkClient.Shutdown();
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
