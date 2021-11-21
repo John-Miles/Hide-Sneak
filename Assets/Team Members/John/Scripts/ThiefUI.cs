@@ -85,7 +85,7 @@ public class ThiefUI : NetworkBehaviour
         collectText.text = "";
         yield return new WaitForSeconds(.5f);
         countdownBacker.SetActive(true);
-        objText.text = "Sneak Around and Collect " + im.requiredCount + "\n Items Before The Guards Catch You!";
+        objText.text = "Sneak Around and Collect All " + im.requiredCount + "\n Items Before The Guards Catch You!";
         while (inputDelay > 0)
         {
             countdownText.text = inputDelay.ToString();
@@ -168,18 +168,12 @@ public class ThiefUI : NetworkBehaviour
     public void WaitingEscaped(string description)
     {
         objText.text = description;
-        detectSlider.gameObject.SetActive(false);
-        escapeSlider.gameObject.SetActive(false);
-        itemText.gameObject.SetActive(false);
 
     }
 
     public void WaitingCaught(string description)
     {
         objText.text = description;
-        detectSlider.gameObject.SetActive(false);
-        escapeSlider.gameObject.SetActive(false);
-        itemText.gameObject.SetActive(false);
         
     }
 
@@ -190,23 +184,14 @@ public class ThiefUI : NetworkBehaviour
         objText.text = "";
     }
     
-    public IEnumerator YouEscaped()
-    {
-        objText.text = "You Have Escaped!";
-        detectSlider.gameObject.SetActive(false);
-        escapeSlider.gameObject.SetActive(false);
-        itemText.gameObject.SetActive(false);
-        yield return new WaitForSeconds(5f);
-    }
-
     public IEnumerator OtherEscaped()
     {
-        objText.text = "Your Teammate Has Escaped!\n Join Them Before It's Too Late!";
+        objText.text = "Your Team Has Started Escaping! \n Get Out Before You Get Caught!";
         yield return new WaitForSeconds(5f);
         objText.text = "";
     }
 
-        public void Loss(string description)
+    public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
         defeatResultText.text = description;

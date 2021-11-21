@@ -3,24 +3,24 @@ using UnityEngine;
 
 public class PlayerCameraController : NetworkBehaviour
 {
-    [Header("Camera")]
-    [Tooltip("The minimum angle the camera is able to rotate along the X axis")]
+    [Header("Camera")] [Tooltip("The minimum angle the camera is able to rotate along the X axis")]
     public float minX = -70f;
+
     [Tooltip("The maxiimum angle the camera is able to rotate around the X axis")]
     public float maxX = 70f;
 
-     float sensitivityX;
-     float sensitivityY;
+    float sensitivityX;
+    float sensitivityY;
 
-     public Camera cam;
-     public AudioListener audio;
-    [SyncVar]
-    float rotY = 0f;
-    [SyncVar]
-    float rotX = 0f;
+    public Camera cam;
+    public AudioListener audio;
+    [SyncVar] float rotY = 0f;
+    [SyncVar] float rotX = 0f;
     GameManager gm;
     private bool inGame;
-    public bool active = false;
+    public bool isPaused = false;
+
+    public GameObject pauseMenu;
 
     public override void OnStartAuthority()
     {
@@ -37,7 +37,6 @@ public class PlayerCameraController : NetworkBehaviour
     private void Awake()
     {
         gm = FindObjectOfType<GameManager>();
-        
     }
 
     private void Start()
@@ -50,14 +49,15 @@ public class PlayerCameraController : NetworkBehaviour
     {
         RpcRequestActiveCheck();
     }
+
     [ClientRpc]
     public void RpcRequestActiveCheck()
     {
         gm.CmdRefreshList();
         gm.CmdAddToActive(gameObject);
         gm.CmdUpdatePlayerListAndCheck();
-        
     }
+
     void Update()
     {
         if (inGame)
@@ -69,25 +69,40 @@ public class PlayerCameraController : NetworkBehaviour
 
             transform.localEulerAngles = new Vector3(0, rotY, 0);
             cam.transform.localEulerAngles = new Vector3(-rotX, 0, 0);
-
         }
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            //Mistake happened here 
+            isPaused = !isPaused;
+        }
+
+        if (isPaused)
+        {
+            PauseGame();
+        }
+
+        else
+        {
+            ResumeGame();
+        }
+    }
+
+
+    public void PauseGame()
+        {
+            pauseMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             inGame = false;
-            //bring up menu call here
         }
 
-        if (Cursor.visible && Input.GetMouseButtonDown(1))
+
+        public void ResumeGame()
         {
-            //rename this function to be called on resume button click event
-            //hide pause menu UI
+            pauseMenu.SetActive(false);
+            isPaused = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             inGame = true;
         }
     }
-}

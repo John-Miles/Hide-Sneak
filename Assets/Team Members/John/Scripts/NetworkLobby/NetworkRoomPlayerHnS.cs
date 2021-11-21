@@ -134,7 +134,7 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
-                if (itemCount > 1)
+                if (itemCount > 0)
                 {
                     if (itemCount <= requiredCount)
                     {
@@ -145,8 +145,6 @@ namespace John
                     
                 }
             }
-            Room.guard.Clear();
-            Room.thief.Clear();
             UpdateDisplay();
         }
 
@@ -160,8 +158,6 @@ namespace John
                     player.itemCount++;
                 }
             }
-            Room.guard.Clear();
-            Room.thief.Clear();
             UpdateDisplay();
         }
         [ClientRpc]
@@ -169,7 +165,7 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
-                if (requiredCount != 1)
+                if (requiredCount != 0)
                 {
                     player.requiredCount--;
                     //if (requiredCount <= itemCount)
@@ -180,8 +176,6 @@ namespace John
                 //return;
 
             }
-            Room.guard.Clear();
-            Room.thief.Clear();
             UpdateDisplay();
         }
 
@@ -199,8 +193,6 @@ namespace John
                     }
                 }
             }
-            Room.guard.Clear();
-            Room.thief.Clear();
             UpdateDisplay();
         }
 

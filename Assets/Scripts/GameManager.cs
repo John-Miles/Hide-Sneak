@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using John;
 using Mirror;
 using UnityEditor;
@@ -127,8 +126,6 @@ public class GameManager : NetworkBehaviour
             {
                 a.GetComponent<GuardUI>().CheckStart();
             }
-            im.CmdRequiredFill();
-            
             //This causes a lot of lag... bad idea doing it this way
             //im.SpawnItems();
             
@@ -192,23 +189,16 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEscaped(GameObject thief)
     {
-        RpcEscaped(thief);
-    }
-
-    [ClientRpc]
-    public void RpcEscaped(GameObject thief)
-    {
         //add the escaping thief to the list of escaped thieves
         escaped.Add(thief);
         if(escaped.Count == thievesInScene.Count)
         { 
             //if all the theives in the scene have escaped, end the game
-            CmdAllEscape();
-            return;
+            CmdAllEscape(); 
         }
         if (thievesInScene.Count == (escaped.Count + caught.Count))
         {
-            CmdDraw();
+            RpcDraw();
         }
         else
         {
@@ -216,41 +206,18 @@ public class GameManager : NetworkBehaviour
             ui.WaitingEscaped(waitingEscaped);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
-            CmdSomeoneEscaped();
-        }
-    }
-
-    [Command(requiresAuthority = false)]
-    public void CmdDraw()
-    {
-        RpcDraw();
-    }
-
-    [Command(requiresAuthority = false)]
-    public void CmdSomeoneEscaped()
-    {
-     RpcSomeoneEscaped();   
-    }
-
-    [ClientRpc]
-    public void RpcSomeoneEscaped()
-    {
-        foreach (GameObject player in thievesInScene)
-        {
-            if (!escaped.Contains(player))
+            foreach (GameObject player in thievesInScene)
             {
                 StartCoroutine(player.GetComponent<ThiefUI>().OtherEscaped());
             }
-            if(escaped.Contains(player))
+            foreach (GameObject guard in guardsInScene)
             {
-                StartCoroutine(player.GetComponent<ThiefUI>().YouEscaped()); 
-            }
-            
+                StartCoroutine(guard.GetComponent<GuardUI>().SingleEscape());
+            } 
         }
-        foreach (GameObject guard in guardsInScene)
-        {
-            StartCoroutine(guard.GetComponent<GuardUI>().SingleEscape());
-        } 
+        
+        
+        
     }
 
     [Command(requiresAuthority = false)]
@@ -285,23 +252,16 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdCaught(GameObject thief)
     {
-       RpcCaught(thief);
-    }
-
-    [ClientRpc]
-    public void RpcCaught(GameObject thief)
-    {
         //add the thief to caught list
         caught.Add(thief);
         
         if (caught.Count == thievesInScene.Count)
         {
-            CmdAllCaught();
-            return;
+            RpcAllCaught();
         }
-        if (thievesInScene.Count == (escaped.Count + caught.Count))
+        else if (thievesInScene.Count == (escaped.Count + caught.Count))
         {
-            CmdDraw();
+            RpcDraw();
         }
         else
         {
@@ -320,13 +280,12 @@ public class GameManager : NetworkBehaviour
             {
                 StartCoroutine(guard.GetComponent<GuardUI>().Caught());
             }
+            
         }
-    }
-
-    [Command(requiresAuthority = false)]
-    public void CmdAllCaught()
-    {
-        RpcAllCaught();
+        
+        
+        
+        
     }
 
     [ClientRpc]
