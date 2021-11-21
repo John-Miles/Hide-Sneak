@@ -122,8 +122,8 @@ public class InGameMenu : MonoBehaviour
         
     #endregion
     public void ReturnToMenu()
-    {
-        
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    {        
+      NetworkClient.Shutdown();
+      SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
