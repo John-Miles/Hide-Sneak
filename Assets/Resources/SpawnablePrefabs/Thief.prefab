@@ -1376,7 +1376,6 @@ Transform:
   m_Children:
   - {fileID: 8353283192528408240}
   - {fileID: 7598919510825847377}
-  - {fileID: 6520089479185209943}
   m_Father: {fileID: 8620133355319428632}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1449,7 +1448,7 @@ MonoBehaviour:
   m_CameraType: 0
   m_Cameras:
   - {fileID: 982139889974367181}
-  - {fileID: 7520491731195852396}
+  - {fileID: 0}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -2840,7 +2839,7 @@ MonoBehaviour:
   maxX: 70
   cam: {fileID: 3958192628943884818}
   audio: {fileID: 4072247244111738283}
-  active: 0
+  isPaused: 0
   pauseMenu: {fileID: 5564142864585968538}
 --- !u!136 &4619366192215155902
 CapsuleCollider:
@@ -7556,7 +7555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5678141930359457335
 Transform:
   m_ObjectHideFlags: 0
@@ -8483,7 +8482,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 7520491731195852396}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -9657,7 +9656,6 @@ RectTransform:
   - {fileID: 7758495766606676740}
   - {fileID: 3155274829509560397}
   - {fileID: 7591921023008583354}
-  - {fileID: 8396527131283846742}
   m_Father: {fileID: 2461195002545376584}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
