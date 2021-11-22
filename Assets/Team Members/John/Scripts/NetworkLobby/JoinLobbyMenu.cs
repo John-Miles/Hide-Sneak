@@ -18,6 +18,15 @@ namespace John
         [SerializeField] private TMP_InputField ipAddressInputField;
         [SerializeField] private Button joinButton = null;
 
+
+        private void Awake()
+        {
+            if (!networkManager)
+            {
+                networkManager = FindObjectOfType<NetworkManagerHnS>();
+            }
+        }
+
         private void OnEnable()
         {
             NetworkManagerHnS.OnClientConnected += HandleClientConnected;
