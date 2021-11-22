@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using Mirror;
-using Mirror.Weaver;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
