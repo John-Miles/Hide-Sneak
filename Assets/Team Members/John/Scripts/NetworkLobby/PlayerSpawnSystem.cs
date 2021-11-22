@@ -60,6 +60,8 @@ public class PlayerSpawnSystem : NetworkBehaviour
                 playerPrefab = guardPlayerPrefab;
             }
 
+        nextIndex = Random.Range(1, spawnPoints.Count);
+
         Transform spawnPoint = spawnPoints.ElementAtOrDefault(nextIndex);
 
             if (spawnPoint == null)

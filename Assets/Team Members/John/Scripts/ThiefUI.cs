@@ -95,7 +95,7 @@ public class ThiefUI : NetworkBehaviour
         collectText.text = "";
         yield return new WaitForSeconds(.5f);
         countdownBacker.SetActive(true);
-        objText.text = "Sneak Around and Collect All " + im.requiredCount + "\n Items Before The Guards Catch You!";
+        objText.text = "Sneak Around and Collect " + im.requiredCount + "\n Items Before The Guards Catch You!";
         while (inputDelay > 0)
         {
             countdownText.text = inputDelay.ToString();
