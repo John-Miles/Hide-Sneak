@@ -6,7 +6,7 @@ public class PlayerCameraController : NetworkBehaviour
     [Header("Camera")] [Tooltip("The minimum angle the camera is able to rotate along the X axis")]
     public float minX = -70f;
 
-    [Tooltip("The maxiimum angle the camera is able to rotate around the X axis")]
+    [Tooltip("The maximum angle the camera is able to rotate around the X axis")]
     public float maxX = 70f;
 
     float sensitivityX;
@@ -29,9 +29,14 @@ public class PlayerCameraController : NetworkBehaviour
         enabled = true;
         cam.enabled = true;
         audio.enabled = true;
+        GetSens();
+        inGame = true;
+    }
+
+    public void GetSens()
+    {
         sensitivityX = PlayerPrefs.GetFloat("MouseSensX", 5);
         sensitivityY = PlayerPrefs.GetFloat("MouseSensY", 5);
-        inGame = true;
     }
 
     private void Awake()
@@ -89,20 +94,20 @@ public class PlayerCameraController : NetworkBehaviour
 
 
     public void PauseGame()
-        {
-            pauseMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            inGame = false;
-        }
-
-
-        public void ResumeGame()
-        {
-            pauseMenu.SetActive(false);
-            isPaused = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            inGame = true;
-        }
+    {
+        pauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        inGame = false;
     }
+
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        inGame = true;
+    }
+}
