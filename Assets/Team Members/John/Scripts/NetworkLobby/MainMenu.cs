@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using Mirror.Examples.Chat;
 using TMPro;
 using Unity.VisualScripting;
@@ -37,6 +38,10 @@ namespace John
         public void Awake()
         {
             networkManager = FindObjectOfType<NetworkManagerHnS>();
+            networkManager.thief.Clear();
+            networkManager.guard.Clear();
+            NetworkClient.Disconnect();
+            NetworkServer.Shutdown();
             mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX",5);
             mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY",5);
         }

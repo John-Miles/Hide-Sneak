@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Mirror;
+using Mirror.Weaver;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -8,6 +9,9 @@ using UnityEngine.UI;
 
 public class ThiefUI : NetworkBehaviour
 {
+    [Header("UI Systems")]
+    public GameObject UI;
+    public GameObject WorldUI;
     [Header("In Game HUD")]
     public GameObject GameplayHUD;
     public GameObject VictoryHUD;
@@ -22,8 +26,8 @@ public class ThiefUI : NetworkBehaviour
     [Header("Sliders")]
     public Slider detectSlider;
     public Slider escapeSlider;
+    
     [Header("Texts")]
-    public GameObject UI;
     public Text objText;
     public Text timerText;
     public Text countdownText;
@@ -41,6 +45,7 @@ public class ThiefUI : NetworkBehaviour
     Timer timer;
     ItemManager im;
     ThiefStatistics _stats;
+    private ThiefWorldStats _worldStats;
     [SerializeField] private FPSPlayerController controls;
 
     public bool countdownRunning = false;
@@ -50,6 +55,7 @@ public class ThiefUI : NetworkBehaviour
         base.OnStartAuthority();
         enabled = true;
         UI.SetActive(true);
+        WorldUI.SetActive(true);
     }
     private void Awake()
     {
@@ -58,9 +64,12 @@ public class ThiefUI : NetworkBehaviour
         timer = FindObjectOfType<Timer>();
         im = FindObjectOfType<ItemManager>();
         _stats = GetComponent<ThiefStatistics>();
+        _worldStats = GetComponent<ThiefWorldStats>();
+        
         inputDelay = gm.preMatchCountdown;
         escapeSlider.maxValue = _stats.maxEscape;
         detectSlider.maxValue = _stats.maxDetect;
+        
         
     }
     void Update()
@@ -69,6 +78,7 @@ public class ThiefUI : NetworkBehaviour
         timerText.text = (timer.roundText);
         detectSlider.value = _stats.detectValue;
         escapeSlider.value = _stats.escapeValue;
+        
     }
 
     public void CheckStart()
@@ -148,21 +158,38 @@ public class ThiefUI : NetworkBehaviour
     public void ShowEscape()
     {
         escapeSlider.gameObject.SetActive(true);
+        
     }
+
+    [Command(requiresAuthority = false)]
+    public void CmdShowWorld()
+    {
+        RpcShowWorldDetect();
+    }
+
+    [ClientRpc]
+    public void RpcShowWorldDetect()
+    {
+        
+    }
+    
 
     public void ShowDetect()
     {
         detectSlider.gameObject.SetActive(true);
+        CmdShowWorld();
     }
 
     public void HideDetect()
     {
         detectSlider.gameObject.SetActive(false);
+        
     }
 
     public void HideEscape()
     {
         escapeSlider.gameObject.SetActive(false);
+        
     }
 
     public void WaitingEscaped(string description)
@@ -170,6 +197,7 @@ public class ThiefUI : NetworkBehaviour
         objText.text = description;
         detectSlider.gameObject.SetActive(false);
         escapeSlider.gameObject.SetActive(false);
+       
         itemText.gameObject.SetActive(false);
 
     }
@@ -179,6 +207,7 @@ public class ThiefUI : NetworkBehaviour
         objText.text = description;
         detectSlider.gameObject.SetActive(false);
         escapeSlider.gameObject.SetActive(false);
+        
         itemText.gameObject.SetActive(false);
         
     }
@@ -195,6 +224,7 @@ public class ThiefUI : NetworkBehaviour
         objText.text = "You Have Escaped!";
         detectSlider.gameObject.SetActive(false);
         escapeSlider.gameObject.SetActive(false);
+       
         itemText.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
     }

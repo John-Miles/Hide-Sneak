@@ -83,6 +83,8 @@ namespace John
             CmdSetDisplayName(PlayerNameInput.DisplayName);
 
             lobbyUI.SetActive(true);
+            Room.guard.Clear();
+            Room.thief.Clear();
             if (isLeader)
             {
                 increaseItem.interactable = true;
@@ -134,10 +136,13 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
+                Room.guard.Clear();
+                Room.thief.Clear();
                 if (itemCount > 1)
                 {
                     if (itemCount <= requiredCount)
                     {
+                        
                         Debug.Log("Item counts are the same");
                         CmdDecreaseRequired();
                     }
@@ -153,6 +158,8 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
+                Room.guard.Clear();
+                Room.thief.Clear();
                 if (itemCount < 10)
                 {
                     player.itemCount++;
@@ -165,6 +172,8 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
+                Room.guard.Clear();
+                Room.thief.Clear();
                 if (requiredCount != 1)
                 {
                     player.requiredCount--;
@@ -184,8 +193,11 @@ namespace John
         {
             foreach (var player in Room.RoomPlayers)
             {
+                
                 if (requiredCount < 10)
                 {
+                    Room.guard.Clear();
+                    Room.thief.Clear();
                     player.requiredCount++;
                     if (requiredCount > itemCount)
                     {
@@ -278,12 +290,22 @@ namespace John
         public void CmdReadyUp()
         {
             IsReady = !IsReady;
+            RpcClearList();
+            //foreach (var player in Room.RoomPlayers)
+            //{
+            //    UpdateDisplay();
+            //}
+        }
+
+        [ClientRpc]
+        public void RpcClearList()
+        {
             foreach (var player in Room.RoomPlayers)
             {
                 Room.guard.Clear();
                 Room.thief.Clear();
-                UpdateDisplay();
             }
+            UpdateDisplay();
         }
 
         [Command(requiresAuthority = false)]
