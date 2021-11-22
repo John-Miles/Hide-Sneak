@@ -10235,16 +10235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Remember to actually put the credits here, it would be really embarrasing
-    if you somehow forgot to add the credits and this made it to the final game,
-    like, wow, can you imagine if that happened? You'd look pretty stupid. Good thing
-    that you will remember to fix it before you release the game. Anyway, if this
-    does make it to the final game then no one tell me. It would be funny for this
-    to just sit here in the credits with no one really knowing about it. But yeah
-    anyway the game has a credits section, whether or not it we actually give credit
-    to anyone is yet to be seen. If you find this just come up to me and say "Have
-    you heard from the muffin lady?" I will 100% have forgotten that I wrote this
-    here so I will probably be pretty confused. Okay have a good day :)
+  m_text: Game In Development
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
   m_sharedMaterial: {fileID: 922034840434456484, guid: a4db8b8bbed77b54b97587844251ca61, type: 2}
