@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using John;
 using Mirror;
 using TMPro;
 using UnityEditor;
@@ -8,11 +9,11 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class InGameMenu : MonoBehaviour
+public class InGameMenu : NetworkBehaviour
 {
-    [Header("Settings")] 
-    public AudioMixer audioMixer;
-
+    public GameObject network;
+    [Header("Settings")] public AudioMixer audioMixer;
+    
     public TMP_Text masterValueText;
     public TMP_Text musicValueText;
     public TMP_Text effectsValueText;
@@ -31,6 +32,7 @@ public class InGameMenu : MonoBehaviour
     public void Awake()
     {
         SetSensitivity();
+        network = FindObjectOfType<NetworkManagerHnS>().gameObject;
     }
 
     public void SetSensitivity()
@@ -133,7 +135,19 @@ public class InGameMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        NetworkClient.Shutdown();
+        Destroy(network);
+        if (isClient)
+        {
+            NetworkClient.Disconnect(); 
+        }
+
+        if (isServer)
+        {
+            NetworkClient.Disconnect();
+            NetworkServer.Shutdown();
+        }
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
+    
+    
 }

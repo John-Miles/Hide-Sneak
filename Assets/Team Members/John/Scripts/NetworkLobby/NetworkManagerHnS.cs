@@ -65,6 +65,8 @@ namespace John
         public override void OnClientDisconnect(NetworkConnection conn)
         {
             base.OnClientDisconnect(conn);
+            Destroy(gameObject);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
             Debug.Log("Disconnected from Server");
             OnClientDisconnected?.Invoke();
         }
@@ -112,7 +114,8 @@ namespace John
         }
 
         public override void OnStopServer()
-        {
+        {   
+            NetworkServer.DisconnectAll();
             RoomPlayers.Clear();
         }
 

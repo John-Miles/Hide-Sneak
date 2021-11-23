@@ -1326,7 +1326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c305b8b7396f4e46995191f2153e7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 0}
+  networkManager: {fileID: 397761075}
+  networkManagerPrefab: {fileID: 1333187422389400741, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
   landingPagePanel: {fileID: 128832188}
   audioMixer: {fileID: 24100000, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   masterValueText: {fileID: 512387304}

@@ -17,6 +17,8 @@ namespace John
         [Header("Networking")]
         [SerializeField] private NetworkManagerHnS networkManager = null;
 
+        [SerializeField] private GameObject networkManagerPrefab;
+
         [Header("UI")] [SerializeField] public GameObject landingPagePanel = null;
 
         [Header("Settings")] 
@@ -37,11 +39,13 @@ namespace John
 
         public void Awake()
         {
+            if (!networkManager)
+            {
+                Instantiate(networkManagerPrefab);
+            }
             networkManager = FindObjectOfType<NetworkManagerHnS>();
-            networkManager.thief.Clear();
-            networkManager.guard.Clear();
-            NetworkClient.Disconnect();
             NetworkServer.Shutdown();
+            Cursor.lockState = CursorLockMode.None;
             mouseSensX.value = PlayerPrefs.GetFloat("MouseSensX",5);
             mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY",5);
         }
