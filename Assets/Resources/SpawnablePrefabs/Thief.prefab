@@ -2846,7 +2846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  movementSpeed: 5
+  movementSpeed: 5.75
   rb: {fileID: 2598720816379252708}
   canMove: 0
 --- !u!114 &3869281023958277503

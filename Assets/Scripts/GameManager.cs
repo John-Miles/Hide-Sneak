@@ -13,6 +13,7 @@ public class GameManager : NetworkBehaviour
     //SYNC ACROSS CLIENTS
 
     public ItemManager im;
+    public Timer timer;
     
     [SerializeField] private GameObject escapePoints;
 
@@ -62,6 +63,7 @@ public class GameManager : NetworkBehaviour
         timeOutGuard = "Back Up Arrived and \n Found  The Thieves";
         NetworkManagerHnS.OnItemReady += RpcPlayerListUpdate;
         im = FindObjectOfType<ItemManager>();
+        timer = FindObjectOfType<Timer>();
     }
 
     [Command(requiresAuthority = false)]
@@ -229,7 +231,8 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdSomeoneEscaped()
     {
-     RpcSomeoneEscaped();   
+     RpcSomeoneEscaped();
+     
     }
 
     [ClientRpc]
@@ -257,12 +260,15 @@ public class GameManager : NetworkBehaviour
     void CmdAllEscape()
     {
         RpcAllEscaped();
+        
+        
     }
     
     [ClientRpc]
     public void RpcAllEscaped()
     {
        Debug.Log("All theives escaped");
+       timer.startCount = false;
         foreach (GameObject thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -332,6 +338,7 @@ public class GameManager : NetworkBehaviour
     [ClientRpc]
     public void RpcAllCaught()
     {
+        timer.startCount = false;
         foreach (GameObject thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -354,6 +361,7 @@ public class GameManager : NetworkBehaviour
     [ClientRpc]
     public void RpcDraw()
     {
+        timer.startCount = false;
         foreach (var thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
