@@ -161,7 +161,7 @@ namespace John
                     return false;
                 }
             }
-            //return true;
+           // return true;
             return (guard.Count >= 1 && thief.Count >= 1);
         }
 

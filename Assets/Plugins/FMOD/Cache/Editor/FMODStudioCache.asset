@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: C:/Users/Jesse/Documents/FMOD Studio/Hide & Sneak/Hide-Sneak/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637722362293608931
+  lastModified: 637732802954341644
   FileSizes:
   - Name: Desktop
     Value: 712
@@ -41,7 +41,7 @@ MonoBehaviour:
   - {fileID: 7841039813470869892}
   StringsBanks:
   - {fileID: -1083304740282055323}
-  cacheTime: 637722362293608931
+  cacheTime: 637732802954341644
   cacheVersion: 9
 --- !u!114 &7841039813470869892
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   Path: C:/Users/Jesse/Documents/FMOD Studio/Hide & Sneak/Hide-Sneak/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637722362293568913
+  lastModified: 637732802954321639
   FileSizes:
   - Name: Desktop
     Value: 1036
