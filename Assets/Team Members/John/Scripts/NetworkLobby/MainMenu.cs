@@ -32,7 +32,7 @@ namespace John
         public TMP_Text yValue;
         [Header("Graphics")]
         public TMP_Dropdown resolutionDropdown;
-        private Resolution[] resolutions;
+        private static Resolution[] resolutions;
         
 
         public void Awake()
@@ -47,12 +47,13 @@ namespace John
         }
         void Start()
         {
+            
             resolutions = Screen.resolutions;
 
             resolutionDropdown.ClearOptions();
 
             List<string> options = new List<string>();
-            int currentResolutionIndex = 0;
+            int currentResolutionIndex = PlayerPrefs.GetInt("Resolution", 0);
             for (int i = 0; i < resolutions.Length; i++)
             {
                 string option = resolutions[i].width + "x" + resolutions[i].height + " " + resolutions[i].refreshRate +
@@ -124,6 +125,8 @@ namespace John
         public void SetResolution(int resolutionIndex)
         {
             Resolution resolution = resolutions[resolutionIndex];
+            PlayerPrefs.SetInt("Resolution", resolutionIndex);
+            Debug.Log(resolutionIndex + " Resolution index");
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
 
