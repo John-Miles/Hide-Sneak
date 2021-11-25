@@ -3065,7 +3065,7 @@ AudioSource:
   m_GameObject: {fileID: 2772658644173662837}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6512512695539985150, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
+  OutputAudioMixerGroup: {fileID: -2862316670176829143, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3265,7 +3265,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3277,7 +3277,7 @@ AudioSource:
   rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3780,6 +3780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8776046719712989753}
   - component: {fileID: 4286529663955649514}
+  - component: {fileID: 1916002472128877633}
   m_Layer: 7
   m_Name: UI
   m_TagString: Untagged
@@ -3827,6 +3828,23 @@ MonoBehaviour:
   yValue: {fileID: 5742457707365192424}
   resolutionDropdown: {fileID: 3870641934105077788}
   pauseMenu: {fileID: 452002565870647989}
+--- !u!114 &1916002472128877633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3187818347210553393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &3257530127670684542
 GameObject:
   m_ObjectHideFlags: 0

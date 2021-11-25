@@ -3005,7 +3005,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3017,7 +3017,7 @@ AudioSource:
   rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3121,7 +3121,7 @@ AudioSource:
   m_GameObject: {fileID: 2523887137025795736}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6512512695539985150, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
+  OutputAudioMixerGroup: {fileID: -2862316670176829143, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

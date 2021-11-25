@@ -3437,7 +3437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 661196406}
   m_Layer: 0
-  m_Name: main UI
+  m_Name: MenuSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5478,7 +5478,7 @@ AudioSource:
   m_GameObject: {fileID: 982397124}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6512512695539985150, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
+  OutputAudioMixerGroup: {fileID: -6625459060523000705, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   m_audioClip: {fileID: 8300000, guid: c610e68e3a1834e4182298bb758c5e1d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10515,7 +10515,7 @@ AudioSource:
   m_GameObject: {fileID: 1814860373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6512512695539985150, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
+  OutputAudioMixerGroup: {fileID: -6625459060523000705, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   m_audioClip: {fileID: 8300000, guid: c74c9a013e67f7b488584af2c7b22960, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11600,7 +11600,7 @@ AudioSource:
   m_GameObject: {fileID: 1937837038}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6512512695539985150, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
+  OutputAudioMixerGroup: {fileID: -6625459060523000705, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   m_audioClip: {fileID: 8300000, guid: f9d8f750ce17ba343888d535791378e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -13316,7 +13316,7 @@ GameObject:
   - component: {fileID: 2137544642}
   - component: {fileID: 2137544643}
   m_Layer: 0
-  m_Name: main music
+  m_Name: MenuMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13350,7 +13350,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -13497,7 +13497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
       propertyPath: minPlayers
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1333187422389400740, guid: 32a7f332ebe51f041b5c7a6be22841c3, type: 3}
       propertyPath: serverTickRate
