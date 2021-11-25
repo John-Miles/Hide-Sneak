@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Mirror;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random; 
 
 public class PickUp : NetworkBehaviour
 {
     public float range;
     private ItemManager im;
+    public AudioClip[] pickupclips;
+    public AudioSource source;
 
     public override void OnStartAuthority()
     {
@@ -33,6 +36,8 @@ public class PickUp : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            source.clip = pickupclips[(Random.Range(0, pickupclips.Length))];
+            source.Play();
             CmdPickUp();
         }
     }

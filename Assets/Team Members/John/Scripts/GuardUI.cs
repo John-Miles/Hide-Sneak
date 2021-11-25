@@ -16,6 +16,8 @@ public class GuardUI : NetworkBehaviour
     public Image flashImage;
     public Sprite flashlightOff;
     public Sprite flashlightOn;
+    public AudioSource source;
+    public AudioClip[] clips;
    
     [Header("Texts")]
     public GameObject UI;
@@ -150,19 +152,25 @@ public class GuardUI : NetworkBehaviour
    
     public void Loss(string description)
     {
-        DefeatHUD.SetActive(true);        
+        DefeatHUD.SetActive(true);
+        source.clip = clips[1];
+        source.Play();
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
-        VictoryHUD.SetActive(true);        
+        VictoryHUD.SetActive(true);
+        source.clip = clips[0];
+        source.Play();
         winResultText.text = description;
     }
 
     public void Draw(string description)
     {
         DrawHUD.SetActive(true);
+        source.clip = clips[1];
+        source.Play();
         drawText.text = description;
     }
 }

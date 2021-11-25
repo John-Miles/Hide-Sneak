@@ -9,6 +9,8 @@ namespace Team_Members.NidgyWidgy.Scripts
     public GameObject nvg;
     public bool nvgOn = true;
     public ThiefUI ui;
+    public AudioSource source;
+    public AudioClip[] clips;
 
     public override void OnStartAuthority()
     {
@@ -28,6 +30,15 @@ namespace Team_Members.NidgyWidgy.Scripts
     {
       if (Input.GetKeyDown(KeyCode.F))
       {
+        if(nvgOn) 
+        {
+            source.clip = clips[1];
+        }
+        else
+        {
+            source.clip = clips[0];
+        }
+        source.Play();
         CmdRequestToggle();
       }
     }

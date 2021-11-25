@@ -9,6 +9,8 @@ namespace Team_Members.NidgyWidgy.Scripts
     public GameObject torch;
     public bool TorchOn = true;
     public GuardUI ui;
+    public AudioSource source;
+    public AudioClip[] clips;
 
     public override void OnStartAuthority()
     {
@@ -27,6 +29,15 @@ namespace Team_Members.NidgyWidgy.Scripts
     {
       if (Input.GetKeyDown(KeyCode.F))
       {
+        if(TorchOn) 
+        {
+            source.clip = clips[1];
+        }
+        else
+        {
+            source.clip = clips[0];
+        }
+        source.Play();
         CmdRequestToggle();
       }
     }

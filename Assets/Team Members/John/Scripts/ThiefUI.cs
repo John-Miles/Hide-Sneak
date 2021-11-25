@@ -25,6 +25,9 @@ public class ThiefUI : NetworkBehaviour
     [Header("Sliders")]
     public Slider detectSlider;
     public Slider escapeSlider;
+    public AudioSource source;
+    public AudioClip[] clips;
+
     
     [Header("Texts")]
     public Text objText;
@@ -238,18 +241,24 @@ public class ThiefUI : NetworkBehaviour
         public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
+        source.clip = clips[1];
+        source.Play();
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
         VictoryHUD.SetActive(true);
+        source.clip = clips[0];
+        source.Play();
         winResultText.text = description;
     }
 
     public void Draw(string description)
     {
         DrawHUD.SetActive(true);
+        source.clip = clips[1];
+        source.Play();
         drawResultText.text = description;
     }
     
