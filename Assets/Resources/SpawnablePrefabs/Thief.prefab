@@ -1793,6 +1793,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8617592868393244380}
+        m_TargetAssemblyTypeName: PlayerCameraController, Assembly-CSharp
+        m_MethodName: GetSens
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1477614217326418496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2820,7 @@ GameObject:
   - component: {fileID: 4061945641704114734}
   - component: {fileID: 3569249127028871403}
   - component: {fileID: 2598720816379252708}
+  - component: {fileID: 3635714987381763817}
   - component: {fileID: 5938356826981744727}
   m_Layer: 7
   m_Name: Thief
@@ -2977,10 +2990,6 @@ MonoBehaviour:
   NVGOff: {fileID: 21300000, guid: 57de088e74b642d49a9f4f70b2dafc2e, type: 3}
   detectSlider: {fileID: 3003353563464927968}
   escapeSlider: {fileID: 5854595853720176036}
-  source: {fileID: 6207581806990350280}
-  clips:
-  - {fileID: 8300000, guid: bccd70278fe0ce2458939d49d35117ce, type: 3}
-  - {fileID: 8300000, guid: f4f06289f852d904cbc3c5fc7312af1e, type: 3}
   objText: {fileID: 8496011224811398587}
   timerText: {fileID: 3595047059658669818}
   countdownText: {fileID: 2807791560430652970}
@@ -3135,7 +3144,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -3168,7 +3177,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3225,7 +3234,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   ui: {fileID: 5262018616284929581}
   detectValue: 0
-  maxDetect: 100
+  maxDetect: 10
   exposeReduce: 1
   escapeValue: 0
   maxEscape: 15
@@ -3271,6 +3280,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &3635714987381763817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523887137025795736}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0f73a9d6f6d9041943488db5a5a731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  musicSource: {fileID: 6207581806990350280}
+  effectsSource: {fileID: 4886576129880200920}
+  musicClips:
+  - {fileID: 8300000, guid: bccd70278fe0ce2458939d49d35117ce, type: 3}
+  - {fileID: 8300000, guid: f4f06289f852d904cbc3c5fc7312af1e, type: 3}
+  - {fileID: 8300000, guid: 50ce3b20be5c1b148ae9b33a40eda352, type: 3}
+  - {fileID: 8300000, guid: 19749139f5b0f1c42b2372e2a95765ae, type: 3}
+  effectClips:
+  - {fileID: 8300000, guid: c4c45d455f975404b96b191e6808ae8b, type: 3}
 --- !u!114 &5938356826981744727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12010,6 +12042,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2481128824998988634}
         m_TargetAssemblyTypeName: InGameMenu, Assembly-CSharp
         m_MethodName: SetMouseSensitivityY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8617592868393244380}
+        m_TargetAssemblyTypeName: PlayerCameraController, Assembly-CSharp
+        m_MethodName: GetSens
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

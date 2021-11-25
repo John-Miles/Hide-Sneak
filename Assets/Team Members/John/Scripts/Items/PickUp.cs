@@ -36,8 +36,6 @@ public class PickUp : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            source.clip = pickupclips[(Random.Range(0, pickupclips.Length))];
-            source.Play();
             CmdPickUp();
         }
     }
@@ -59,9 +57,16 @@ public class PickUp : NetworkBehaviour
             if (hit.collider.CompareTag("Item"))
             { 
                 im.RpcItemUpdate(hit.collider.gameObject);
+                PlaySound();
                 //im.ItemRemove(hit.collider.gameObject);
             }
         }
+    }
+
+    public void PlaySound()
+    {
+        source.clip = pickupclips[(Random.Range(0, pickupclips.Length))];
+        source.Play();
     }
       private void OnDrawGizmos()
     {

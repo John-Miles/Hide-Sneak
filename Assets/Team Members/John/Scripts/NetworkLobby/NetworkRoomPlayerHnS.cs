@@ -47,6 +47,8 @@ namespace John
         [SyncVar] public int itemCount = 3;
         [SyncVar] public int requiredCount = 1;
 
+        public AudioSource backSource;
+
         public bool isLeader;
 
         
@@ -92,6 +94,9 @@ namespace John
                 increaseRequired.interactable = true;
                 decreaseRequired.interactable = true;
             }
+
+            backSource = GameObject.Find("close").gameObject.GetComponent<AudioSource>();
+
         }
 
         public override void OnStartClient()
@@ -347,6 +352,7 @@ namespace John
 
         public void ReturnToMenu()
         {
+            backSource.Play();
             if (isServer)
             {
                 Debug.Log("Shutting down Server");

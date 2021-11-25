@@ -25,6 +25,7 @@ public class ThiefStatistics : NetworkBehaviour
     public bool running2;
     
     //REFERENCES
+    private ThiefAudioManager audio;
     
     public override void OnStartAuthority()
     {
@@ -35,6 +36,7 @@ public class ThiefStatistics : NetworkBehaviour
     private void Awake()
     {
         gm = FindObjectOfType<GameManager>();
+        audio = GetComponent<ThiefAudioManager>();
         
     }
 
@@ -65,6 +67,8 @@ public class ThiefStatistics : NetworkBehaviour
             StopCoroutine(IncreaseExposure());
             StartCoroutine(DecreaseExposure());
         }
+        
+        
     }
 
     public IEnumerator IncreaseExposure()

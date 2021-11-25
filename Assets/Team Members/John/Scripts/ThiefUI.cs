@@ -25,8 +25,7 @@ public class ThiefUI : NetworkBehaviour
     [Header("Sliders")]
     public Slider detectSlider;
     public Slider escapeSlider;
-    public AudioSource source;
-    public AudioClip[] clips;
+    
 
     
     [Header("Texts")]
@@ -47,6 +46,7 @@ public class ThiefUI : NetworkBehaviour
     Timer timer;
     ItemManager im;
     ThiefStatistics _stats;
+    private ThiefAudioManager audio;
     private ThiefWorldStats _worldStats;
     [SerializeField] private FPSPlayerController controls;
 
@@ -67,7 +67,7 @@ public class ThiefUI : NetworkBehaviour
         im = FindObjectOfType<ItemManager>();
         _stats = GetComponent<ThiefStatistics>();
         _worldStats = GetComponent<ThiefWorldStats>();
-        
+        audio = GetComponent<ThiefAudioManager>();
         inputDelay = gm.preMatchCountdown;
         escapeSlider.maxValue = _stats.maxEscape;
         detectSlider.maxValue = _stats.maxDetect;
@@ -80,6 +80,7 @@ public class ThiefUI : NetworkBehaviour
         timerText.text = (timer.roundText);
         detectSlider.value = _stats.detectValue;
         escapeSlider.value = _stats.escapeValue;
+        
         
     }
 
@@ -98,6 +99,7 @@ public class ThiefUI : NetworkBehaviour
         yield return new WaitForSeconds(.5f);
         countdownBacker.SetActive(true);
         objText.text = "Sneak Around and Collect " + im.requiredCount + "\n Items Before The Guards Catch You!";
+        audio.PlayStealth();
         while (inputDelay > 0)
         {
             countdownText.text = inputDelay.ToString();
@@ -160,7 +162,6 @@ public class ThiefUI : NetworkBehaviour
     public void ShowEscape()
     {
         escapeSlider.gameObject.SetActive(true);
-        
     }
 
     [Command(requiresAuthority = false)]
@@ -241,24 +242,21 @@ public class ThiefUI : NetworkBehaviour
         public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
-        source.clip = clips[1];
-        source.Play();
+        audio.PlayDefeat();
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
         VictoryHUD.SetActive(true);
-        source.clip = clips[0];
-        source.Play();
+        audio.PlayVictory();
         winResultText.text = description;
     }
 
     public void Draw(string description)
     {
         DrawHUD.SetActive(true);
-        source.clip = clips[1];
-        source.Play();
+        audio.PlayDefeat();
         drawResultText.text = description;
     }
     
