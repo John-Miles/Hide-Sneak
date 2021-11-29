@@ -25,7 +25,7 @@ public class FPSPlayerController : NetworkBehaviour
          Vector3 dir = new Vector3(0, 0, 0);
                dir.x = Input.GetAxis("Horizontal");
                dir.z = Input.GetAxis("Vertical");
-               rb.transform.Translate(dir * movementSpeed * Time.deltaTime);
+               rb.transform.Translate(dir.normalized * movementSpeed * Time.deltaTime);
       }
       
    }

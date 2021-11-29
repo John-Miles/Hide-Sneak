@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class animStateController : MonoBehaviour
+public class animStateController : NetworkAnimator
 {
     private Animator animator;
 
@@ -20,6 +20,7 @@ public class animStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isMoving = false;
         bool forwardPressed = Input.GetKey(KeyCode.W);
         bool backwardPressed = Input.GetKey(KeyCode.S);
         bool leftPressed = Input.GetKey(KeyCode.A);
@@ -28,21 +29,25 @@ public class animStateController : MonoBehaviour
         if (forwardPressed)
         {
             velocityZ = 1;
+            isMoving = true;
         }
         if (backwardPressed)
         {
             velocityZ = -1;
+            isMoving = true;
         }
         if (leftPressed)
         {
             velocityX = -1;
+            isMoving = true;
         }
         if (rightPressed)
         {
             velocityX = 1;
+            isMoving = true;
         }
 
-        else
+        if ( isMoving == false)
         {
             velocityX = 0;
             velocityZ = 0;

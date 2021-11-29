@@ -21,8 +21,8 @@ TagManager:
   - Guard
   - Post Processing
   - No Post Processing
-  - 
-  - 
+  - ThiefModel
+  - GuardModel
   - 
   - 
   - 
