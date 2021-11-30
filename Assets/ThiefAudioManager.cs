@@ -73,12 +73,8 @@ public class ThiefAudioManager : NetworkBehaviour
 
     public void PlayAlert()
     {
-        CmdPlayAlert();
+        gm.CmdPlayAlert();
     }
 
-    [Command(requiresAuthority = false)]
-    void CmdPlayAlert()
-    {
-        gm.RpcPlayAlert();
-    }
+    
 }

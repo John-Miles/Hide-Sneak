@@ -396,6 +396,12 @@ public class GameManager : NetworkBehaviour
         }
         exposed.Clear();
     }
+    
+    [Command(requiresAuthority = false)]
+    public void CmdPlayAlert()
+    {
+        RpcPlayAlert();
+    }
 
     [ClientRpc]
     public void RpcPlayAlert()

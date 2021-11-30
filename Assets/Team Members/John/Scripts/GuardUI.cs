@@ -48,6 +48,7 @@ public class GuardUI : NetworkBehaviour
         gm = FindObjectOfType<GameManager>();
         im = FindObjectOfType<ItemManager>();
         timer = FindObjectOfType<Timer>();
+        audio = FindObjectOfType<GuardAudioManager>();
         inputDelay = gm.preMatchCountdown;
     }
     
