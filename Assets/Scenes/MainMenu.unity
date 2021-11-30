@@ -3898,7 +3898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 18.05}
+  m_AnchoredPosition: {x: 323, y: 2}
   m_SizeDelta: {x: 850, y: 830}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728143306
@@ -8469,7 +8469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1108.7}
+  m_AnchoredPosition: {x: 0, y: -1597}
   m_SizeDelta: {x: 850, y: 3047.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1556714642
@@ -8482,7 +8482,7 @@ Animator:
   m_GameObject: {fileID: 1556714640}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 82d7eaaf89a789d419a60bc5ddb03c6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 038a3799f1153894bb0710bbe165be8c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8550,8 +8550,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8617,7 +8617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1578359867
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10673,7 +10673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 18}
+  m_AnchoredPosition: {x: -500, y: -26.000061}
   m_SizeDelta: {x: 650.2, y: 830}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791887482
@@ -10696,8 +10696,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Project Manager: \nJonathon Miles\n\nProgrammers: \nJonathon Miles\nNiall
-    O'Brien \n\nDesigners: \nNoel Abella\nJesse Anderton\nChristopher Mardiryan\n\nAudio
+  m_text: "\nProject Manager: \nJonathon Miles\n\nLead Design:\nChris Mardiryan\n\nProgrammers:
+    \nJonathon Miles\nNiall O'Brien \n\nDesigners: \nNoel Abella\nJesse Anderton\n\nAudio
     Team: \nFederico Aguilar\nLiam Beck\nJesse Bottoni\nNev Fridbeug\nMarko Mijac\nTim
     Whitten"
   m_isRightToLeft: 0
@@ -10726,8 +10726,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13336,7 +13336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 471}
+  m_AnchoredPosition: {x: -500, y: 438}
   m_SizeDelta: {x: 426.9, y: 75.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2075495540
@@ -13858,7 +13858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 471}
+  m_AnchoredPosition: {x: 322.99997, y: 440}
   m_SizeDelta: {x: 426.9, y: 75.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098927105
