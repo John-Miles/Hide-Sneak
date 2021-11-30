@@ -57,6 +57,8 @@ public class GameManager : NetworkBehaviour
     public Transform caughtPos;
     [Tooltip("The amount in seconds to wait before the game starts after loading the level")]
     public int preMatchCountdown;
+
+    public AudioSource alertSound;
     
     public void Awake()
     {
@@ -167,13 +169,6 @@ public class GameManager : NetworkBehaviour
             guard.GetComponent<FPSPlayerController>().enabled = false;
         }
     }
-    ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    /// WHEN PLAYERS ESCAPE TURN OFF FPS PLAYER CONTROLLER AND MODEL RENDERER
-    /// THEN TELEPORT PLAYERS TO SPECTATOR MODE
-    ///
-    /// WHEN PLAYERS GET CAUGHT TELEPORT THEM TO A POLICE CAR (???)
-    ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
     [ClientRpc]
     public void RpcAllowEscape()
     {
@@ -400,5 +395,15 @@ public class GameManager : NetworkBehaviour
             player.GetComponent<ThiefStatistics>().RpcUnSetState();
         }
         exposed.Clear();
+    }
+
+    [ClientRpc]
+    public void RpcPlayAlert()
+    {
+        if (!alertSound.isPlaying)
+        {
+            alertSound.Play(); 
+        }
+        
     }
 }

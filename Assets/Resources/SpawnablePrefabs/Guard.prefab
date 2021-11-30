@@ -2549,6 +2549,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &878724097558655149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487441449849240465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe036e2553a33a4098b8fd3f3691125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  animator: {fileID: 9188825968360411817}
 --- !u!114 &5019584664478955474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,22 +2582,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &878724097558655149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487441449849240465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe036e2553a33a4098b8fd3f3691125, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
-  animator: {fileID: 9188825968360411817}
 --- !u!1 &2493025875196608322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +2927,7 @@ GameObject:
   - component: {fileID: 5964648647912931687}
   - component: {fileID: -1257951324704020062}
   - component: {fileID: 8166968469640284013}
+  - component: {fileID: 4503827245399639279}
   m_Layer: 8
   m_Name: Guard
   m_TagString: Guard
@@ -3207,10 +3208,6 @@ MonoBehaviour:
   flashImage: {fileID: 8088819861536836920}
   flashlightOff: {fileID: 21300000, guid: 15d4212c1e532aa4a849e975622b1999, type: 3}
   flashlightOn: {fileID: 21300000, guid: 1c08dd632f112bb4dbd0a5c33f7b75aa, type: 3}
-  source: {fileID: -1257951324704020062}
-  clips:
-  - {fileID: 8300000, guid: bccd70278fe0ce2458939d49d35117ce, type: 3}
-  - {fileID: 8300000, guid: f4f06289f852d904cbc3c5fc7312af1e, type: 3}
   UI: {fileID: 3187818347210553393}
   objText: {fileID: 6313037474178939536}
   timerText: {fileID: 3144014022450181393}
@@ -3343,6 +3340,29 @@ MonoBehaviour:
     m_Bits: 64
   colliders: []
   torch: {fileID: 5640521307403546028}
+--- !u!114 &4503827245399639279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772658644173662837}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9577dfc09e3959940ae7ba8718d45651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  musicSource: {fileID: -1257951324704020062}
+  effectsSource: {fileID: -754278634087828334}
+  musicClips:
+  - {fileID: 8300000, guid: bccd70278fe0ce2458939d49d35117ce, type: 3}
+  - {fileID: 8300000, guid: f4f06289f852d904cbc3c5fc7312af1e, type: 3}
+  - {fileID: 8300000, guid: 50ce3b20be5c1b148ae9b33a40eda352, type: 3}
+  - {fileID: 8300000, guid: 19749139f5b0f1c42b2372e2a95765ae, type: 3}
+  effectClips:
+  - {fileID: 8300000, guid: c4c45d455f975404b96b191e6808ae8b, type: 3}
 --- !u!1 &2938936285519610474
 GameObject:
   m_ObjectHideFlags: 0
@@ -11139,11 +11159,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8488712739569db4d93a0987feacd161, type: 3}
---- !u!4 &3012620616800461099 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8488712739569db4d93a0987feacd161, type: 3}
-  m_PrefabInstance: {fileID: 3333863292343256768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3660555843076475632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7167290630906295248, guid: 8488712739569db4d93a0987feacd161, type: 3}
@@ -11152,6 +11167,11 @@ Transform:
 --- !u!1 &2487441449849240465 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8488712739569db4d93a0987feacd161, type: 3}
+  m_PrefabInstance: {fileID: 3333863292343256768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3012620616800461099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8488712739569db4d93a0987feacd161, type: 3}
   m_PrefabInstance: {fileID: 3333863292343256768}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6393614260219702645
