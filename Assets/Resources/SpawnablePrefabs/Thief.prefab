@@ -10269,7 +10269,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7670681392606922227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fe036e2553a33a4098b8fd3f3691125, type: 3}
   m_Name: 
@@ -10278,6 +10278,8 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 1
   animator: {fileID: 7236919927914718104}
+  velocityZ: 0
+  velocityX: 0
 --- !u!1 &7693431220707370740
 GameObject:
   m_ObjectHideFlags: 0
