@@ -16,9 +16,7 @@ public class GuardUI : NetworkBehaviour
     public Image flashImage;
     public Sprite flashlightOff;
     public Sprite flashlightOn;
-    public AudioSource source;
-    public AudioClip[] clips;
-   
+    
     [Header("Texts")]
     public GameObject UI;
     public Text objText;
@@ -36,6 +34,7 @@ public class GuardUI : NetworkBehaviour
     GameManager gm;
     Timer timer;
     ItemManager im;
+    GuardAudioManager audio;
     
     public override void OnStartAuthority()
     {
@@ -49,6 +48,7 @@ public class GuardUI : NetworkBehaviour
         gm = FindObjectOfType<GameManager>();
         im = FindObjectOfType<ItemManager>();
         timer = FindObjectOfType<Timer>();
+        audio = FindObjectOfType<GuardAudioManager>();
         inputDelay = gm.preMatchCountdown;
     }
     
@@ -153,24 +153,21 @@ public class GuardUI : NetworkBehaviour
     public void Loss(string description)
     {
         DefeatHUD.SetActive(true);
-        source.clip = clips[1];
-        source.Play();
+        audio.PlayDefeat();
         defeatResultText.text = description;
     }
 
     public void Win(string description)
     {
         VictoryHUD.SetActive(true);
-        source.clip = clips[0];
-        source.Play();
+        audio.PlayVictory();
         winResultText.text = description;
     }
 
     public void Draw(string description)
     {
         DrawHUD.SetActive(true);
-        source.clip = clips[1];
-        source.Play();
+        audio.PlayDefeat();
         drawText.text = description;
     }
 }

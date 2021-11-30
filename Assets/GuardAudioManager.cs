@@ -1,41 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using Team_Members.NidgyWidgy.Scripts;
 using UnityEngine;
 
-public class ThiefAudioManager : NetworkBehaviour
+public class GuardAudioManager : NetworkBehaviour
 {
+    
     public AudioSource musicSource;
     public AudioSource effectsSource;
     public AudioClip[] musicClips;
     public AudioClip[] effectClips;
 
-    private GameManager gm;
-    private ThiefStatistics stats;
+    private Flashlight flashlight;
 
     public override void OnStartAuthority()
     {
         enabled = true;
-        gm = FindObjectOfType<GameManager>();
-        stats = GetComponent<ThiefStatistics>();
+        flashlight = GetComponent<Flashlight>();
         base.OnStartAuthority();
     }
-
-    private void Update()
+    void Update()
     {
-        if (stats.detectValue >= 1)
-        {
-            PlayAlert();
-            PlayDetect();
-        }
-
-        if (stats.detectValue <= 0)
-        {
-            PlayStealth();
-        }
     }
-
+    
     public void PlayVictory()
     {
         musicSource.Stop();
@@ -49,7 +37,8 @@ public class ThiefAudioManager : NetworkBehaviour
         musicSource.clip = musicClips[1];
         musicSource.Play();
     }
-
+    
+    
     public void PlayDetect()
     {
         if (musicSource.clip != musicClips[2])
@@ -73,8 +62,10 @@ public class ThiefAudioManager : NetworkBehaviour
 
     public void PlayAlert()
     {
-        gm.CmdPlayAlert();
+        if (!effectsSource.clip == effectClips[0])
+        {
+            effectsSource.clip = effectClips[0];
+            effectsSource.Play();
+        }
     }
-
-    
 }
