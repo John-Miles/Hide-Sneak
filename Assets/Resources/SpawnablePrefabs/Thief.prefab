@@ -3323,6 +3323,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19749139f5b0f1c42b2372e2a95765ae, type: 3}
   effectClips:
   - {fileID: 8300000, guid: c4c45d455f975404b96b191e6808ae8b, type: 3}
+  footsteps:
+  - {fileID: 8300000, guid: 7de674cfae63c1d438116daa009fe538, type: 3}
+  - {fileID: 8300000, guid: ff2aaa1e6865f1d49afbee2d93c32216, type: 3}
+  - {fileID: 8300000, guid: b3ac5dd9fb67bc34983150ba17eb85a1, type: 3}
+  - {fileID: 8300000, guid: 6004071cb1679954a85ffa9bc54d0688, type: 3}
+  - {fileID: 8300000, guid: 538bc0d56fc3c8443b03ebbb62b55f81, type: 3}
+  - {fileID: 8300000, guid: 64619c0f0946ac240b36ab992185a96f, type: 3}
+  - {fileID: 8300000, guid: 017f639c432e3a9448bdec0fcb4cfdc1, type: 3}
+  - {fileID: 8300000, guid: 047892af01d07044eaf3257efa6e2370, type: 3}
+  - {fileID: 8300000, guid: 594cdc3ea93760e4991ce4e45a4a9d8d, type: 3}
+  - {fileID: 8300000, guid: 819c1585f33e40543ac0082ca18755a3, type: 3}
+  - {fileID: 8300000, guid: 70229d3e88450174db73567656a46034, type: 3}
+  - {fileID: 8300000, guid: 09af87985674b34468e80bea874417d4, type: 3}
+  footstepDelay: 0.3
 --- !u!114 &5938356826981744727
 MonoBehaviour:
   m_ObjectHideFlags: 0

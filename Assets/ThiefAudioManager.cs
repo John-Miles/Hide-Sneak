@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ThiefAudioManager : NetworkBehaviour
 {
     public AudioSource musicSource;
     public AudioSource effectsSource;
     public AudioClip[] musicClips;
-    public AudioClip[] effectClips;
+    public AudioClip[] footsteps;
+    
+    public float footstepDelay;
 
     private GameManager gm;
     private ThiefStatistics stats;
@@ -19,6 +22,7 @@ public class ThiefAudioManager : NetworkBehaviour
         enabled = true;
         gm = FindObjectOfType<GameManager>();
         stats = GetComponent<ThiefStatistics>();
+       
         base.OnStartAuthority();
     }
 
@@ -34,6 +38,14 @@ public class ThiefAudioManager : NetworkBehaviour
         {
             PlayStealth();
         }
+
+    }
+
+    public IEnumerator Walking()
+    {
+        effectsSource.clip = footsteps[Random.Range(0, footsteps.Length)];
+        effectsSource.Play();
+        yield return new WaitForSeconds(footstepDelay);
     }
 
     public void PlayVictory()
@@ -52,23 +64,12 @@ public class ThiefAudioManager : NetworkBehaviour
 
     public void PlayDetect()
     {
-        if (musicSource.clip != musicClips[2])
-        {
-            musicSource.Stop();
-            musicSource.clip = musicClips[2];
-            musicSource.Play();
-        }
+        gm.CmdPlayDetect();
     }
 
     public void PlayStealth()
     {
-        if (musicSource.clip != musicClips[3])
-        {
-            musicSource.Stop();
-            musicSource.clip = musicClips[3];
-            musicSource.Play(); 
-        }
-        
+        gm.CmdPlayStealth();
     }
 
     public void PlayAlert()

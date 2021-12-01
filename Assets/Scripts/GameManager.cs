@@ -57,7 +57,9 @@ public class GameManager : NetworkBehaviour
     public Transform caughtPos;
     [Tooltip("The amount in seconds to wait before the game starts after loading the level")]
     public int preMatchCountdown;
-
+    [Header("Audio")]
+    public AudioSource musicSource;
+    public AudioClip[] musicClips;
     public AudioSource alertSound;
     
     public void Awake()
@@ -151,6 +153,7 @@ public class GameManager : NetworkBehaviour
     public void RPCTimeExpired()
     {
         Debug.Log("The time has expired!");
+        musicSource.Stop();
         foreach (GameObject thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -213,6 +216,7 @@ public class GameManager : NetworkBehaviour
             ui.WaitingEscaped(waitingEscaped);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            thief.GetComponent<ThiefAudioManager>().enabled = false;
             CmdSomeoneEscaped();
         }
     }
@@ -264,6 +268,7 @@ public class GameManager : NetworkBehaviour
     {
        Debug.Log("All theives escaped");
        timer.startCount = false;
+       musicSource.Stop();
         foreach (GameObject thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -334,6 +339,7 @@ public class GameManager : NetworkBehaviour
     public void RpcAllCaught()
     {
         timer.startCount = false;
+        musicSource.Stop();
         foreach (GameObject thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -357,6 +363,7 @@ public class GameManager : NetworkBehaviour
     public void RpcDraw()
     {
         timer.startCount = false;
+        musicSource.Stop();
         foreach (var thief in thievesInScene)
         {
             var ui = thief.GetComponent<ThiefUI>();
@@ -411,5 +418,27 @@ public class GameManager : NetworkBehaviour
             alertSound.Play(); 
         }
         
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdPlayStealth()
+    {
+        if (musicSource.clip != musicClips[0])
+        {
+            musicSource.Stop();
+            musicSource.clip = musicClips[0];
+            musicSource.Play(); 
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdPlayDetect()
+    {
+        if (musicSource.clip != musicClips[1])
+        {
+            musicSource.Stop();
+            musicSource.clip = musicClips[1];
+            musicSource.Play(); 
+        }
     }
 }

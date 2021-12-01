@@ -12498,6 +12498,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 141664959}
     - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1890436951}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
       propertyPath: escapePoints
       value: 
       objectReference: {fileID: 1110234384}
@@ -12525,6 +12529,18 @@ PrefabInstance:
       propertyPath: preMatchCountdown
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: musicClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: musicClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 19749139f5b0f1c42b2372e2a95765ae, type: 3}
+    - target: {fileID: 4154159535866435927, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
+      propertyPath: musicClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 50ce3b20be5c1b148ae9b33a40eda352, type: 3}
     - target: {fileID: 4623496250144604205, guid: c95fa73281a5a9d4d81dca0041ea0ba2, type: 3}
       propertyPath: sceneId
       value: 1174310243
@@ -45602,10 +45618,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890436949}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2862316670176829143, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 538bc0d56fc3c8443b03ebbb62b55f81, type: 3}
+  OutputAudioMixerGroup: {fileID: 3513047241317847558, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 19749139f5b0f1c42b2372e2a95765ae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

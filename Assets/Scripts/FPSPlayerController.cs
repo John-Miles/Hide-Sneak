@@ -7,11 +7,13 @@ public class FPSPlayerController : NetworkBehaviour
    [SerializeField] private float movementSpeed;
    [SerializeField] private Rigidbody rb = null;
    public bool canMove;
+   private ThiefAudioManager audio;
 
    public override void OnStartAuthority()
    {
       enabled = true;
       canMove = false;
+      audio = GetComponent<ThiefAudioManager>();
    }
    
    [ClientCallback]
