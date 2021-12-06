@@ -3321,8 +3321,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4f06289f852d904cbc3c5fc7312af1e, type: 3}
   - {fileID: 8300000, guid: 50ce3b20be5c1b148ae9b33a40eda352, type: 3}
   - {fileID: 8300000, guid: 19749139f5b0f1c42b2372e2a95765ae, type: 3}
-  effectClips:
-  - {fileID: 8300000, guid: c4c45d455f975404b96b191e6808ae8b, type: 3}
   footsteps:
   - {fileID: 8300000, guid: 7de674cfae63c1d438116daa009fe538, type: 3}
   - {fileID: 8300000, guid: ff2aaa1e6865f1d49afbee2d93c32216, type: 3}
@@ -10486,24 +10484,22 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &7714328750146370195
+--- !u!114 &5476962548305509129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7670681392606922227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe036e2553a33a4098b8fd3f3691125, type: 3}
+  m_Script: {fileID: 11500000, guid: dd38405182632ee4a891c5d88f8d62d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 1
   animator: {fileID: 7236919927914718104}
-  velocityZ: 0
-  velocityX: 0
 --- !u!1 &7693431220707370740
 GameObject:
   m_ObjectHideFlags: 0

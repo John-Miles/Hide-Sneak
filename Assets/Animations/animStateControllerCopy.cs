@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class animStateController : NetworkAnimator
+public class animStateControllerCopy : NetworkAnimator
 {
     [SyncVar]  float velocityZ = 0.0f;
 
