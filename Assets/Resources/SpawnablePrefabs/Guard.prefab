@@ -3920,6 +3920,7 @@ MonoBehaviour:
   xValue: {fileID: 3669190567246595140}
   mouseSensY: {fileID: 6602433511199531745}
   yValue: {fileID: 5742457707365192424}
+  fullScreenToggle: {fileID: 900859761097038028}
   resolutionDropdown: {fileID: 3870641934105077788}
   pauseMenu: {fileID: 452002565870647989}
 --- !u!114 &1916002472128877633

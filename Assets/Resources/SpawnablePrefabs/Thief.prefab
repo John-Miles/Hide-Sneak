@@ -8157,6 +8157,7 @@ MonoBehaviour:
   xValue: {fileID: 8789287559747383393}
   mouseSensY: {fileID: 957012420448099379}
   yValue: {fileID: 3369602171685434330}
+  fullScreenToggle: {fileID: 6709302467261960581}
   resolutionDropdown: {fileID: 6392910172404563395}
   pauseMenu: {fileID: 5564142864585968538}
 --- !u!114 &4421964988283663521

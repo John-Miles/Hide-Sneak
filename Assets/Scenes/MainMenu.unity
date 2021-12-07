@@ -1371,12 +1371,16 @@ MonoBehaviour:
   landingPagePanel: {fileID: 128832188}
   audioMixer: {fileID: 24100000, guid: c22180cad6270b743850a2a621f43ae8, type: 2}
   masterValueText: {fileID: 512387304}
+  masterSlider: {fileID: 1015110575}
   musicValueText: {fileID: 2075733907}
+  musicSlider: {fileID: 2085241382}
   effectsValueText: {fileID: 1187744438}
+  effectsSlider: {fileID: 754201306}
   mouseSensX: {fileID: 1947680621}
   xValue: {fileID: 626140282}
   mouseSensY: {fileID: 1752426130}
   yValue: {fileID: 808253888}
+  fullScreenToggle: {fileID: 655216451}
   resolutionDropdown: {fileID: 382524058}
 --- !u!4 &314390978
 Transform:
@@ -4018,7 +4022,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &781577944
 GameObject:
   m_ObjectHideFlags: 0
@@ -6028,7 +6032,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!95 &1015110576
 Animator:
   serializedVersion: 3
@@ -13673,7 +13677,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &2090608345
 GameObject:
   m_ObjectHideFlags: 0

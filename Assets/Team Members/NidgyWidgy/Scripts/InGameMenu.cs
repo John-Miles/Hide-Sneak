@@ -13,7 +13,7 @@ public class InGameMenu : NetworkBehaviour
 {
     public GameObject network;
     [Header("Settings")] public AudioMixer audioMixer;
-    
+
     public TMP_Text masterValueText;
     public TMP_Text musicValueText;
     public TMP_Text effectsValueText;
@@ -23,15 +23,21 @@ public class InGameMenu : NetworkBehaviour
     public Slider mouseSensY;
     public TMP_Text yValue;
 
-    private Resolution[] resolutions;
-
+    private const string resolutionWidthPlayerPrefKey = "ResolutionWidth";
+    private const string resolutionHeightPlayerPrefKey = "ResolutionHeight";
+    private const string resolutionRefreshRatePlayerPrefKey = "RefreshRate";
+    private const string fullScreenPlayerPrefKey = "FullScreen";
+    public Toggle fullScreenToggle;
     public TMP_Dropdown resolutionDropdown;
+    Resolution[] resolutions;
+    Resolution selectedResolution;
 
     public GameObject pauseMenu;
 
     public void Awake()
     {
         SetSensitivity();
+        SetAudioVolumes();
         network = FindObjectOfType<NetworkManagerHnS>().gameObject;
     }
 
@@ -41,30 +47,23 @@ public class InGameMenu : NetworkBehaviour
         mouseSensY.value = PlayerPrefs.GetFloat("MouseSensY", 5);
     }
 
+    void SetAudioVolumes()
+    {
+        SetMasterVolume(PlayerPrefs.GetFloat("PPMasterVolume", 1));
+        Debug.Log(PlayerPrefs.GetFloat("PPMasterVolume") + " on start Master Volume player prefs");
+        SetMusicVolume(PlayerPrefs.GetFloat("PPMusicVolume", 1));
+        SetEffectsVolume(PlayerPrefs.GetFloat("PPEffectsVolume", 1));
+    }
+
     void Start()
     {
         resolutions = Screen.resolutions;
-        
-        resolutionDropdown.ClearOptions();
-        
-        List<string> options = new List<string>();
-        int currentResolutionIndex = PlayerPrefs.GetInt("Resolution", 0);
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + "x" + resolutions[i].height + " " + resolutions[i].refreshRate +
-                            "Hz";
-            options.Add(option);
-        
-            if (resolutions[i].width == Screen.width &&
-                resolutions[i].height == Screen.height) ;
-            {
-                currentResolutionIndex = resolutions.Length;
-            }
-        }
-        
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        LoadSettings();
+
+        CreateResolutionDropdown();
+
+        fullScreenToggle.onValueChanged.AddListener(SetFullScreen);
+        resolutionDropdown.onValueChanged.AddListener(SetResolution);
     }
 
 
@@ -74,6 +73,7 @@ public class InGameMenu : NetworkBehaviour
     {
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
 
+        PlayerPrefs.SetFloat("PPMasterVolume", volume);
 
         masterValueText.text = (volume).ToString("P0");
     }
@@ -82,12 +82,16 @@ public class InGameMenu : NetworkBehaviour
     {
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
 
+        PlayerPrefs.SetFloat("PPMusicVolume", volume);
+
         musicValueText.text = (volume).ToString("P0");
     }
 
     public void SetEffectsVolume(float volume)
     {
         audioMixer.SetFloat("EffectsVolume", Mathf.Log10(volume) * 20);
+
+        PlayerPrefs.SetFloat("PPEffectsVolume", volume);
 
         effectsValueText.text = (volume).ToString("P0");
     }
@@ -101,7 +105,7 @@ public class InGameMenu : NetworkBehaviour
         PlayerPrefs.SetFloat("MouseSensX", mouseSensX.value);
 
         xValue.text = mouseSensX.value.ToString("F");
-        
+
         SetSensitivity();
     }
 
@@ -110,27 +114,68 @@ public class InGameMenu : NetworkBehaviour
         PlayerPrefs.SetFloat("MouseSensY", mouseSensY.value);
 
         yValue.text = mouseSensY.value.ToString("F");
-        
+
         SetSensitivity();
     }
 
     #endregion
 
     #region Visual
-    
+
     public void SetResolution(int resolutionIndex)
     {
-        Resolution resolution = resolutions[resolutionIndex];
-        PlayerPrefs.SetInt("Resolution", resolutionIndex);
-        Debug.Log(resolutionIndex + " Resolution index");
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        selectedResolution = resolutions[resolutionIndex];
+        Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
+        PlayerPrefs.SetInt(resolutionWidthPlayerPrefKey, selectedResolution.width);
+        PlayerPrefs.SetInt(resolutionHeightPlayerPrefKey, selectedResolution.height);
+        PlayerPrefs.SetInt(resolutionRefreshRatePlayerPrefKey, selectedResolution.refreshRate);
     }
-    
+
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+        PlayerPrefs.SetInt(fullScreenPlayerPrefKey, isFullScreen ? 1 : 0);
     }
-    
+
+    private void LoadSettings()
+    {
+        selectedResolution = new Resolution();
+        selectedResolution.width = PlayerPrefs.GetInt(resolutionWidthPlayerPrefKey, Screen.currentResolution.width);
+        selectedResolution.height = PlayerPrefs.GetInt(resolutionHeightPlayerPrefKey, Screen.currentResolution.height);
+        selectedResolution.refreshRate =
+            PlayerPrefs.GetInt(resolutionRefreshRatePlayerPrefKey, Screen.currentResolution.refreshRate);
+
+        fullScreenToggle.isOn = PlayerPrefs.GetInt(fullScreenPlayerPrefKey, Screen.fullScreen ? 1 : 0) > 0;
+
+        Screen.SetResolution(
+            selectedResolution.width,
+            selectedResolution.height,
+            fullScreenToggle.isOn
+        );
+    }
+
+    private void CreateResolutionDropdown()
+    {
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height + " " + resolutions[i].refreshRate +
+                            "Hz";
+            options.Add(option);
+            if (Mathf.Approximately(resolutions[i].width, selectedResolution.width) &&
+                Mathf.Approximately(resolutions[i].height, selectedResolution.height))
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+
     #endregion
 
     public void ReturnToMenu()
@@ -138,7 +183,7 @@ public class InGameMenu : NetworkBehaviour
         Destroy(network);
         if (isClient)
         {
-            NetworkClient.Disconnect(); 
+            NetworkClient.Disconnect();
         }
 
         if (isServer)
@@ -146,8 +191,7 @@ public class InGameMenu : NetworkBehaviour
             NetworkClient.Disconnect();
             NetworkServer.Shutdown();
         }
+
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
-    
-    
 }
