@@ -14,16 +14,22 @@ public class ThiefAudioManager : NetworkBehaviour
     
     public float footstepDelay;
 
+    private Rigidbody rb;
     private GameManager gm;
     private ThiefStatistics stats;
 
     public override void OnStartAuthority()
     {
         enabled = true;
-        gm = FindObjectOfType<GameManager>();
-        stats = GetComponent<ThiefStatistics>();
+        
        
         base.OnStartAuthority();
+    }
+
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+        stats = GetComponent<ThiefStatistics>();
     }
 
     private void Update()
@@ -39,13 +45,7 @@ public class ThiefAudioManager : NetworkBehaviour
             PlayStealth();
         }
 
-    }
 
-    public IEnumerator Walking()
-    {
-        effectsSource.clip = footsteps[Random.Range(0, footsteps.Length)];
-        effectsSource.Play();
-        yield return new WaitForSeconds(footstepDelay);
     }
 
     public void PlayVictory()

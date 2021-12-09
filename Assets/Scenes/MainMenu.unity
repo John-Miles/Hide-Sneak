@@ -10700,8 +10700,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nProject Manager: \nJonathon Miles\n\nLead Design:\nChris Mardiryan\n\nProgrammers:
-    \nJonathon Miles\nNiall O'Brien \n\nDesigners: \nNoel Abella\nJesse Anderton\n\nAudio
+  m_text: "Project Manager: \nJonathon Miles\n\nProgrammers: \nJonathon Miles\nNiall
+    O'Brien \n\nDesigners: \nChris Mardiryan\nNoel Abella\nJesse Anderton\n\nAudio
     Team: \nFederico Aguilar\nLiam Beck\nJesse Bottoni\nNev Fridbeug\nMarko Mijac\nTim
     Whitten"
   m_isRightToLeft: 0
