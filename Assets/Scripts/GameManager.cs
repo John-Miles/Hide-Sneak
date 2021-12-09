@@ -161,6 +161,7 @@ public class GameManager : NetworkBehaviour
             ui.Loss(timeOutThief);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            thief.GetComponent<ThiefAudioManager>().enabled = false;
 
         }
 
@@ -276,6 +277,7 @@ public class GameManager : NetworkBehaviour
             ui.Win(escapeThief);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            thief.GetComponent<ThiefAudioManager>().enabled = false;
 
         }
 
@@ -316,6 +318,7 @@ public class GameManager : NetworkBehaviour
             ui.WaitingCaught(waitingCaught);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            thief.GetComponent<ThiefAudioManager>().enabled = false;
             
             foreach (GameObject player in thievesInScene)
             {
@@ -347,6 +350,7 @@ public class GameManager : NetworkBehaviour
             ui.Loss(caughtThief);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            thief.GetComponent<ThiefAudioManager>().enabled = false;
 
         }
 
@@ -371,6 +375,7 @@ public class GameManager : NetworkBehaviour
             ui.Draw(draw);
             thief.GetComponent<PickUp>().enabled = false;
             thief.GetComponent<FPSPlayerController>().enabled = false;
+            thief.GetComponent<ThiefAudioManager>().enabled = false;
         }
 
         foreach (var guard in guardsInScene)
